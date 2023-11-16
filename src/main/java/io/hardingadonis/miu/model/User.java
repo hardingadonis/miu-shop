@@ -21,7 +21,7 @@ public class User {
     private String hashedPassword;
     private String avatarPath;
     private List<Object> address;
-    private int status;
+    private String status;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
     private LocalDateTime deleteAt;
@@ -29,7 +29,7 @@ public class User {
     public User() {
     }
 
-    public User(int ID, String fullName, int birthYear, int gender, String email, String hashedPassword, String avatarPath, List<Object> address, int status, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
+    public User(int ID, String fullName, int birthYear, int gender, String email, String hashedPassword, String avatarPath, List<Object> address, String status, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
         this.ID = ID;
         this.fullName = fullName;
         this.birthYear = birthYear;
@@ -108,11 +108,11 @@ public class User {
         this.address = address;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
