@@ -11,12 +11,16 @@ public class Singleton {
 
     public static Email email;
     
+    public static AdminDAO adminDAO;
+    
     public static UserDAO userDAO;
 
     static {
         dbContext = new DBContextMySQLImpl();
 
         email = new EmailGmailImpl();
+        
+        adminDAO = new AdminDAOMySQLImpl();
         
         userDAO = new UserDAOMySQLImpl();
     }
