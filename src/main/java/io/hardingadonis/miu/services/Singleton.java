@@ -19,6 +19,8 @@ public class Singleton {
     
     public static OrderDAO orderDAO;
     
+    public static OrderDataDAO orderDataDAO;
+    
     public static UserDAO userDAO;
 
     static {
@@ -33,6 +35,8 @@ public class Singleton {
         categoryDAO = new CategoryDAOMySQLImpl();
         
         orderDAO = new OrderDAOMySQLImpl();
+        
+        orderDataDAO = new OrderDataDAOMySQLImpl();
         
         userDAO = new UserDAOMySQLImpl();
     }
