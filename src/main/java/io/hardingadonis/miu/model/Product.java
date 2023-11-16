@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package io.hardingadonis.miu.model;
 
-import java.time.LocalDateTime;
+import java.time.*;
+import java.util.*;
 
-/**
- *
- * @author LENOVO
- */
 public class Product {
 
     private int ID;
@@ -23,7 +16,7 @@ public class Product {
     private int price;
     private int amount;
     private String thumbnail;
-    private String images;
+    private List<String> images;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
     private LocalDateTime deleteAt;
@@ -31,7 +24,38 @@ public class Product {
     public Product() {
     }
 
-    public Product(int ID, String branch, String name, int categoryID, String origin, String expiryDate, String weight, String preservation, int price, int amount, String thumbnail, String images, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
+    public Product(String branch, String name, int categoryID, String origin, String expiryDate, String weight, String preservation, int price, int amount, String thumbnail, List<String> images) {
+        this.branch = branch;
+        this.name = name;
+        this.categoryID = categoryID;
+        this.origin = origin;
+        this.expiryDate = expiryDate;
+        this.weight = weight;
+        this.preservation = preservation;
+        this.price = price;
+        this.amount = amount;
+        this.thumbnail = thumbnail;
+        this.images = images;
+    }
+
+    public Product(String branch, String name, int categoryID, String origin, String expiryDate, String weight, String preservation, int price, int amount, String thumbnail, List<String> images, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
+        this.branch = branch;
+        this.name = name;
+        this.categoryID = categoryID;
+        this.origin = origin;
+        this.expiryDate = expiryDate;
+        this.weight = weight;
+        this.preservation = preservation;
+        this.price = price;
+        this.amount = amount;
+        this.thumbnail = thumbnail;
+        this.images = images;
+        this.createAt = createAt;
+        this.updateAt = updateAt;
+        this.deleteAt = deleteAt;
+    }
+
+    public Product(int ID, String branch, String name, int categoryID, String origin, String expiryDate, String weight, String preservation, int price, int amount, String thumbnail, List<String> images, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
         this.ID = ID;
         this.branch = branch;
         this.name = name;
@@ -137,11 +161,11 @@ public class Product {
         this.thumbnail = thumbnail;
     }
 
-    public String getImages() {
+    public List<String> getImages() {
         return images;
     }
 
-    public void setImages(String images) {
+    public void setImages(List<String> images) {
         this.images = images;
     }
 
@@ -173,5 +197,4 @@ public class Product {
     public String toString() {
         return "Product{" + "ID=" + ID + ", branch=" + branch + ", name=" + name + ", categoryID=" + categoryID + ", origin=" + origin + ", expiryDate=" + expiryDate + ", weight=" + weight + ", preservation=" + preservation + ", price=" + price + ", amount=" + amount + ", thumbnail=" + thumbnail + ", images=" + images + ", createAt=" + createAt + ", updateAt=" + updateAt + ", deleteAt=" + deleteAt + '}';
     }
-
 }
