@@ -1,4 +1,4 @@
-package io.hardingadonis.miu.model;
+package io.hardingadonis.miu.model.detail;
 
 public enum Payment {
     COD("cod"),

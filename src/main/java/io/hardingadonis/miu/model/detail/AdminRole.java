@@ -1,4 +1,4 @@
-package io.hardingadonis.miu.model;
+package io.hardingadonis.miu.model.detail;
 
 public enum AdminRole {
     SUPER_ADMIN("super_admin"),
