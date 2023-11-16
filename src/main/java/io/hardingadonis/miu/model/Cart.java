@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package io.hardingadonis.miu.model;
 
-/**
- *
- * @author LENOVO
- */
 public class Cart {
 
     private int userID;
@@ -51,5 +43,4 @@ public class Cart {
     public String toString() {
         return "Cart{" + "userID=" + userID + ", productID=" + productID + ", amount=" + amount + '}';
     }
-
 }
