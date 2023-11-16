@@ -1,21 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package io.hardingadonis.miu.model;
 
-import java.time.LocalDateTime;
+import io.hardingadonis.miu.model.detail.*;
+import java.time.*;
 
-/**
- *
- * @author LENOVO
- */
 public class Admin {
 
     private int ID;
-    private String userName;
+    private String username;
     private String hashedPassword;
-    private int role;
+    private AdminRole role;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
     private LocalDateTime deleteAt;
@@ -23,9 +16,24 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(int ID, String userName, String hashedPassword, int role, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
+    public Admin(String username, String hashedPassword, AdminRole role) {
+        this.username = username;
+        this.hashedPassword = hashedPassword;
+        this.role = role;
+    }
+
+    public Admin(String username, String hashedPassword, AdminRole role, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
+        this.username = username;
+        this.hashedPassword = hashedPassword;
+        this.role = role;
+        this.createAt = createAt;
+        this.updateAt = updateAt;
+        this.deleteAt = deleteAt;
+    }
+
+    public Admin(int ID, String username, String hashedPassword, AdminRole role, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
         this.ID = ID;
-        this.userName = userName;
+        this.username = username;
         this.hashedPassword = hashedPassword;
         this.role = role;
         this.createAt = createAt;
@@ -41,12 +49,12 @@ public class Admin {
         this.ID = ID;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getHashedPassword() {
@@ -57,11 +65,11 @@ public class Admin {
         this.hashedPassword = hashedPassword;
     }
 
-    public int getRole() {
+    public AdminRole getRole() {
         return role;
     }
 
-    public void setRole(int role) {
+    public void setRole(AdminRole role) {
         this.role = role;
     }
 
@@ -91,9 +99,6 @@ public class Admin {
 
     @Override
     public String toString() {
-        return "Admin{" + "ID=" + ID + ", userName=" + userName + ", hashedPassword=" + hashedPassword + ", role=" + role + ", createAt=" + createAt + ", updateAt=" + updateAt + ", deleteAt=" + deleteAt + '}';
+        return "Admin{" + "ID=" + ID + ", username=" + username + ", hashedPassword=" + hashedPassword + ", role=" + role + ", createAt=" + createAt + ", updateAt=" + updateAt + ", deleteAt=" + deleteAt + '}';
     }
-    
-    
-
 }
