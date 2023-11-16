@@ -1,27 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package io.hardingadonis.miu.model;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import io.hardingadonis.miu.model.detail.*;
+import java.time.*;
+import java.util.*;
 
-/**
- *
- * @author LENOVO
- */
 public class User {
 
     private int ID;
     private String fullName;
     private int birthYear;
-    private int gender;
+    private UserGender gender;
     private String email;
     private String hashedPassword;
     private String avatarPath;
-    private List<Object> address;
-    private String status;
+    private List<UserAddress> address;
+    private UserStatus status;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
     private LocalDateTime deleteAt;
@@ -29,7 +22,32 @@ public class User {
     public User() {
     }
 
-    public User(int ID, String fullName, int birthYear, int gender, String email, String hashedPassword, String avatarPath, List<Object> address, String status, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
+    public User(String fullName, int birthYear, UserGender gender, String email, String hashedPassword, String avatarPath, List<UserAddress> address, UserStatus status) {
+        this.fullName = fullName;
+        this.birthYear = birthYear;
+        this.gender = gender;
+        this.email = email;
+        this.hashedPassword = hashedPassword;
+        this.avatarPath = avatarPath;
+        this.address = address;
+        this.status = status;
+    }
+
+    public User(String fullName, int birthYear, UserGender gender, String email, String hashedPassword, String avatarPath, List<UserAddress> address, UserStatus status, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
+        this.fullName = fullName;
+        this.birthYear = birthYear;
+        this.gender = gender;
+        this.email = email;
+        this.hashedPassword = hashedPassword;
+        this.avatarPath = avatarPath;
+        this.address = address;
+        this.status = status;
+        this.createAt = createAt;
+        this.updateAt = updateAt;
+        this.deleteAt = deleteAt;
+    }
+
+    public User(int ID, String fullName, int birthYear, UserGender gender, String email, String hashedPassword, String avatarPath, List<UserAddress> address, UserStatus status, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
         this.ID = ID;
         this.fullName = fullName;
         this.birthYear = birthYear;
@@ -68,11 +86,11 @@ public class User {
         this.birthYear = birthYear;
     }
 
-    public int getGender() {
+    public UserGender getGender() {
         return gender;
     }
 
-    public void setGender(int gender) {
+    public void setGender(UserGender gender) {
         this.gender = gender;
     }
 
@@ -100,19 +118,19 @@ public class User {
         this.avatarPath = avatarPath;
     }
 
-    public List<Object> getAddress() {
+    public List<UserAddress> getAddress() {
         return address;
     }
 
-    public void setAddress(List<Object> address) {
+    public void setAddress(List<UserAddress> address) {
         this.address = address;
     }
 
-    public String getStatus() {
+    public UserStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(UserStatus status) {
         this.status = status;
     }
 
@@ -144,5 +162,4 @@ public class User {
     public String toString() {
         return "User{" + "ID=" + ID + ", fullName=" + fullName + ", birthYear=" + birthYear + ", gender=" + gender + ", email=" + email + ", hashedPassword=" + hashedPassword + ", avatarPath=" + avatarPath + ", address=" + address + ", status=" + status + ", createAt=" + createAt + ", updateAt=" + updateAt + ", deleteAt=" + deleteAt + '}';
     }
-
 }
