@@ -12,6 +12,7 @@ import java.util.List;
  * @author LENOVO
  */
 public class User {
+
     private int ID;
     private String fullName;
     private int birthYear;
@@ -143,7 +144,5 @@ public class User {
     public String toString() {
         return "User{" + "ID=" + ID + ", fullName=" + fullName + ", birthYear=" + birthYear + ", gender=" + gender + ", email=" + email + ", hashedPassword=" + hashedPassword + ", avatarPath=" + avatarPath + ", address=" + address + ", status=" + status + ", createAt=" + createAt + ", updateAt=" + updateAt + ", deleteAt=" + deleteAt + '}';
     }
-
-    
 
 }

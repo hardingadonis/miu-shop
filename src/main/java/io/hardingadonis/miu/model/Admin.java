@@ -10,22 +10,24 @@ import java.time.LocalDateTime;
  *
  * @author LENOVO
  */
-public class Category {
+public class Admin {
 
     private int ID;
-    private String name;
-    private String slug;
+    private String userName;
+    private String hashedPassword;
+    private int role;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
     private LocalDateTime deleteAt;
 
-    public Category() {
+    public Admin() {
     }
 
-    public Category(int ID, String name, String slug, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
+    public Admin(int ID, String userName, String hashedPassword, int role, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
         this.ID = ID;
-        this.name = name;
-        this.slug = slug;
+        this.userName = userName;
+        this.hashedPassword = hashedPassword;
+        this.role = role;
         this.createAt = createAt;
         this.updateAt = updateAt;
         this.deleteAt = deleteAt;
@@ -39,20 +41,28 @@ public class Category {
         this.ID = ID;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getSlug() {
-        return slug;
+    public String getHashedPassword() {
+        return hashedPassword;
     }
 
-    public void setSlug(String slug) {
-        this.slug = slug;
+    public void setHashedPassword(String hashedPassword) {
+        this.hashedPassword = hashedPassword;
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
     }
 
     public LocalDateTime getCreateAt() {
@@ -81,7 +91,9 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category{" + "ID=" + ID + ", name=" + name + ", slug=" + slug + ", createAt=" + createAt + ", updateAt=" + updateAt + ", deleteAt=" + deleteAt + '}';
+        return "Admin{" + "ID=" + ID + ", userName=" + userName + ", hashedPassword=" + hashedPassword + ", role=" + role + ", createAt=" + createAt + ", updateAt=" + updateAt + ", deleteAt=" + deleteAt + '}';
     }
+    
+    
 
 }

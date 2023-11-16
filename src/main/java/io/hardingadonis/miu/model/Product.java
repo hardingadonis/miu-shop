@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
  * @author LENOVO
  */
 public class Product {
+
     private int ID;
     private String branch;
     private String name;
@@ -172,6 +173,5 @@ public class Product {
     public String toString() {
         return "Product{" + "ID=" + ID + ", branch=" + branch + ", name=" + name + ", categoryID=" + categoryID + ", origin=" + origin + ", expiryDate=" + expiryDate + ", weight=" + weight + ", preservation=" + preservation + ", price=" + price + ", amount=" + amount + ", thumbnail=" + thumbnail + ", images=" + images + ", createAt=" + createAt + ", updateAt=" + updateAt + ", deleteAt=" + deleteAt + '}';
     }
-    
-    
+
 }

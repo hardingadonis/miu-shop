@@ -9,6 +9,7 @@ package io.hardingadonis.miu.model;
  * @author LENOVO
  */
 public class Cart {
+
     private int userID;
     private int productID;
     private int amount;
@@ -50,6 +51,5 @@ public class Cart {
     public String toString() {
         return "Cart{" + "userID=" + userID + ", productID=" + productID + ", amount=" + amount + '}';
     }
-    
-    
+
 }
