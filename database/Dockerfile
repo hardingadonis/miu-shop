@@ -1,0 +1,19 @@
+FROM mysql:8.1.0
+
+LABEL org.opencontainers.image.source=https://github.com/hardingadonis/miu-shop
+LABEL org.opencontainers.image.description="Container that runs MySQL for Miu Shop"
+LABEL org.opencontainers.image.licenses=Apache-2.0
+
+LABEL maintainer=hardingadonis@gmail.com
+
+# Copy the database schema to the container
+COPY ./setup.sql /docker-entrypoint-initdb.d/setup.sql
+
+# Set the empty password for the root user
+ENV MYSQL_ALLOW_EMPTY_PASSWORD yes
+
+# Set the default database name
+ENV MYSQL_DATABASE=miu
+
+# Set the default port
+EXPOSE 3306
