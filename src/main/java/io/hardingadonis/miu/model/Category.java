@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package io.hardingadonis.miu.model;
 
-import java.time.LocalDateTime;
+import java.time.*;
 
-/**
- *
- * @author LENOVO
- */
 public class Category {
 
     private int ID;
@@ -20,6 +12,19 @@ public class Category {
     private LocalDateTime deleteAt;
 
     public Category() {
+    }
+
+    public Category(String name, String slug) {
+        this.name = name;
+        this.slug = slug;
+    }
+
+    public Category(String name, String slug, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
+        this.name = name;
+        this.slug = slug;
+        this.createAt = createAt;
+        this.updateAt = updateAt;
+        this.deleteAt = deleteAt;
     }
 
     public Category(int ID, String name, String slug, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
@@ -83,5 +88,4 @@ public class Category {
     public String toString() {
         return "Category{" + "ID=" + ID + ", name=" + name + ", slug=" + slug + ", createAt=" + createAt + ", updateAt=" + updateAt + ", deleteAt=" + deleteAt + '}';
     }
-
 }
