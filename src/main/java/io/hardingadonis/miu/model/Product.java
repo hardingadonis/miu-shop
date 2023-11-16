@@ -6,14 +6,14 @@ import java.util.*;
 public class Product {
 
     private int ID;
-    private String branch;
+    private String brand;
     private String name;
     private int categoryID;
     private String origin;
     private String expiryDate;
     private String weight;
     private String preservation;
-    private int price;
+    private long price;
     private int amount;
     private String thumbnail;
     private List<String> images;
@@ -24,8 +24,8 @@ public class Product {
     public Product() {
     }
 
-    public Product(String branch, String name, int categoryID, String origin, String expiryDate, String weight, String preservation, int price, int amount, String thumbnail, List<String> images) {
-        this.branch = branch;
+    public Product(String brand, String name, int categoryID, String origin, String expiryDate, String weight, String preservation, long price, int amount, String thumbnail, List<String> images) {
+        this.brand = brand;
         this.name = name;
         this.categoryID = categoryID;
         this.origin = origin;
@@ -38,8 +38,8 @@ public class Product {
         this.images = images;
     }
 
-    public Product(String branch, String name, int categoryID, String origin, String expiryDate, String weight, String preservation, int price, int amount, String thumbnail, List<String> images, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
-        this.branch = branch;
+    public Product(String brand, String name, int categoryID, String origin, String expiryDate, String weight, String preservation, long price, int amount, String thumbnail, List<String> images, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
+        this.brand = brand;
         this.name = name;
         this.categoryID = categoryID;
         this.origin = origin;
@@ -55,9 +55,9 @@ public class Product {
         this.deleteAt = deleteAt;
     }
 
-    public Product(int ID, String branch, String name, int categoryID, String origin, String expiryDate, String weight, String preservation, int price, int amount, String thumbnail, List<String> images, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
+    public Product(int ID, String brand, String name, int categoryID, String origin, String expiryDate, String weight, String preservation, long price, int amount, String thumbnail, List<String> images, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
         this.ID = ID;
-        this.branch = branch;
+        this.brand = brand;
         this.name = name;
         this.categoryID = categoryID;
         this.origin = origin;
@@ -81,12 +81,12 @@ public class Product {
         this.ID = ID;
     }
 
-    public String getBranch() {
-        return branch;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setBranch(String branch) {
-        this.branch = branch;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public String getName() {
@@ -137,11 +137,11 @@ public class Product {
         this.preservation = preservation;
     }
 
-    public int getPrice() {
+    public long getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(long price) {
         this.price = price;
     }
 
@@ -195,6 +195,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" + "ID=" + ID + ", branch=" + branch + ", name=" + name + ", categoryID=" + categoryID + ", origin=" + origin + ", expiryDate=" + expiryDate + ", weight=" + weight + ", preservation=" + preservation + ", price=" + price + ", amount=" + amount + ", thumbnail=" + thumbnail + ", images=" + images + ", createAt=" + createAt + ", updateAt=" + updateAt + ", deleteAt=" + deleteAt + '}';
+        return "Product{" + "ID=" + ID + ", brand=" + brand + ", name=" + name + ", categoryID=" + categoryID + ", origin=" + origin + ", expiryDate=" + expiryDate + ", weight=" + weight + ", preservation=" + preservation + ", price=" + price + ", amount=" + amount + ", thumbnail=" + thumbnail + ", images=" + images + ", createAt=" + createAt + ", updateAt=" + updateAt + ", deleteAt=" + deleteAt + '}';
     }
 }
