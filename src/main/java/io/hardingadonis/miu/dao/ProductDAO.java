@@ -10,6 +10,8 @@ public interface ProductDAO {
     public List<Product> getAllByCategoryID(int categoryID);
 
     public List<Product> getAllByPrice(int min, int max);
+    
+    public List<Product> getMostPopular(int limit);
 
     public Optional<Product> get(int ID);
 
