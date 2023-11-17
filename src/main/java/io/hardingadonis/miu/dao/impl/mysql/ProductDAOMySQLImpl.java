@@ -129,6 +129,30 @@ public class ProductDAOMySQLImpl implements ProductDAO {
     }
 
     @Override
+    public List<Product> getMostPopular(int limit) {
+        List<Product> list = new ArrayList<>();
+
+        try {
+            Connection conn = Singleton.dbContext.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM product WHERE delete_at IS NULL ORDER BY amount DESC LIMIT ?");
+            smt.setInt(1, limit);
+
+            ResultSet rs = smt.executeQuery();
+
+            while (rs.next()) {
+                list.add(getFromResultSet(rs));
+            }
+
+            Singleton.dbContext.closeConnection(conn);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return list;
+    }
+
+    @Override
     public Optional<Product> get(int ID) {
         Product product = null;
 

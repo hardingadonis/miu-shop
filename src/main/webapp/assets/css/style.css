@@ -1,0 +1,45 @@
+.navbar {
+    z-index: 99;
+}
+
+body {
+    padding-top: 8em;
+}
+
+.sliderFade {
+    animation: fade 0.5s ease;
+}
+
+.sliderThumb,
+.sliderMainImage {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    border-radius: 0px;
+    background-color: #f8f9fa;
+}
+
+.dropdown-item {
+    color: #495057;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+.dropdown-divider {
+    border-color: #dee2e6;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
