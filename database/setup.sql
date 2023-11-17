@@ -1,33 +1,9 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 16, 2023 lúc 02:41 PM
--- Phiên bản máy phục vụ: 10.4.28-MariaDB
--- Phiên bản PHP: 8.2.4
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Cơ sở dữ liệu: `miu`
---
 CREATE DATABASE IF NOT EXISTS `miu` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `miu`;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `admin`
---
 
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL COMMENT 'ID dùng để quản lý, tự động tăng',
@@ -39,23 +15,17 @@ CREATE TABLE `admin` (
   `delete_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `cart`
---
+INSERT INTO `admin` (`id`, `username`, `hashed_password`, `role`, `create_at`, `update_at`, `delete_at`) VALUES
+(1, 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'super_admin', '2023-11-17 09:46:24', NULL, NULL),
+(2, 'thuy', '5adf805ab91494fb0803dc1f111a31877545576686847d8790a46a30c7e6e285', 'admin', '2023-11-17 09:50:33', NULL, NULL),
+(3, 'hoang', '270723e7f50a26d4ae90da0e13079f293dd37e9953f7f9801ce7de19a35fc58e', 'admin', '2023-11-17 09:51:12', NULL, NULL),
+(4, 'vuong', '9ef78ba5f2594c24944ce9a90f2a6358d260a7cc3bb7db8e37f06c5d41249eef', 'admin', '2023-11-17 09:51:41', NULL, NULL);
 
 CREATE TABLE `cart` (
   `user_id` int(11) NOT NULL COMMENT 'Liên kết với id bảng user',
   `product_id` int(11) NOT NULL COMMENT 'Liên kết với id bảng product',
   `amount` int(11) NOT NULL DEFAULT 1 COMMENT 'Số lượng sẩn phẩm được chọn'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `category`
---
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL COMMENT 'ID dùng để quản lý, tự động tăng',
@@ -66,21 +36,11 @@ CREATE TABLE `category` (
   `delete_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Đang đổ dữ liệu cho bảng `category`
---
-
 INSERT INTO `category` (`id`, `name`, `slug`, `create_at`, `update_at`, `delete_at`) VALUES
 (1, 'Mặt nạ', 'fb.com', '2023-11-16 15:34:35', NULL, NULL),
 (2, 'Son môi', 'fb.com', '2023-11-16 15:34:35', NULL, NULL),
 (3, 'Phấn nước', 'fb.com', '2023-11-16 15:34:35', NULL, NULL),
 (4, 'Phấn phủ', 'fb.com', '2023-11-16 15:34:35', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `order`
---
 
 CREATE TABLE `order` (
   `id` int(11) NOT NULL COMMENT 'ID dùng để quản lý, tự động tăng',
@@ -93,23 +53,11 @@ CREATE TABLE `order` (
   `delete_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `order_data`
---
-
 CREATE TABLE `order_data` (
   `order_id` int(11) NOT NULL COMMENT 'Liên kết với id bảng order',
   `product_id` int(11) NOT NULL COMMENT 'Liên kết với id bảng product',
   `amount` int(11) NOT NULL DEFAULT 1 COMMENT 'Số lượng sẩn phẩm được chọn'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `product`
---
 
 CREATE TABLE `product` (
   `id` int(11) NOT NULL COMMENT 'ID dùng để quản lý, tự động tăng',
@@ -129,10 +77,6 @@ CREATE TABLE `product` (
   `delete_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Đang đổ dữ liệu cho bảng `product`
---
-
 INSERT INTO `product` (`id`, `brand`, `name`, `category_id`, `origin`, `expiry_date`, `weight`, `preservation`, `price`, `amount`, `thumbnail`, `images`, `create_at`, `update_at`, `delete_at`) VALUES
 (1, 'M.O.I', 'Mặt nạ Gạo Hydrogel vàng phiên bản cao cấp\r\n', 1, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '28 gram x 3 miếng', 'Bảo quản nơi khô ráo, thoáng mát. Tránh ánh nắng trực tiếp mặt trời.', 299000, 1000, 'assets/images/thumbnails/e651913ed4cb56acc40465a78bd1d83cab272deef7518d9f76b07b6a3e8ef606.jpg', '[\"assets/images/products/b09a6e0d6c98a1e716eb09f93df17264af64a5a04b01f27be1324346d2de7eb7.jpg\",\"assets/images/products/c75dab334bd6cd06840c95edaaac0e1337ef38ee9cc0c5c537d0ad3a52bb5b4d.jpg\",\"assets/images/products/e0d3480dd3171f4ea9a1e77deeeec0fa36ea963c1f9403e35d074377d7138cef.jpg\",\"assets/images/products/4424a6f82ff1f3c5d6068478891b2da9ce6b16ebfd489d2c15530ec8566025d5.jpg\"]', '2023-11-16 15:34:35', NULL, NULL),
 (2, 'M.O.I', 'Mặt nạ bơ tinh khiết hydrgel da by M.O.I', 1, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '28 gram x 3 miếng', 'Bảo quản nơi khô ráo, thoáng mát. Tránh nhiệt độ cao.', 199000, 900, 'assets/images/thumbnails/c6cf3bd922ed22fc2c1c53e0a321108b9851f546ef0d3f763b2d59e1b6612101.jpg', '[\"assets/images/products/62a85936c0d3616b53d7a80ea853e7529e9729bcb00428da36f0b8310e57ca63.jpg\",\"assets/images/products/a87f3e2d0dd58d8464972819c60c2ecb979916cd6483406753e81b9db5587348.jpg\",\"assets/images/products/799a89b46b68bdfd62fb8ffd70ccb2391a351f6fc5ed1c9a0b7d4a86e13fd2ff.jpg\",\"assets/images/products/f4e19c64f4684e84e3f66cd4211e3c9682b6aa26513310d3c7ed512089baee91.jpg\"]', '2023-11-16 15:34:35', NULL, NULL),
@@ -146,12 +90,6 @@ INSERT INTO `product` (`id`, `brand`, `name`, `category_id`, `origin`, `expiry_d
 (10, 'M.O.I', '6 màu son thỏi love M.O.I by Thuỳ Tiên', 2, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '3.5g', 'Bảo quản nơi khô ráo. Tránh ánh nắng trực tiếp mặt trời, nhiệt độ cao.', 359000, 650, 'assets/images/thumbnails/b80217fe6f792a190e4f6e1bdef007cd0df23bdaf020ff1145170ae6dc26b4fc.jpg', '[\"assets/images/products/2592f2f578ccb40664bef7c5aee6a0e8c455d43e77b51d73317bcd33c374f574.jpg\",\"assets/images/products/b9041c6ea645c40346ef1962cac8b73f234d3dc479df55787eca5ff3ed170293.jpg\",\"assets/images/products/a22b21eb5e2b71b50cfbf221e91d04c62a82f15ed0d2e2b17aeb202b8f4a4203.jpg\",\"assets/images/products/ab98609915bb066751456d54edf57e8dc89f24bd41bbc33a9cace8dc04599bed.jpg\"]', '2023-11-16 15:34:35', NULL, NULL),
 (11, 'M.O.I', 'Set 6 son thỏi cao cấp love M.O.I phiên bản giới hạn', 2, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '2.2g/thỏi', 'Bảo quản nơi khô ráo. Tránh ánh nắng trực tiếp mặt trời, nhiệt độ cao.', 2274000, 900, 'assets/images/thumbnails/d0a196a9adbc8ae2484b1af3d753b6677972fc0f8af259b18228ad3d360b77c6.jpg', '[\"assets/images/products/23f145f1b771f0b08cca35f64ad6787e5bb61404926146fb63e10559eb1e70ed.jpg\",\"assets/images/products/cfe90a9dfbc47bbbc550c082945c8fd49482535784e2e32ba2298851129614c6.jpg\",\"assets/images/products/18df951db0593c292eab8dbf1d442a1e2514b6974b12b3d0a312620eeb9a46d3.jpg\",\"assets/images/products/d3ab396d2b83bb1494516c4f6971aea14f678b141372d9bdcde569e3142e89b8.jpg\"]', '2023-11-16 15:34:35', NULL, NULL),
 (12, 'M.O.I', 'Son môi sáp cao cấp love M.O.I Matte Lipstick', 2, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '2.2g', 'Bảo quản nơi khô ráo. Tránh ánh nắng trực tiếp mặt trời, nhiệt độ cao.', 379000, 599, 'assets/images/thumbnails/ca2aca95720d8cfd3ac72a47b5a021ba45a830b8a7514b84d346100d84be6e6e.jpg', '[\"assets/images/products/63de3e3c2b939d97d5d28c161851cf01807f33503088c1928f8b4bc29541184d.jpg\",\"assets/images/products/f1e02f0b9160c51cd6e53ed10ea1101754a202f25e5b9154d2e92aefc47050c0.jpg\",\"assets/images/products/9aefc858d0e8bb620f6acd6d4b7422b3314ed8c042118a8412722c51c613688a.jpg\",\"assets/images/products/0bf02fabcc97b684d728f975d4535e87dec65a1109fc0d77c11da1ae6a3bb705.jpg\"]', '2023-11-16 15:34:35', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `user`
---
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL COMMENT 'ID dùng để quản lý, tự động tăng',
@@ -168,123 +106,64 @@ CREATE TABLE `user` (
   `delete_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Chỉ mục cho các bảng đã đổ
---
+INSERT INTO `user` (`id`, `full_name`, `birth_year`, `gender`, `email`, `hashed_password`, `avatar_path`, `address`, `status`, `create_at`, `update_at`, `delete_at`) VALUES
+(1, 'Lê Minh Vương', 2003, 'male', 'vuonglmqe170148@fpt.edu.vn', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'assets/imgs/avatars/bf8a9d7de5fb8310df146a4f061a85ef4757f6930f7633b98f9c8f1b290154bd.jpg', '[{\"province\":\"52\",\"district\":\"540\",\"ward\":\"21550\",\"specific\":\"Đại học FPT Quy Nhơn\"},{\"province\":\"52\",\"district\":\"547\",\"ward\":\"21808\",\"specific\":\"123 Trần Quang Diệu\"}]', 'activate', '2023-11-17 09:54:01', NULL, NULL),
+(2, 'Nguyễn Thị Thúy', 2003, 'female', 'thuyntqe170033@fpt.edu.vn', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'assets/imgs/avatars/0913a5b201de74b1cc693a3ce5254c31e963a4b334ebf34d0699f03b28972d55.jpg', '[{\"province\":\"52\",\"district\":\"540\",\"ward\":\"21550\",\"specific\":\"Đại học FPT Quy Nhơn\"},{\"province\":\"52\",\"district\":\"547\",\"ward\":\"21808\",\"specific\":\"123 Trần Quang Diệu\"}]', 'activate', '2023-11-17 10:01:32', NULL, NULL),
+(3, 'Trần Huy Hoàng', 2003, 'male', 'hoangthqe170116@fpt.edu.vn', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'assets/imgs/avatars/99f35734734c349cce956db639c055ee376e6ae62364c5f22ffc738da2565415.jpg', '[{\"province\":\"52\",\"district\":\"540\",\"ward\":\"21550\",\"specific\":\"Đại học FPT Quy Nhơn\"},{\"province\":\"52\",\"district\":\"547\",\"ward\":\"21808\",\"specific\":\"123 Trần Quang Diệu\"}]', 'activate', '2023-11-17 10:03:47', NULL, NULL);
 
---
--- Chỉ mục cho bảng `admin`
---
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
---
--- Chỉ mục cho bảng `cart`
---
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`user_id`,`product_id`),
   ADD KEY `product_id` (`product_id`);
 
---
--- Chỉ mục cho bảng `category`
---
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
---
--- Chỉ mục cho bảng `order`
---
 ALTER TABLE `order`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
---
--- Chỉ mục cho bảng `order_data`
---
 ALTER TABLE `order_data`
   ADD PRIMARY KEY (`order_id`,`product_id`),
   ADD KEY `product_id` (`product_id`);
 
---
--- Chỉ mục cho bảng `product`
---
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category_id` (`category_id`);
 
---
--- Chỉ mục cho bảng `user`
---
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
---
--- AUTO_INCREMENT cho các bảng đã đổ
---
-
---
--- AUTO_INCREMENT cho bảng `admin`
---
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID dùng để quản lý, tự động tăng';
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID dùng để quản lý, tự động tăng', AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT cho bảng `category`
---
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID dùng để quản lý, tự động tăng', AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT cho bảng `order`
---
 ALTER TABLE `order`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID dùng để quản lý, tự động tăng';
 
---
--- AUTO_INCREMENT cho bảng `product`
---
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID dùng để quản lý, tự động tăng', AUTO_INCREMENT=13;
 
---
--- AUTO_INCREMENT cho bảng `user`
---
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID dùng để quản lý, tự động tăng';
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID dùng để quản lý, tự động tăng', AUTO_INCREMENT=4;
 
---
--- Các ràng buộc cho các bảng đã đổ
---
-
---
--- Các ràng buộc cho bảng `cart`
---
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
---
--- Các ràng buộc cho bảng `order`
---
 ALTER TABLE `order`
   ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
---
--- Các ràng buộc cho bảng `order_data`
---
 ALTER TABLE `order_data`
   ADD CONSTRAINT `order_data_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`),
   ADD CONSTRAINT `order_data_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
---
--- Các ràng buộc cho bảng `product`
---
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
