@@ -57,10 +57,10 @@
                                 </button>
                             </li>
                             <li class="nav-item d-flex align-items-center">
-                                <button class="btn btn-light">
+                                <a href="login" class="btn btn-light">
                                     <i class="fas fa-sign-in"></i>
                                     Đăng nhập
-                                </button>
+                                </a>
                             </li>
                         </c:if>
                     </ul>
