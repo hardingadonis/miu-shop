@@ -21,9 +21,8 @@
                     <ul class="navbar-nav">
                         <c:if test="${sessionScope.user != null}">
                             <li class="nav-item d-flex align-items-center dropdown">
-                                <a href="#" class="nav-link mx-2 nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                                   aria-expanded="false">
-                                    <img src="./${sessionScope.user.avatarPath}" alt="Avatar" width="20" height="20">
+                                <a href="#" class="nav-link mx-2 nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="./${sessionScope.user.avatarPath}" alt="Avatar" width="20px" height="20px">
                                     ${sessionScope.user.fullName}
                                 </a>
                                 <ul class="dropdown-menu">
@@ -44,7 +43,6 @@
                             <li class="nav-item d-flex align-items-center">
                                 <a href="#" class="nav-link mx-2">
                                     <i class="fas fa-shopping-cart"></i>
-                                    Giỏ hàng
                                 </a>
                                 <span class="badge rounded-pill bg-secondary">0</span>
                             </li>
