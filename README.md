@@ -11,6 +11,37 @@
 - Tomcat 8.5
 - Maven 3+
 
+## Materials:
+<table>
+  <tr>
+    <td>#</td>
+    <td>Page</td>
+    <td>Template</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Home Page</td>
+    <td rowspan="3">
+      🎥 <a href="https://youtu.be/KFpfE72KAYo">YouTube</a>
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Product Page</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Product Detail Page</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Login Page</td>
+    <td>
+      🎥 <a href="https://youtu.be/2XhPa-1pl4Y">YouTube</a>
+    </td>
+  </tr>
+</table>
+
 ## Contributors:
 
 <a href="https://github.com/hardingadonis/miu-shop/graphs/contributors">
