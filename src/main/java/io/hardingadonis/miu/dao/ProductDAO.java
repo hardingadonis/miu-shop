@@ -13,7 +13,7 @@ public interface ProductDAO {
     
     public List<Product> getMostPopular(int limit);
 
-    public Optional<Product> get(int ID);
+    public Product get(int ID);
 
     public void insert(Product obj);
 

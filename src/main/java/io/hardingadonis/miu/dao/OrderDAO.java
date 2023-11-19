@@ -14,7 +14,7 @@ public interface OrderDAO {
 
     public List<Order> getAllByOrderStatus(OrderStatus status);
 
-    public Optional<Order> get(int ID);
+    public Order get(int ID);
 
     public void insert(Order obj);
 

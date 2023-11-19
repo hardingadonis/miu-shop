@@ -12,9 +12,9 @@ public interface UserDAO {
 
     public List<User> getAllByUserStatus(UserStatus status);
 
-    public Optional<User> get(int ID);
+    public User get(int ID);
 
-    public Optional<User> get(String email);
+    public User get(String email);
 
     public void insert(User obj);
 
