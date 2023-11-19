@@ -4,12 +4,15 @@
 ![GitHub License](https://img.shields.io/github/license/hardingadonis/miu-shop)
 > Miu Shop is a website that sells M.O.I cosmetics that are written in Java.
 
+---
 
 ## Requirements
 - JDK 8
 - MySQL 8.1.0
 - Tomcat 8.5
 - Maven 3+
+
+---
 
 ## Materials:
 <table>
@@ -42,11 +45,15 @@
   </tr>
 </table>
 
+---
+
 ## Contributors:
 
 <a href="https://github.com/hardingadonis/miu-shop/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=hardingadonis/miu-shop" />
 </a>
+
+---
 
 ## Licenses:
 - [Miu Shop](https://github.com/hardingadonis/miu-shop) is under the [Apache-2.0 license](https://github.com/hardingadonis/miu-shop/blob/main/LICENSE).
