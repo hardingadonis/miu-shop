@@ -153,7 +153,7 @@ public class ProductDAOMySQLImpl implements ProductDAO {
     }
 
     @Override
-    public Optional<Product> get(int ID) {
+    public Product get(int ID) {
         Product product = null;
 
         try {
@@ -173,7 +173,7 @@ public class ProductDAOMySQLImpl implements ProductDAO {
             System.err.println(ex.getMessage());
         }
 
-        return Optional.ofNullable(product);
+        return product;
     }
 
     @Override
