@@ -1,4 +1,7 @@
 # Miu Shop
+[![build](https://github.com/hardingadonis/miu-shop/actions/workflows/build.yml/badge.svg)](https://github.com/hardingadonis/miu-shop/actions/workflows/build.yml)
+[![publish](https://github.com/hardingadonis/miu-shop/actions/workflows/publish.yml/badge.svg)](https://github.com/hardingadonis/miu-shop/actions/workflows/publish.yml)
+[![release](https://github.com/hardingadonis/miu-shop/actions/workflows/release.yml/badge.svg)](https://github.com/hardingadonis/miu-shop/actions/workflows/release.yml)
 ![GitHub top language](https://img.shields.io/github/languages/top/hardingadonis/miu-shop)
 ![GitHub repo size](https://img.shields.io/github/repo-size/hardingadonis/miu-shop)
 ![GitHub License](https://img.shields.io/github/license/hardingadonis/miu-shop)
