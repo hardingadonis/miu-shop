@@ -44,7 +44,7 @@ public class CategoryDAOMySQLImpl implements CategoryDAO {
     }
 
     @Override
-    public Optional<Category> get(int ID) {
+    public Category get(int ID) {
         Category category = null;
 
         try {
@@ -64,7 +64,7 @@ public class CategoryDAOMySQLImpl implements CategoryDAO {
             System.err.println(ex.getMessage());
         }
 
-        return Optional.ofNullable(category);
+        return category;
     }
 
     @Override

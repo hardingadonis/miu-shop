@@ -138,7 +138,7 @@ public class UserDAOMySQLImpl implements UserDAO {
     }
 
     @Override
-    public Optional<User> get(int ID) {
+    public User get(int ID) {
         User user = null;
 
         try {
@@ -158,11 +158,11 @@ public class UserDAOMySQLImpl implements UserDAO {
             System.err.println(ex.getMessage());
         }
 
-        return Optional.ofNullable(user);
+        return user;
     }
 
     @Override
-    public Optional<User> get(String email) {
+    public User get(String email) {
         User user = null;
 
         try {
@@ -182,7 +182,7 @@ public class UserDAOMySQLImpl implements UserDAO {
             System.err.println(ex.getMessage());
         }
 
-        return Optional.ofNullable(user);
+        return user;
     }
 
     @Override

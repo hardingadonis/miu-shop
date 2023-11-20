@@ -7,7 +7,7 @@ public interface CategoryDAO {
 
     public List<Category> getAll();
 
-    public Optional<Category> get(int ID);
+    public Category get(int ID);
 
     public void insert(Category obj);
 

@@ -118,7 +118,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
     }
 
     @Override
-    public Optional<Order> get(int ID) {
+    public Order get(int ID) {
         Order order = null;
 
         try {
@@ -138,7 +138,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
             System.err.println(ex.getMessage());
         }
 
-        return Optional.ofNullable(order);
+        return order;
     }
 
     @Override

@@ -10,9 +10,9 @@ public interface AdminDAO {
 
     public List<Admin> getAllByRole(AdminRole role);
 
-    public Optional<Admin> get(int ID);
+    public Admin get(int ID);
 
-    public Optional<Admin> get(String username);
+    public Admin get(String username);
 
     public void insert(Admin obj);
 
