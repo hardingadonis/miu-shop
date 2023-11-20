@@ -3,7 +3,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light position-fixed top-0 start-0 w-100">
         <div class="container">
-            <a href="#" class="navbar-brand d-lg-none text-uppercase">
+            <a href="home" class="navbar-brand d-lg-none text-uppercase">
                 Miu Shop
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
@@ -17,7 +17,7 @@
                             <i class="fas fa-search"></i>
                         </button>
                     </form>
-                    <a href="#" class="navbar-brand d-none d-lg-block text-uppercase">Miu Shop</a>
+                    <a href="home" class="navbar-brand d-none d-lg-block text-uppercase">Miu Shop</a>
                     <ul class="navbar-nav">
                         <c:if test="${sessionScope.user != null}">
                             <li class="nav-item d-flex align-items-center dropdown">

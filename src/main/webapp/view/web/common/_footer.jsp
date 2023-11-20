@@ -3,7 +3,7 @@
         <div class="d-flex justify-content-between my-5 text-start flex-wrap">
             <ul class="nav flex-column">
                 <li class="fw-bold nav-item">
-                    <a href="#" class="nav-link text-dark">
+                    <a href="home" class="nav-link text-dark">
                         Danh mục sản phẩm
                     </a>
                 </li>
@@ -17,7 +17,7 @@
             </ul>
             <ul class="nav flex-column">
                 <li class="fw-bold nav-item text-dark">
-                    <a href="#" class="nav-link text-dark">Hỗ trợ</a>
+                    <a href="home" class="nav-link text-dark">Hỗ trợ</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link text-muted">Cài đặt</a>
@@ -31,7 +31,7 @@
             </ul>
             <ul class="nav flex-column">
                 <li class="fw-bold nav-item text-dark">
-                    <a href="#" class="nav-link text-dark">Mã nguồn</a>
+                    <a href="home" class="nav-link text-dark">Mã nguồn</a>
                 </li>
                 <li class="nav-item">
                     <a href="https://github.com/hardingadonis/miu-shop" class="nav-link text-muted">
@@ -42,10 +42,10 @@
             </ul>
             <ul class="nav flex-column">
                 <li class="fw-bold nav-item text-dark">
-                    <a href="#" class="nav-link text-dark">Thông tin</a>
+                    <a href="home" class="nav-link text-dark">Thông tin</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-muted">Thông tin về Miu Shop</a>
+                    <a href="about" class="nav-link text-muted">Thông tin về Miu Shop</a>
                 </li>
             </ul>
         </div>
