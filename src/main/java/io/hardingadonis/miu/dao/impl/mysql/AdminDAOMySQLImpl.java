@@ -70,7 +70,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
     }
 
     @Override
-    public Optional<Admin> get(int ID) {
+    public Admin get(int ID) {
         Admin admin = null;
 
         try {
@@ -90,11 +90,11 @@ public class AdminDAOMySQLImpl implements AdminDAO {
             System.err.println(ex.getMessage());
         }
 
-        return Optional.ofNullable(admin);
+        return admin;
     }
 
     @Override
-    public Optional<Admin> get(String username) {
+    public Admin get(String username) {
         Admin admin = null;
 
         try {
@@ -114,7 +114,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
             System.err.println(ex.getMessage());
         }
 
-        return Optional.ofNullable(admin);
+        return admin;
     }
 
     @Override

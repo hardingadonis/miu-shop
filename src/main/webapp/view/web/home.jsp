@@ -12,11 +12,11 @@
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-        <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/style.css" />
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/common.css" />
 
         <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/assets/images/favicon/favicon.png">
 
-        <title>Miu Shop | Home</title>
+        <title>Miu Shop | Trang chủ</title>
     </head>
 
     <body>
@@ -83,8 +83,7 @@
 
         <%@include file="common/_footer.jsp" %>
 
-        <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 
 </html>
