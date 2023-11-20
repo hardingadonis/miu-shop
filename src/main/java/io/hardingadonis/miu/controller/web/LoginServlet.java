@@ -1,6 +1,7 @@
 package io.hardingadonis.miu.controller.web;
 
 import io.hardingadonis.miu.model.*;
+import io.hardingadonis.miu.model.detail.*;
 import io.hardingadonis.miu.services.*;
 import java.io.*;
 import javax.servlet.*;
@@ -25,14 +26,18 @@ public class LoginServlet extends HttpServlet {
 
         User user = Singleton.userDAO.get(email);
 
-        if (user != null && user.getHashedPassword().equals(Hash.SHA256(password))) {
+        if (user != null && user.getHashedPassword().equals(Hash.SHA256(password)) && user.getStatus() == UserStatus.ACTIVATE) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             response.sendRedirect("home");
+            
             return;
         }
 
         String errorMsg = "Sai mật khẩu!";
+        if (user != null && user.getStatus() == UserStatus.DEACTIVATE) {
+            errorMsg = "Tài khoản đã bị khóa!";
+        }
         if (user == null) {
             errorMsg = "Tài khoản không tồn tại!";
             email = null;
@@ -40,6 +45,7 @@ public class LoginServlet extends HttpServlet {
 
         request.setAttribute("email", email);
         request.setAttribute("errorMsg", errorMsg);
+        
         this.doGet(request, response);
     }
 }
