@@ -11,7 +11,7 @@ public interface ProductDAO {
 
     public List<Product> getAllByPrice(int min, int max);
     
-    public List<Product> getMostPopular(int limit);
+    public List<Product> getRandom(int limit);
 
     public Product get(int ID);
 
