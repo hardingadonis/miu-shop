@@ -129,13 +129,13 @@ public class ProductDAOMySQLImpl implements ProductDAO {
     }
 
     @Override
-    public List<Product> getMostPopular(int limit) {
+    public List<Product> getRandom(int limit) {
         List<Product> list = new ArrayList<>();
 
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT * FROM product WHERE delete_at IS NULL ORDER BY amount DESC LIMIT ?");
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM product WHERE delete_at IS NULL ORDER BY RAND() LIMIT ?");
             smt.setInt(1, limit);
 
             ResultSet rs = smt.executeQuery();
