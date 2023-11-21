@@ -6,15 +6,6 @@ body {
     padding-top: 8em;
 }
 
-.sliderFade {
-    animation: fade 0.5s ease;
-}
-
-.sliderThumb,
-.sliderMainImage {
-    cursor: pointer;
-}
-
 .dropdown-menu {
     border-radius: 0px;
     background-color: #f8f9fa;

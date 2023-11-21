@@ -1,4 +1,4 @@
-<footer>
+<footer class="bg-light p-1">
     <div class="container position-relative text-center">
         <div class="d-flex justify-content-between my-5 text-start flex-wrap">
             <ul class="nav flex-column">

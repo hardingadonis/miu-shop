@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
         <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/common.css" />
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/home.css" />
 
         <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/assets/images/favicon/favicon.png">
 
@@ -53,24 +54,19 @@
                 Sản phẩm nổi bật
             </h2>
 
-            <div class="container my-5">
+            <div class="my-5">
                 <div class="row">
-                    <c:forEach var="item" items="${Singleton.productDAO.getMostPopular(3)}">
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="card m-2">
-                                <a href="#">
+                    <c:forEach var="item" items="${Singleton.productDAO.getRandom(4)}">
+                        <div class="col-lg-3 col-sm-6 m-0 product">
+                            <div class="card m-4 product-detail">
+                                <a href="product?id=${item.ID}">
                                     <img src="<%=request.getContextPath()%>/${item.thumbnail}" class="card-img-top">
                                 </a>
                                 <div class="card-body">
                                     <p class="card-text font-weight-bold">
-                                        ${item.name}
+                                        <a href="product?id=${item.ID}">${item.name}</a>
                                     </p>
-                                    <h5 class="text-body-secondary">
-                                        <script>
-                                            var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${item.price});
-                                            document.write(formattedPrice);
-                                        </script>
-                                    </h5>
+                                    <span class="text-muted price">${item.price}</span>
                                 </div>
                             </div>
                         </div>
@@ -80,10 +76,12 @@
 
             <a href="#" class="btn btn-outline-dark my-5">Tất cả sản phẩm</a>
         </div>
+    </div>
 
-        <%@include file="common/_footer.jsp" %>
+    <%@include file="common/_footer.jsp" %>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="<%=request.getContextPath()%>/assets/js/homeHandler.js"></script>
+</body>
 
 </html>
