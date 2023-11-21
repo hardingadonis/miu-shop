@@ -27,7 +27,7 @@
             <div class="container">
                 <div class="row gx-5">
 
-                    <aside class="col-lg-6">
+                    <aside class="col-lg-6 pt-5">
                         <div class="vrmedia-gallery">
                             <ul class="ecommerce-gallery">
                                 <c:forEach var="image" items="${requestScope.product.images}">
@@ -39,7 +39,7 @@
                         </div>
                     </aside>
 
-                    <main class="col-lg-6">
+                    <main class="col-lg-6 pt-5">
                         <div class="ps-lg-3">
                             <h4 class="title text-dark">
                                 ${requestScope.product.name}
@@ -96,7 +96,7 @@
                                 <div id="max-amount" hidden>${requestScope.product.amount}</div>
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="input-group mb-3" style="width: 180px;">
+                                        <div class="input-group mb-3 d-flex justify-content-center">
                                             <button class="btn btn-white border px-3" onclick="decreaseQuantity()" type="button" id="button-addon1" data-mdb-ripple-color="dark">
                                                 <i class="fas fa-minus"></i>
                                             </button>
@@ -124,9 +124,9 @@
 
             <div class="my-5">
                 <div class="row">
-                    <c:forEach var="item" items="${Singleton.productDAO.getMostPopular(4)}">
-                        <div class="col-lg-3 col-sm-6 product">
-                            <div class="card m-2">
+                    <c:forEach var="item" items="${Singleton.productDAO.getRandom(4)}">
+                        <div class="col-lg-3 col-sm-6 m-0 product">
+                            <div class="card m-4 product-detail">
                                 <a href="product?id=${item.ID}">
                                     <img src="<%=request.getContextPath()%>/${item.thumbnail}" class="card-img-top">
                                 </a>
