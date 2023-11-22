@@ -2,8 +2,10 @@ package io.hardingadonis.miu.controller.web;
 
 import java.io.*;
 import javax.servlet.*;
+import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
+@WebServlet(name = "logout", urlPatterns = {"/logout"})
 public class LogoutServlet extends HttpServlet {
 
     @Override
