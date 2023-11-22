@@ -5,8 +5,10 @@ import io.hardingadonis.miu.model.detail.*;
 import io.hardingadonis.miu.services.*;
 import java.io.*;
 import javax.servlet.*;
+import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
+@WebServlet(name = "login", urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
 
     @Override

@@ -4,8 +4,10 @@ import io.hardingadonis.miu.model.*;
 import io.hardingadonis.miu.services.*;
 import java.io.*;
 import javax.servlet.*;
+import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
+@WebServlet(name = "product", urlPatterns = {"/product"})
 public class ProductDetailServlet extends HttpServlet {
 
     @Override
