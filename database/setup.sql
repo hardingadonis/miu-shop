@@ -2,12 +2,10 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+
 CREATE DATABASE IF NOT EXISTS `miu` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `miu`;
 
---
--- Cấu trúc bảng cho bảng `admin`
---
 
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL COMMENT 'ID dùng để quản lý, tự động tăng',
@@ -19,9 +17,6 @@ CREATE TABLE `admin` (
   `delete_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Đang đổ dữ liệu cho bảng `admin`
---
 
 INSERT INTO `admin` (`id`, `username`, `hashed_password`, `role`, `create_at`, `update_at`, `delete_at`) VALUES
 (1, 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'super_admin', '2023-11-17 09:46:24', NULL, NULL),
@@ -29,11 +24,6 @@ INSERT INTO `admin` (`id`, `username`, `hashed_password`, `role`, `create_at`, `
 (3, 'hoang', '270723e7f50a26d4ae90da0e13079f293dd37e9953f7f9801ce7de19a35fc58e', 'admin', '2023-11-17 09:51:12', NULL, NULL),
 (4, 'vuong', '9ef78ba5f2594c24944ce9a90f2a6358d260a7cc3bb7db8e37f06c5d41249eef', 'admin', '2023-11-17 09:51:41', NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `cart`
---
 
 CREATE TABLE `cart` (
   `user_id` int(11) NOT NULL COMMENT 'Liên kết với id bảng user',
@@ -41,11 +31,6 @@ CREATE TABLE `cart` (
   `amount` int(11) NOT NULL DEFAULT 1 COMMENT 'Số lượng sẩn phẩm được chọn'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `category`
---
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL COMMENT 'ID dùng để quản lý, tự động tăng',
@@ -56,9 +41,6 @@ CREATE TABLE `category` (
   `delete_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Đang đổ dữ liệu cho bảng `category`
---
 
 INSERT INTO `category` (`id`, `name`, `slug`, `create_at`, `update_at`, `delete_at`) VALUES
 (1, 'Mặt nạ', 'fb.com', '2023-11-16 15:34:35', NULL, NULL),
@@ -68,11 +50,6 @@ INSERT INTO `category` (`id`, `name`, `slug`, `create_at`, `update_at`, `delete_
 (5, 'Chăm sóc da & Trang điểm', 'fb.com', '2023-11-16 15:34:35', NULL, NULL),
 (6, 'Nước hoa', 'fb.com', '2023-11-16 15:34:35', NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `order`
---
 
 CREATE TABLE `order` (
   `id` int(11) NOT NULL COMMENT 'ID dùng để quản lý, tự động tăng',
@@ -85,11 +62,6 @@ CREATE TABLE `order` (
   `delete_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `order_data`
---
 
 CREATE TABLE `order_data` (
   `order_id` int(11) NOT NULL COMMENT 'Liên kết với id bảng order',
@@ -97,11 +69,6 @@ CREATE TABLE `order_data` (
   `amount` int(11) NOT NULL DEFAULT 1 COMMENT 'Số lượng sẩn phẩm được chọn'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `product`
---
 
 CREATE TABLE `product` (
   `id` int(11) NOT NULL COMMENT 'ID dùng để quản lý, tự động tăng',
@@ -121,16 +88,13 @@ CREATE TABLE `product` (
   `delete_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Đang đổ dữ liệu cho bảng `product`
---
 
 INSERT INTO `product` (`id`, `brand`, `name`, `category_id`, `origin`, `expiry_date`, `weight`, `preservation`, `price`, `amount`, `thumbnail`, `images`, `create_at`, `update_at`, `delete_at`) VALUES
 (1, 'M.O.I', 'Mặt nạ Gạo Hydrogel vàng phiên bản cao cấp\r\n', 1, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '28 gram x 3 miếng', 'Bảo quản nơi khô ráo, thoáng mát. Tránh ánh nắng trực tiếp mặt trời.', 299000, 1000, 'assets/images/thumbnails/e651913ed4cb56acc40465a78bd1d83cab272deef7518d9f76b07b6a3e8ef606.webp', '[\"assets/images/products/b09a6e0d6c98a1e716eb09f93df17264af64a5a04b01f27be1324346d2de7eb7.webp\",\"assets/images/products/c75dab334bd6cd06840c95edaaac0e1337ef38ee9cc0c5c537d0ad3a52bb5b4d.webp\",\"assets/images/products/e0d3480dd3171f4ea9a1e77deeeec0fa36ea963c1f9403e35d074377d7138cef.webp\",\"assets/images/products/4424a6f82ff1f3c5d6068478891b2da9ce6b16ebfd489d2c15530ec8566025d5.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
 (2, 'M.O.I', 'Mặt nạ bơ tinh khiết hydrgel da by M.O.I', 1, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '28 gram x 3 miếng', 'Bảo quản nơi khô ráo, thoáng mát. Tránh nhiệt độ cao.', 199000, 900, 'assets/images/thumbnails/c6cf3bd922ed22fc2c1c53e0a321108b9851f546ef0d3f763b2d59e1b6612101.webp', '[\"assets/images/products/62a85936c0d3616b53d7a80ea853e7529e9729bcb00428da36f0b8310e57ca63.webp\",\"assets/images/products/a87f3e2d0dd58d8464972819c60c2ecb979916cd6483406753e81b9db5587348.webp\",\"assets/images/products/799a89b46b68bdfd62fb8ffd70ccb2391a351f6fc5ed1c9a0b7d4a86e13fd2ff.webp\",\"assets/images/products/f4e19c64f4684e84e3f66cd4211e3c9682b6aa26513310d3c7ed512089baee91.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
 (3, 'M.O.I', 'Son dưỡng có màu Jelly Lipgloss M.O.I', 2, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '4.5 gram', 'Bảo quản nơi khô ráo. Tránh ánh nắng trực tiếp mặt trời, nhiệt độ cao.', 359000, 1650, 'assets/images/thumbnails/abe1c1fa1b047c49bc18a5a52fafb1b8b7497b5378945966dd1399d31bd2de88.webp', '[\"assets/images/products/8a3a23ccb982151cb818000b30c0d247bc2a9cd5453d5e41db3cab5eaf184ee1.webp\",\"assets/images/products/4fae91f2cb7b97d3b6fc3ef86aa02ad53cebfe08f8d1e1f34fb09e59fd2653bd.webp\",\"assets/images/products/82c2f42e64e17eda29e42b52af4ec7bb39bbf2056eec415b989cd9ad68efebdb.webp\",\"assets/images/products/47367d999f994a6da9cb64f436d65cf08af8eb5984317d036dd7e0a90008bb57.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
 (4, 'M.O.I', 'Son thỏi M.O.I the Stars phiên bản giới hạn mùa Lễ hội', 2, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '3.5g', 'Bảo quản nơi khô ráo. Tránh ánh nắng trực tiếp mặt trời, nhiệt độ cao.', 319000, 350, 'assets/images/thumbnails/cbb92615a2fca5ea23f81d6b5f1a2fe038f20785d650c758e9340981a9f51ff0.webp', '[\"assets/images/products/775f245bc796827e0d2ef1704e528219154c60d92e936a9e3c1f526b82d2c2ff.webp\",\"assets/images/products/59d3669fcfa396e5e007ab6ce773f620664afbe4564425ce32562102811100f4.webp\",\"assets/images/products/cb52d020661aa873de55d268fe4fe89039ee7e5d44c9edfc61dba3d75bcb1240.webp\",\"assets/images/products/0f389bd209ace48144a98ba008ec93151a5f1efc596351dc56fa8421d30322fc.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
-(5, 'M.O.I', '6 màu son kem nhung lì Sgirls by M.O.I', 2, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '3.5g', 'Bảo quản nơi khô ráo. Tránh ánh nắng trực tiếp mặt trời, nhiệt độ cao.', 299000, 300, 'assets/images/thumbnails/ea7d5ce196ed5ba570b7335d5c0f7fdd0858e1e0ee20ea7f6207896e8c409df1.webp', '[\"assets/images/products/93d712acb2c9dca7690cd92c7d3ec08cc2390565cecf26d65b16d711cf4482c7.webp\",\"assets/images/products/94bdef9d6e761bf6fe3e6b9bafbe73d29e399610d3189cde59d323ea4979407f\",\"assets/images/products/d2b439b0e33e8a7a4bcc1f5fdbef7340423a0e681bbb9ae8687dbc3b840fbab9.webp\",\"assets/images/products/9366b6517bd272d12ca9f6bbb7a230d311070ecb4cfeeafc71d4420d45056f62.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
+(5, 'M.O.I', '6 màu son kem nhung lì Sgirls by M.O.I', 2, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '3.5g', 'Bảo quản nơi khô ráo. Tránh ánh nắng trực tiếp mặt trời, nhiệt độ cao.', 299000, 300, 'assets/images/thumbnails/ea7d5ce196ed5ba570b7335d5c0f7fdd0858e1e0ee20ea7f6207896e8c409df1.webp', '[\"assets/images/products/93d712acb2c9dca7690cd92c7d3ec08cc2390565cecf26d65b16d711cf4482c7.webp\",\"assets/images/products/94bdef9d6e761bf6fe3e6b9bafbe73d29e399610d3189cde59d323ea4979407f.webp\",\"assets/images/products/d2b439b0e33e8a7a4bcc1f5fdbef7340423a0e681bbb9ae8687dbc3b840fbab9.webp\",\"assets/images/products/9366b6517bd272d12ca9f6bbb7a230d311070ecb4cfeeafc71d4420d45056f62.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
 (6, 'M.O.I', 'Phấn nước M.O.I Premium baby skin cushion', 3, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '12g', 'Bảo quản nơi khô ráo. Tránh ánh nắng trực tiếp mặt trời, nhiệt độ cao.', 599000, 1000, 'assets/images/thumbnails/731915630888b554c7a925c94f42999e7525cbca09bc0a683a9166930a832853.webp', '[\"assets/images/products/da0e5b435096231f1debbf8e21552803ee421132a8b90e477bb76e79f6e968e8.webp\",\"assets/images/products/f0e21d00aaf41cfbeb996fb7a16bc85440be25d07fb2324febe7560eb98a9de5.webp\",\"assets/images/products/dfefc2076b0d51e25a9f4d0ff146b76689d99d3888e775db8ed98f88f07585b2.webp\",\"assets/images/products/daa930e0687768d7b922f18b24ead9ab67732ccc4284489c411b074670bbbe2a.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
 (7, 'M.O.I', 'Phấn nước M.O.I Iconic perfection cushion', 3, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '12g', 'Bảo quản nơi khô ráo. Tránh ánh nắng trực tiếp mặt trời, nhiệt độ cao.', 399000, 300, 'assets/images/thumbnails/fa1dfdb9d5d00d7ae0f231ee358b40fc32e8099c12e780f58edd40633ebb7646.webp', '[\"assets/images/products/7371dfd22d9a6fa865a47a8b981d64abc58f1561842e18a3835e32b14d29ad7a.webp\",\"assets/images/products/31f8fe3064403bf194ba42b2cf50ef072a7fe0abcc87aee6f9b039956150870f.webp\",\"assets/images/products/f2816b437e84b64b7960e143270078f6714bd374c187fe258f24673e59595c23.webp\",\"assets/images/products/9627b63f9b3b7d91dc2566aaee1050d6eba30b552259a34846980c76f8d38ed5.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
 (8, 'M.O.I', 'Phấn nước M.O.I Baby skin cushion', 3, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '12g', 'Bảo quản nơi khô ráo. Tránh ánh nắng trực tiếp mặt trời, nhiệt độ cao.', 399000, 340, 'assets/images/thumbnails/36a9c7f85265a1f6efa2202233a7452bc15c2e2a6633d433085e19dbfaa95c83.webp', '[\"assets/images/products/66c24be77fb036fe863d150e89b6a806ff8fb2ca0819476d06eaf29851f9c4eb.webp\",\"assets/images/products/a75839eaaacb1bfe9579118ec7711ce281bc522c240a7c92ae79fed6eacb7f13.webp\",\"assets/images/products/791781de1a0a0fec9a6e72ba5584f98dafb2be1b4785dd880cfb8cb3e0780c88.webp\",\"assets/images/products/11db7f03c45389989bab980b4bdba2893d173cc91aab2509d05507e2c1e3e5e6.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
@@ -140,9 +104,9 @@ INSERT INTO `product` (`id`, `brand`, `name`, `category_id`, `origin`, `expiry_d
 (12, 'M.O.I', 'Son môi sáp cao cấp love M.O.I Matte Lipstick', 2, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '2.2g', 'Bảo quản nơi khô ráo. Tránh ánh nắng trực tiếp mặt trời, nhiệt độ cao.', 379000, 599, 'assets/images/thumbnails/ca2aca95720d8cfd3ac72a47b5a021ba45a830b8a7514b84d346100d84be6e6e.webp', '[\"assets/images/products/63de3e3c2b939d97d5d28c161851cf01807f33503088c1928f8b4bc29541184d.webp\",\"assets/images/products/f1e02f0b9160c51cd6e53ed10ea1101754a202f25e5b9154d2e92aefc47050c0.webp\",\"assets/images/products/9aefc858d0e8bb620f6acd6d4b7422b3314ed8c042118a8412722c51c613688a.webp\",\"assets/images/products/0bf02fabcc97b684d728f975d4535e87dec65a1109fc0d77c11da1ae6a3bb705.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
 (13, 'M.O.I', 'Bông tẩy trang 3 lớp cao cấp M.O.I 50 miếng', 5, 'Việt Nam', '5 năm kể từ ngày sản xuất', 'Gói 50 miếng', 'Đóng kín túi zip sau mỗi lần sử dụng. Tránh ánh nắng trực tiếp mặt trời, nhiệt độ cao.', 99000, 9458, 'assets/images/thumbnails/6cd379f6ca9d0e5daeaa0dfadbe090b6080b99f9926dc20ce6591fcb3a697ae4.webp', '[\"assets/images/products/d7ad87be32601887de5ab51d32a3a8156c9700c854ab4b646fa88c0c9d9b9eb0.webp\",\"assets/images/products/11bc1d209ebd5365a5f2633f0f9abfc7f72709f72c826dab26e39ca13d6ebac6.webp\",\"assets/images/products/5da05c6eaad9373347158ca31759fbf256bddcd3c232cda39370357c4bb0d56c.webp\",\"assets/images/products/2f83e9597e3cc68fa309c12bfc076b192188d48b70221e1f4accd69027118a6b.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
 (14, 'M.O.I', 'Nước tẩy trang M.O.I 40ml', 5, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '40ml', 'Bảo quản nơi khô ráo. Tránh ánh nắng trực tiếp mặt trời.', 99000, 500, 'assets/images/thumbnails/12e514b60d28b19c4e7c56681d202398348e1c42dfa9ffb94a282e90fbbdef84.webp', '[\"assets/images/products/cac91186673d0e4380d2d84dac09b775d279dfd5dde3da99850c7dc657ef5f98.webp\",\"assets/images/products/a6c2f2bd074722292990c9bf305836b28b918f569f9c1abc816d33a51cd6e678.webp\",\"assets/images/products/edc76cbe259ca80c0fa941b880cd2d19c1bce5052598e8760aaaea1d71360004.webp\",\"assets/images/products/4139508159bf73dd0ffa627f4cfb619df012a35c71e5820e5fb616d320e2ca39.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
-(15, 'M.O.I', 'Sữa rửa mặt by M.O.I', 5, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '200ml', 'Bảo quản nơi khô ráo/Tránh ánh nắng trực tiếp mặt trời.', 239000, 1000, 'assets/images/thumbnails/55cdf6ce90ee2349cd423e36bd420b72efe5ae36328d2e07479b312c6b984fa4.webp', '[\"assets/images/products/55cdf6ce90ee2349cd423e36bd420b72efe5ae36328d2e07479b312c6b984fa4.webp\",\"assets/images/products/a42e9a5ebedef12867aed85693011f71fdea037b8bc0b2fcca2778537684a3e0.webp\",\"assets/images/products/fd0762e76335dc8d234a4c864a380219140666909429f7c038ce4181bea5de6c.webp\",\"assets/images/products/976a2cce9485570957b6c1b1c690953638d685a0f3e5d8ba4e5bbc2965814fcc.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
+(15, 'M.O.I', 'Sữa rửa mặt by M.O.I', 5, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '200ml', 'Bảo quản nơi khô ráo/Tránh ánh nắng trực tiếp mặt trời.', 239000, 1000, 'assets/images/thumbnails/55cdf6ce90ee2349cd423e36bd420b72efe5ae36328d2e07479b312c6b984fa4.webp', '[\"assets/images/products/55cdf6ce90ee2349cd423e36bd420b72efe5ae36328d2e07479b312c6b984fa4.webp\",\"assets/images/products/a42e9a5ebedef12867aed85693011f71fdea037b8bc0b2fcca2778537684a3e.webp\",\"assets/images/products/fd0762e76335dc8d234a4c864a380219140666909429f7c038ce4181bea5de6c.webp\",\"assets/images/products/976a2cce9485570957b6c1b1c690953638d685a0f3e5d8ba4e5bbc2965814fcc.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
 (16, 'M.O.I', 'Kem chống nắng nâng tông tự nhiên M.O.I 10ml', 5, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '10ml', 'Bảo quản nơi khô ráo/Tránh ánh nắng trực tiếp mặt trời. ', 129000, 560, 'assets/images/thumbnails/ed819d15e37588c97776e3168a60a244426bcb83f6ceaf25d79d49be7ca484c6.webp', '[\"assets/images/products/8c4fc61d90bbb4c9f2048ce654a488cef3b53646b98bb0ae5365c1ba2721e626.webp\",\"assets/images/products/719cce4b066f9f306a52cc4f7796fc5deb75d8ed3f8a6d4f042c8c8ef8c4a2e5.webp\",\"assets/images/products/e32d7b734bb05058b2d017d0796e31598793948ac5f2c5cc030dfce1cad10113.webp\",\"assets/images/products/f013f38082d3bc4f28a1d5fe9e9fbd72dfbe3c7c2a477b19f9e0429fd2f434fb.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
-(17, 'M.O.I', 'Nước hoa hồng 5 trong 1 by M.O.I', 5, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '200ml', 'Đậy nắp kín sau khi sử dụng. Bảo quản nơi khô ráo, thoáng mát.', 249000, 450, 'assets/images/thumbnails/e0b725ec8041beccf2b8e8a08a4926a2cee282ac2e3225cf9a59365c01985223.webp', '[\"assets/images/products/3f61e2ea90baf4949b88c8319ec9133679b14c7d52850ec72c0d267f49faf0d5.jpeg\",\"assets/images/products/06f1d387201f0d3b0fbc624322dc7c1cf19a3cd4ec496b702af1e81a841255b6.webp\",\"assets/images/products/6f19b0f85e01e1ff120de885d0990e5b29731d958fbd376554bd3621a51de7a4.webp\",\"assets/images/products/04715745fb7352e534dfa638253db1cee4aa153efd52c65ed775a91f73647faa.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
+(17, 'M.O.I', 'Nước hoa hồng 5 trong 1 by M.O.I', 5, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '200ml', 'Đậy nắp kín sau khi sử dụng. Bảo quản nơi khô ráo, thoáng mát.', 249000, 450, 'assets/images/thumbnails/e0b725ec8041beccf2b8e8a08a4926a2cee282ac2e3225cf9a59365c01985223.webp', '[\"assets/images/products/3f61e2ea90baf4949b88c8319ec9133679b14c7d52850ec72c0d267f49faf0d5.webp\",\"assets/images/products/06f1d387201f0d3b0fbc624322dc7c1cf19a3cd4ec496b702af1e81a841255b6.webp\",\"assets/images/products/6f19b0f85e01e1ff120de885d0990e5b29731d958fbd376554bd3621a51de7a4.webp\",\"assets/images/products/04715745fb7352e534dfa638253db1cee4aa153efd52c65ed775a91f73647faa.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
 (18, 'M.O.I', 'Bộ sản phẩm chăm sóc da toàn diện M.O.I', 5, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '750ml+50 miếng ', 'Bảo quản nơi khô ráo. Tránh ánh nắng trực tiếp mặt trời.', 1297000, 876, 'assets/images/thumbnails/437e1a4a5c914f14a04d992ecfe2f37bf0f649b1107a294c46bb3ea479113a84.webp', '[\"assets/images/products/3fc2b6460f1dba82752b1c4941004bd304cdf3016c88997951422416d9334825.webp\",\"assets/images/products/9e43b964b11a450690f6dd0c7d5552b468b3965ca2a913d37d00fba9e637cd98.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
 (19, 'M.O.I', 'Nước hoa cao cấp DESTINY 10ml', 6, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '10ml', 'Đậy nắp kín sau khi sử dụng. Tránh ánh nắng trực tiếp mặt trời, nhiệt độ cao.', 329000, 1000, 'assets/images/thumbnails/780afdde72f416a28708e1fb020c1a4088cca13e49fb29012ad661dd20bb6e02.webp', '[\"assets/images/products/26aabbccc86ab2bfaabed9fda3cf19d09a37083094a6f7e5d32356b72f5cd6f2.webp\",\"assets/images/products/52bfd42538409b27efb30c9174b2255796ec439e14649514028c5009215c4219.webp\",\"assets/images/products/a703538cf66e47e74d3ceb39ca4582e7698c34973f387c0118402ed8d012a296.webp\",\"assets/images/products/de9d61d146a527070b9f4fa8def50551aa9b5ed1bc350a98181aefa77a4c4154.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
 (20, 'M.O.I', 'Nước hoa cao cấp DESTINY 50ML', 6, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '50ml', 'Bảo quản nơi khô ráo. Tránh ánh nắng trực tiếp mặt trời.', 899000, 670, 'assets/images/thumbnails/da40d1728baa048fbe37782b29e91a4062466fc2454e62fa0f1ac9e231e2cd34.webp', '[\"assets/images/products/9f2b33345524f40092330e102009f6a81f844880c45b036145c8dc02b038251b.webp\",\"assets/images/products/96c5bce4eb196fb193fec567e5ab7721a4f2e4a095b4fb3a3b7de2308e1faac4.webp\",\"assets/images/products/bfd58b4aab73a91a4c77f5fe340b99523989ae5b08f1c9274f0013e62057f32a.webp\",\"assets/images/products/e3ada8561dbe8fb6e08f9f0324d5f643a5434fdff813e4604dd94dd168688236.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
@@ -152,11 +116,6 @@ INSERT INTO `product` (`id`, `brand`, `name`, `category_id`, `origin`, `expiry_d
 (24, 'M.O.I', 'Chì kẻ mày', 5, 'Hàn Quốc', '3 năm kể từ ngày sản xuất', '35g', 'Đậy nắp kín sau khi sử dụng. Tránh ánh nắng trực trời.', 189000, 780, 'assets/images/thumbnails/03284e4c096a0540ff8644daaa11a0d609fba7adcfaeb9ad89856430627b67f9.webp', '[\"assets/images/products/c066761400580218e390e8daecaa501f5960ab75801d1a9074cd0ef0806e3cdf.webp\",\"assets/images/products/bd58713cedaf485227425c579de67eac8ca64b2de3fa4ed74672600e4a40b6ea.webp\",\"assets/images/products/82410543792ec9414a85d36c21a1df4c62da78ae96a7b2733f4dfe702b3f1f43.webp\",\"assets/images/products/4c7fca0b9f3a6a0f2d7913687c612b0415c705857a8b6b6eeaf37231ea929ade.webp\"]', '2023-11-16 15:34:35', NULL, NULL),
 (25, 'M.O.I', 'Bộ cọ trang điểm mắt', 5, 'Việt Nam', '3 năm kể từ ngày sản xuất', 'Bộ 8 cây', 'Bảo quản nơi khô ráo thoáng mát.', 335000, 500, 'assets/images/thumbnails/37ce0358192beaeaa98018c7e4675124179aa5ccad53ce36fdad78675c13c1b7.webp', '[\"assets/images/products/5d9c564336455dbd759d988ef70d7538ef1d94def6bfc2fc8f360eed62aac00d.webp\",\"assets/images/products/1e83281c537c352aec6ff35e54d7d0019b2154da220c864fda573dc7e7e98857.webp\",\"assets/images/products/38e637414fd9be579de10f5ddb70c914dda99c2ec3df72b0e66797bc1bd0bf59.webp\",\"assets/images/products/2768c9ebbcf90737aca8172c0511be8ced3920c59c999b9e4aeaa5afbbbb262a.webp\"]', '2023-11-16 15:34:35', NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `user`
---
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL COMMENT 'ID dùng để quản lý, tự động tăng',
@@ -173,9 +132,6 @@ CREATE TABLE `user` (
   `delete_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Đang đổ dữ liệu cho bảng `user`
---
 
 INSERT INTO `user` (`id`, `full_name`, `birth_year`, `gender`, `email`, `hashed_password`, `avatar_path`, `address`, `status`, `create_at`, `update_at`, `delete_at`) VALUES
 (1, 'Lê Minh Vương', 2003, 'male', 'vuonglmqe170148@fpt.edu.vn', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'assets/images/avatars/bf8a9d7de5fb8310df146a4f061a85ef4757f6930f7633b98f9c8f1b290154bd.webp', '[{\"province\":\"52\",\"district\":\"540\",\"ward\":\"21550\",\"specific\":\"Đại học FPT Quy Nhơn\"},{\"province\":\"52\",\"district\":\"547\",\"ward\":\"21808\",\"specific\":\"123 Trần Quang Diệu\"}]', 'activate', '2023-11-17 09:54:01', NULL, NULL),
@@ -193,123 +149,74 @@ INSERT INTO `user` (`id`, `full_name`, `birth_year`, `gender`, `email`, `hashed_
 (13, 'Phan Thu Thảo', 2003, 'female', 'thaoptqe170211@fpt.edu.vn', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'assets/images/avatars/eaddff5f5f12493f65962f9ad23c4b47eb82f30d825a8e475b80dd772dc3e01a.webp', '[{\"province\":\"52\",\"district\":\"540\",\"ward\":\"21550\",\"specific\":\"Đại học FPT Quy Nhơn\"},{\"province\":\"52\",\"district\":\"547\",\"ward\":\"21808\",\"specific\":\"123 Trần Quang Diệu\"}]', 'deactivate', '2023-11-20 22:57:37', NULL, NULL),
 (14, 'Tô Thế Vĩ', 2003, 'male', 'vittqe170234@fpt.edu.vn', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'assets/images/avatars/8bbd2ff5b8581dda54e15421dbd0e8280a8c9d99880f08e93b71957a13f0ef06.webp', '[{\"province\":\"52\",\"district\":\"540\",\"ward\":\"21550\",\"specific\":\"Đại học FPT Quy Nhơn\"},{\"province\":\"52\",\"district\":\"547\",\"ward\":\"21808\",\"specific\":\"123 Trần Quang Diệu\"}]', 'activate', '2023-11-16 15:34:35', NULL, NULL);
 
---
--- Chỉ mục cho các bảng đã đổ
---
 
---
--- Chỉ mục cho bảng `admin`
---
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
---
--- Chỉ mục cho bảng `cart`
---
+
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`user_id`,`product_id`),
   ADD KEY `product_id` (`product_id`);
 
---
--- Chỉ mục cho bảng `category`
---
+
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
---
--- Chỉ mục cho bảng `order`
---
+
 ALTER TABLE `order`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
---
--- Chỉ mục cho bảng `order_data`
---
+
 ALTER TABLE `order_data`
   ADD PRIMARY KEY (`order_id`,`product_id`),
   ADD KEY `product_id` (`product_id`);
 
---
--- Chỉ mục cho bảng `product`
---
+
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category_id` (`category_id`);
 
---
--- Chỉ mục cho bảng `user`
---
+
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
---
--- AUTO_INCREMENT cho các bảng đã đổ
---
 
---
--- AUTO_INCREMENT cho bảng `admin`
---
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID dùng để quản lý, tự động tăng', AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT cho bảng `category`
---
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID dùng để quản lý, tự động tăng', AUTO_INCREMENT=7;
 
---
--- AUTO_INCREMENT cho bảng `order`
---
+
 ALTER TABLE `order`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID dùng để quản lý, tự động tăng';
 
---
--- AUTO_INCREMENT cho bảng `product`
---
+
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID dùng để quản lý, tự động tăng', AUTO_INCREMENT=26;
 
---
--- AUTO_INCREMENT cho bảng `user`
---
+
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID dùng để quản lý, tự động tăng', AUTO_INCREMENT=15;
 
---
--- Các ràng buộc cho các bảng đã đổ
---
 
---
--- Các ràng buộc cho bảng `cart`
---
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
---
--- Các ràng buộc cho bảng `order`
---
+
 ALTER TABLE `order`
   ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
---
--- Các ràng buộc cho bảng `order_data`
---
+
 ALTER TABLE `order_data`
   ADD CONSTRAINT `order_data_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`),
   ADD CONSTRAINT `order_data_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
---
--- Các ràng buộc cho bảng `product`
---
+
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
