@@ -45,11 +45,13 @@ jobs:
       - name: 'Publish Miu Shop Database'
         working-directory: ${{ github.workspace }}/database
         run: |
-          docker build . --tag ghcr.io/hardingadonis/miu-shop-database:${{ steps.get_version.outputs.version }}
+          docker build . -t ghcr.io/hardingadonis/miu-shop-database:${{ steps.get_version.outputs.version }} -t ghcr.io/hardingadonis/miu-shop-database:latest
           docker push ghcr.io/hardingadonis/miu-shop-database:${{ steps.get_version.outputs.version }}
+          docker push ghcr.io/hardingadonis/miu-shop-database:latest
       
       - name: 'Publish Miu Shop Server'
         working-directory: ${{ github.workspace }}/server
         run: |
-          docker build . --tag ghcr.io/hardingadonis/miu-shop-server:${{ steps.get_version.outputs.version }}
+          docker build . -t ghcr.io/hardingadonis/miu-shop-server:${{ steps.get_version.outputs.version }} -t ghcr.io/hardingadonis/miu-shop-server:latest
           docker push ghcr.io/hardingadonis/miu-shop-server:${{ steps.get_version.outputs.version }}
+          docker push ghcr.io/hardingadonis/miu-shop-server:latest
