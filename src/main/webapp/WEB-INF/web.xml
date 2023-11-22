@@ -8,38 +8,6 @@
         <filter-name>DefaultFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    <servlet>
-        <servlet-name>HomeServlet</servlet-name>
-        <servlet-class>io.hardingadonis.miu.controller.web.HomeServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LogoutServlet</servlet-name>
-        <servlet-class>io.hardingadonis.miu.controller.web.LogoutServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>io.hardingadonis.miu.controller.web.LoginServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ProductDetailServlet</servlet-name>
-        <servlet-class>io.hardingadonis.miu.controller.web.ProductDetailServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>HomeServlet</servlet-name>
-        <url-pattern>/home</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LogoutServlet</servlet-name>
-        <url-pattern>/logout</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ProductDetailServlet</servlet-name>
-        <url-pattern>/product</url-pattern>
-    </servlet-mapping>
     <session-config>
         <session-timeout>
             15
