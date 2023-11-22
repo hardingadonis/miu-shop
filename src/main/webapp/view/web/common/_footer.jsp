@@ -45,7 +45,7 @@
                     <a href="home" class="nav-link text-dark">Thông tin</a>
                 </li>
                 <li class="nav-item">
-                    <a href="about" class="nav-link text-muted">Thông tin về Miu Shop</a>
+                    <a href="about" class="nav-link text-muted">Giới thiệu về Miu Shop</a>
                 </li>
             </ul>
         </div>
