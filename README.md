@@ -15,38 +15,6 @@
 - Maven 3+
 
 
-## Materials:
-<table>
-  <tr>
-    <td>#</td>
-    <td>Pages</td>
-    <td>Templates</td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Home Page</td>
-    <td rowspan="3">
-      🎥 <a href="https://youtu.be/KFpfE72KAYo">YouTube</a>
-    </td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Product Page</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>Product Detail Page</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>Login Page</td>
-    <td>
-      🎥 <a href="https://youtu.be/2XhPa-1pl4Y">YouTube</a>
-    </td>
-  </tr>
-</table>
-
-
 ## Contributors:
 
 <a href="https://github.com/hardingadonis/miu-shop/graphs/contributors">
@@ -58,4 +26,4 @@
 - [Miu Shop](https://github.com/hardingadonis/miu-shop) is under the [Apache-2.0 license](https://github.com/hardingadonis/miu-shop/blob/main/LICENSE).
 - [location_data.json](https://raw.githubusercontent.com/hardingadonis/miu-shop/main/database/location_data.json) is collected by [DiaGioiHanhChinhVN](https://github.com/kenzouno1/DiaGioiHanhChinhVN).
 - [favicon](https://github.com/hardingadonis/miu-shop/blob/main/src/main/webapp/assets/images/favicon/favicon.png) is under the [flaticon](https://www.flaticon.com/free-icon/cosmetics_3194619).
-- [Login Page Cover Image](https://unsplash.com/photos/white-and-orange-plastic-bottle-7tDGb3HrITg) under the [Unsplash License](https://unsplash.com/license).
+- [Login Page Cover Image](https://unsplash.com/photos/white-and-orange-plastic-bottle-7tDGb3HrITg), [About Page Cover Image](https://unsplash.com/photos/assorted-make-up-brushes-closed-up-photography-pxax5WuM7eY) are under the [Unsplash License](https://unsplash.com/license).
