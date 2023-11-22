@@ -1,0 +1,84 @@
+
+
+body {
+    background-color: #f8f9fa; /* Light grey background */
+    font-family: Arial, sans-serif; /* Font style for the whole page */
+    display: flex; /* Using flexbox for alignment */
+    justify-content: center; /* Centering horizontally */
+    align-items: center; /* Centering vertically */
+    min-height: 80vh; /* Full viewport height */
+    margin: 0; /* Removing default margin */
+}
+
+.container {
+    max-width: 800px; /* Restricting the form container width */
+    padding: 15px; /* Padding inside the container */
+    background-color: white; /* White background for the form */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow to the container */
+    border-radius: 8px; /* Rounded corners for the container */
+}
+
+.jumbotron {
+    padding: 20px; /* Padding inside the jumbotron */
+    max-width: 800px; 
+}
+
+.form-group label {
+    font-weight: bold; /* Making labels bold */
+}
+
+.form-control {
+    border-radius: 4px; /* Slightly rounded borders for input fields */
+    border: 1px solid #ced4da; /* Default Bootstrap input border color */
+    margin-bottom: 10px;
+}
+
+.form-check-label {
+    margin-left: 5px; /* Spacing between checkbox and label text */
+}
+
+.btn {
+    background: #646060;
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 4px; /* Rounded corners for the button */
+    color: white; /* White text for the button */
+    font-size: 16px; /* Font size for the button text */
+    width: 100%; /* Making the button full width */
+}
+
+.btn:hover {
+    background: black;
+    color: #fff;
+}
+
+.login {
+    text-align: center;
+    font-size: small;
+    margin-top: 25px;
+    font-size: 18px;
+}
+
+span a {
+    text-decoration: none;
+    font-weight: 700;
+    color: blue;
+}
+
+span a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+span a:focus{
+    text-decoration: none;
+    color: orange;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        width: auto;
+    }
+}
