@@ -54,8 +54,6 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        
-        System.out.println("Sex from request: " + sex);
         String defaultSex = "male"; 
         if (sex == null || sex.trim().isEmpty()) {
             sex = defaultSex; 
@@ -75,7 +73,7 @@ public class RegisterServlet extends HttpServlet {
                 newUser.setEmail(email);
                 newUser.setHashedPassword(Hash.SHA256(password));
                 newUser.setStatus(UserStatus.ACTIVATE);
-
+                
                 // Insert the new user using the UserDAO
                 Singleton.userDAO.insert(newUser);
 

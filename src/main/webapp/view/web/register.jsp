@@ -32,9 +32,9 @@
 
                     <div class="col-sm-12 form-group">
                         <label for="sex">Giới tính</label>
-                        <select id="sex" class="form-control browser-default custom-select">
-                            <option value="male" selected>Male</option>
-                            <option value="female">Female</option>
+                        <select name="sex" id="sex" class="form-control browser-default custom-select">
+                            <option value="male" ${"male".equals(request.getParameter("sex")) ? "selected" : ""}>Male</option>
+                            <option value="female" ${"female".equals(request.getParameter("sex")) ? "selected" : ""}>Female</option>
                         </select>
                     </div>
 
