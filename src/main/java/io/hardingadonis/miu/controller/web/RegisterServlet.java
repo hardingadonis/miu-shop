@@ -1,6 +1,8 @@
 package io.hardingadonis.miu.controller.web;
 
 import java.io.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -74,47 +76,55 @@ public class RegisterServlet extends HttpServlet {
 
         /* Process*/
         String name = request.getParameter("name");
-        String yob = request.getParameter("yob");
+        int yob = Integer.parseInt(request.getParameter("yob"));
         String sex = request.getParameter("sex");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        
+        // Hash mật khẩu trước khi lưu vào cơ sở dữ liệu
+        String hashedPassword = null;
+        try {
+            hashedPassword = hashPassword(password);
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         try {
-            // Kết nối đến cơ sở dữ liệu (thay đổi thông tin kết nối tùy vào cấu hình của bạn)
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/miu", "root", "");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/miu", "root", "");
 
             // Kiểm tra xem email đã tồn tại chưa
-            if (isEmailExists(connection, email)) {
+            if (isEmailExists(conn, email)) {
                 out.println("<h2>Email đã tồn tại, vui lòng sử dụng email khác.</h2>");
             } else {
                 // Thêm dữ liệu vào cơ sở dữ liệu
-                String query = "INSERT INTO user (full_name, birth_year, gender, email, hassed_password) VALUES (?, ?, ?, ?, ?)";
-                try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                String query = "INSERT INTO user (full_name, birth_year, gender, email, hashed_password,status) VALUES (?, ?, ?, ?, ?,'active')";
+                try (PreparedStatement preparedStatement = conn.prepareStatement(query)) {
                     preparedStatement.setString(1, name);
-                    preparedStatement.setString(2, yob);
+                    preparedStatement.setInt(2, yob);
                     preparedStatement.setString(3, sex);
                     preparedStatement.setString(4, email);
-                    preparedStatement.setString(5, password);
+                    preparedStatement.setString(5, hashedPassword);
 
                     int rowsAffected = preparedStatement.executeUpdate();
                     if (rowsAffected > 0) {
-                        out.println("<h2>Đăng ký thành công!</h2>");
+                        out.println("Register Successfully!");
+                        response.sendRedirect("login");
                     } else {
-                        out.println("<h2>Có lỗi xảy ra, vui lòng thử lại sau.</h2>");
+                        out.println("Register fail. Please try again!");
                     }
                 }
             }
 
-            connection.close();
+            conn.close();
         } catch (ClassNotFoundException | SQLException e) {
-            out.println("<h2>Có lỗi xảy ra, vui lòng thử lại sau.</h2>");
+            out.println("Register fail. Please try again!");
             e.printStackTrace();
         }
 
         out.close();
 
-        response.sendRedirect("login");
+        
     }
 
     private boolean isEmailExists(Connection connection, String email) throws SQLException {
@@ -124,6 +134,21 @@ public class RegisterServlet extends HttpServlet {
             return preparedStatement.executeQuery().next();
         }
     }
+    
+    private String hashPassword(String password) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        byte[] hashedBytes = md.digest(password.getBytes());
+        StringBuilder hexString = new StringBuilder();
+        for (byte b : hashedBytes) {
+            String hex = Integer.toHexString(0xff & b);
+            if (hex.length() == 1) {
+                hexString.append('0');
+            }
+            hexString.append(hex);
+        }
+        return hexString.toString();
+    }
+    
 
     /**
      * Returns a short description of the servlet.
