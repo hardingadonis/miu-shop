@@ -88,12 +88,5 @@ public class RegisterServlet extends HttpServlet {
 
         out.close();
     }
-    private boolean isEmailExists(Connection connection, String email) throws SQLException {
-        String query = "SELECT * FROM user WHERE email=?";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, email);
-            return preparedStatement.executeQuery().next();
-        }
-    }
-
+    
 }
