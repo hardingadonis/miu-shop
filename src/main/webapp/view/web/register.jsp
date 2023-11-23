@@ -31,9 +31,9 @@
                     </div>
 
                     <div class="col-sm-12 form-group">
-                        <label for="sex">Giới tính<span class="text-danger">(*)</span></label>
+                        <label for="sex">Giới tính</label>
                         <select id="sex" class="form-control browser-default custom-select">
-                            <option value="male">Male</option>
+                            <option value="male" selected>Male</option>
                             <option value="female">Female</option>
                         </select>
                     </div>

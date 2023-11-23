@@ -54,8 +54,11 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
+        
+        System.out.println("Sex from request: " + sex);
+        String defaultSex = "male"; 
         if (sex == null || sex.trim().isEmpty()) {
-            sex = "Male"; // Giá trị mặc định
+            sex = defaultSex; 
         }
 
         try {
