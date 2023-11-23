@@ -35,20 +35,19 @@ CREATE TABLE `cart` (
 CREATE TABLE `category` (
   `id` int(11) NOT NULL COMMENT 'ID dùng để quản lý, tự động tăng',
   `name` varchar(30) NOT NULL COMMENT 'Tên loại sản phẩm',
-  `slug` varchar(30) NOT NULL COMMENT 'Đường dẫn trên web',
   `create_at` datetime DEFAULT NULL,
   `update_at` datetime DEFAULT NULL,
   `delete_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
-INSERT INTO `category` (`id`, `name`, `slug`, `create_at`, `update_at`, `delete_at`) VALUES
-(1, 'Mặt nạ', 'fb.com', '2023-11-16 15:34:35', NULL, NULL),
-(2, 'Son môi', 'fb.com', '2023-11-16 15:34:35', NULL, NULL),
-(3, 'Phấn nước', 'fb.com', '2023-11-16 15:34:35', NULL, NULL),
-(4, 'Phấn phủ', 'fb.com', '2023-11-16 15:34:35', NULL, NULL),
-(5, 'Chăm sóc da & Trang điểm', 'fb.com', '2023-11-16 15:34:35', NULL, NULL),
-(6, 'Nước hoa', 'fb.com', '2023-11-16 15:34:35', NULL, NULL);
+INSERT INTO `category` (`id`, `name`, `create_at`, `update_at`, `delete_at`) VALUES
+(1, 'Mặt nạ', '2023-11-16 15:34:35', NULL, NULL),
+(2, 'Son môi', '2023-11-16 15:34:35', NULL, NULL),
+(3, 'Phấn nước', '2023-11-16 15:34:35', NULL, NULL),
+(4, 'Phấn phủ', '2023-11-16 15:34:35', NULL, NULL),
+(5, 'Chăm sóc da & Trang điểm', '2023-11-16 15:34:35', NULL, NULL),
+(6, 'Nước hoa', '2023-11-16 15:34:35', NULL, NULL);
 
 
 CREATE TABLE `order` (
