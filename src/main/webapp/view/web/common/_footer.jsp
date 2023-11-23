@@ -34,7 +34,7 @@
                     <a href="home" class="nav-link text-dark">Mã nguồn</a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://github.com/hardingadonis/miu-shop" class="nav-link text-muted">
+                    <a href="https://github.com/hardingadonis/miu-shop" target="_blank" class="nav-link text-muted">
                         <i class="fab fa-github"></i>
                         GitHub
                     </a>
