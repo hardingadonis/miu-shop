@@ -14,3 +14,15 @@ function validateForm() {
         return true; // Cho phép việc gửi form
     }
 }
+
+function setupEmailFocusEvent() {
+    var emailInput = document.getElementById("email");
+
+    if (emailInput) {
+        emailInput.addEventListener("focus", function () {
+            document.getElementById("emailError").innerHTML = ""; // Ẩn thông báo lỗi
+        });
+    }
+}
+    // Gọi hàm setupEmailFocusEvent để thiết lập sự kiện khi trang được tải
+        setupEmailFocusEvent();
