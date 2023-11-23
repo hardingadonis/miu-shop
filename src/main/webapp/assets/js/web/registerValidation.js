@@ -1,5 +1,7 @@
 
 function validateForm() {
+
+    // Kiểm tra mật khẩu khớp nhau
     var password = document.getElementById("pass").value;
     var confirmPassword = document.getElementById("pass2").value;
     var pass2Error = document.getElementById("pass2Error");

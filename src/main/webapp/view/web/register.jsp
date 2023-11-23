@@ -40,7 +40,10 @@
 
                     <div class="col-sm-12 form-group">
                         <label for="email">Email<span class="text-danger">(*)</span></label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" required value="${email}">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" required value="${email}" onfocus="hideErrorMessage()">
+                        <c:if test="${param.emailExist == 'true'}">
+                            <small id="emailError" class="text-danger">Email đã tồn tại. Vui lòng sử dụng email khác.</small>
+                        </c:if>
                     </div>      
 
                     <div class="col-sm-12 form-group">

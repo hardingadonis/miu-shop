@@ -51,16 +51,16 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        String defaultSex = "male";
-        if (sex == null || sex.trim().isEmpty()) {
-            sex = defaultSex;
-        }
+//        String defaultSex = "male";
+//        if (sex == null || sex.trim().isEmpty()) {
+//            sex = defaultSex;
+//        }
 
         try {
             // Check if email already exists
             User existingUser = Singleton.userDAO.get(email);
             if (existingUser != null) {
-                out.println("Email đã tồn tại, vui lòng sử dụng email khác.");
+                response.sendRedirect("register?emailExist=true");
             } else {
                 // Create a new user object
                 User newUser = new User();
