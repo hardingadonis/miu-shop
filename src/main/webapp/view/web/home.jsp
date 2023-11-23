@@ -72,7 +72,7 @@
                 </div>
             </div>
 
-            <a href="#" class="btn btn-outline-dark my-5">Tất cả sản phẩm</a>
+            <a href="search" class="btn btn-outline-dark my-5">Tất cả sản phẩm</a>
         </div>
 
         <%@include file="common/_footer.jsp" %>
