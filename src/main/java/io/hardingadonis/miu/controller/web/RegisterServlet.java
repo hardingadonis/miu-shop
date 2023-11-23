@@ -1,23 +1,20 @@
 package io.hardingadonis.miu.controller.web;
 
+import io.hardingadonis.miu.model.User;
+import io.hardingadonis.miu.model.detail.UserGender;
+import io.hardingadonis.miu.model.detail.UserStatus;
 import io.hardingadonis.miu.services.Hash;
+import io.hardingadonis.miu.services.Singleton;
 import java.io.*;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
 @WebServlet(name = "register", urlPatterns = {"/register"})
 public class RegisterServlet extends HttpServlet {
-
-    
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -62,47 +59,34 @@ public class RegisterServlet extends HttpServlet {
         }
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/miu", "root", "");
-
-            // Kiểm tra xem email đã tồn tại chưa
-            if (isEmailExists(conn, email)) {
+            // Check if email already exists
+            User existingUser = Singleton.userDAO.get(email);
+            if (existingUser != null) {
                 out.println("<h2>Email đã tồn tại, vui lòng sử dụng email khác.</h2>");
             } else {
-                // Thêm dữ liệu vào cơ sở dữ liệu
-                String query = "INSERT INTO user (full_name, birth_year, gender, email, hashed_password, status) VALUES (?, ?, ?, ?, ?, ?)";
-                try (PreparedStatement preparedStatement = conn.prepareStatement(query)) {
-                    preparedStatement.setString(1, name);
-                    preparedStatement.setInt(2, yob);
-                    preparedStatement.setString(3, sex);
-                    preparedStatement.setString(4, email);
-                    preparedStatement.setString(5, Hash.SHA256(password)); // Băm mật khẩu trước khi lưu
-                    preparedStatement.setString(6, "activate");
+                // Create a new user object
+                User newUser = new User();
+                newUser.setFullName(name);
+                newUser.setBirthYear(yob);
+                newUser.setGender(UserGender.create(sex));
+                newUser.setEmail(email);
+                newUser.setHashedPassword(Hash.SHA256(password));
+                newUser.setStatus(UserStatus.ACTIVATE);
 
-                    conn.setAutoCommit(true);
+                // Insert the new user using the UserDAO
+                Singleton.userDAO.insert(newUser);
 
-                    int rowsAffected = preparedStatement.executeUpdate();
-                    System.out.println("Rows affected: " + rowsAffected);
-                    if (rowsAffected > 0) {
-                        out.println("Register Successfully!");
-                        response.sendRedirect("login");
-                    } else {
-                        out.println("Register fail. Please try again!");
-                    }
-                }
+                out.println("Register Successfully!");
+                response.sendRedirect("login?success=true");
             }
-
-            conn.close();
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (Exception e) {
             out.println("Fail!");
             e.printStackTrace(out);
-            out.println("Database error: " + e.getMessage());
+            out.println("Error: " + e.getMessage());
         }
 
         out.close();
-
     }
-
     private boolean isEmailExists(Connection connection, String email) throws SQLException {
         String query = "SELECT * FROM user WHERE email=?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -110,6 +94,5 @@ public class RegisterServlet extends HttpServlet {
             return preparedStatement.executeQuery().next();
         }
     }
-
 
 }

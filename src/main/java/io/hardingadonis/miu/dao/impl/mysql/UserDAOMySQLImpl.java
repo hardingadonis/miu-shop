@@ -197,10 +197,17 @@ public class UserDAOMySQLImpl implements UserDAO {
             smt.setString(4, obj.getEmail());
             smt.setString(5, obj.getHashedPassword());
             smt.setString(6, obj.getAvatarPath());
-            smt.setString(7, toJson(obj.getAddress()));
+            // Check if the address is not null
+            if (obj.getAddress() != null) {
+                smt.setString(7, toJson(obj.getAddress()));
+            } else {
+                smt.setNull(7, Types.VARCHAR);
+            }
             smt.setString(8, obj.getStatus().toString());
             smt.setString(9, Converter.convert(LocalDateTime.now()));
 
+            smt.executeUpdate();
+            
             Singleton.dbContext.closeConnection(conn);
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
