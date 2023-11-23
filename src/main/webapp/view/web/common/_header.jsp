@@ -67,8 +67,8 @@
                     <ul class="navbar-nav d-flex justify-content-center align-items-center pt-3">
                         <c:forEach var="category" items="${Singleton.categoryDAO.getAll()}">
                             <li class="nav-item mx-2">
-                                <a href="<c:out value='${category.slug}'/>" class="nav-link">
-                                    <c:out value='${category.name}'/>
+                                <a href="search?category_id=${category.ID}" class="nav-link">
+                                    ${category.name}
                                 </a>
                             </li>
                         </c:forEach>

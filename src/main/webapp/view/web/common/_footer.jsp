@@ -9,8 +9,8 @@
                 </li>
                 <c:forEach var="category" items="${Singleton.categoryDAO.getAll()}">
                     <li class="nav-item">
-                        <a href="<c:out value='${category.slug}'/>" class="nav-link text-muted">
-                            <c:out value='${category.name}'/>
+                        <a href="search?category_id=${category.ID}" class="nav-link text-muted">
+                            ${category.name}
                         </a>
                     </li>
                 </c:forEach>
