@@ -54,9 +54,9 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        String defaultSex = "male"; 
+        String defaultSex = "male";
         if (sex == null || sex.trim().isEmpty()) {
-            sex = defaultSex; 
+            sex = defaultSex;
         }
 
         try {
@@ -73,12 +73,12 @@ public class RegisterServlet extends HttpServlet {
                 newUser.setEmail(email);
                 newUser.setHashedPassword(Hash.SHA256(password));
                 newUser.setStatus(UserStatus.ACTIVATE);
-                
+
                 // Insert the new user using the UserDAO
                 Singleton.userDAO.insert(newUser);
 
-                out.println("Register Successfully!");
-                response.sendRedirect("login?success=true");
+                response.sendRedirect("login?registerSuccess=true");
+
             }
         } catch (Exception e) {
             out.println("Fail!");
@@ -88,5 +88,5 @@ public class RegisterServlet extends HttpServlet {
 
         out.close();
     }
-    
+
 }

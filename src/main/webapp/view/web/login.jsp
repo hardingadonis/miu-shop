@@ -17,7 +17,24 @@
     </head>
     <body>
         <div class="wrapper">
-            <div class="container main">
+
+
+            <%-- Kiểm tra xem có URL parameter registerSuccess hay không --%>
+            <c:if test="${param.registerSuccess == 'true'}">
+                <style>
+                    .main {
+                        min-height: 75vh;
+                        padding-bottom: 8.5vh;
+                    }
+                </style>
+                
+                <div class="alert alert-success mx-auto" role="alert" style="max-width: 500px;">
+                    Bạn đã đăng ký thành công. Vui lòng đăng nhập để tiếp tục.
+                </div>
+            </c:if>
+
+
+            <div class="container main">     
                 <div class="row">
                     <div class="col-md-6 side-image">
                     </div>
@@ -46,7 +63,7 @@
                 </div>
             </div>
         </div>
-        
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/web/loginHandler.js"></script>
     </body>
