@@ -2,12 +2,12 @@ version: '3'
 
 services:
   database:
-    image: ghcr.io/hardingadonis/miu-shop-database:1.0.0
+    image: ghcr.io/hardingadonis/miu-shop-database:latest
     ports:
       - "3306:3306"
   
   server:
-    image: ghcr.io/hardingadonis/miu-shop-server:1.0.0
+    image: ghcr.io/hardingadonis/miu-shop-server:latest
     ports:
       - "8080:8080"
     depends_on:
