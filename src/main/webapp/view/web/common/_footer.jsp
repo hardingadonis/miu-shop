@@ -9,8 +9,8 @@
                 </li>
                 <c:forEach var="category" items="${Singleton.categoryDAO.getAll()}">
                     <li class="nav-item">
-                        <a href="<c:out value='${category.slug}'/>" class="nav-link text-muted">
-                            <c:out value='${category.name}'/>
+                        <a href="search?category_id=${category.ID}" class="nav-link text-muted">
+                            ${category.name}
                         </a>
                     </li>
                 </c:forEach>
@@ -34,7 +34,7 @@
                     <a href="home" class="nav-link text-dark">Mã nguồn</a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://github.com/hardingadonis/miu-shop" class="nav-link text-muted">
+                    <a href="https://github.com/hardingadonis/miu-shop" target="_blank" class="nav-link text-muted">
                         <i class="fab fa-github"></i>
                         GitHub
                     </a>

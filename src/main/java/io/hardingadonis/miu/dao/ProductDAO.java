@@ -12,6 +12,8 @@ public interface ProductDAO {
     public List<Product> getAllByPrice(int min, int max);
     
     public List<Product> getRandom(int limit);
+    
+    public List<Product> getBySearch(String name, int categoryID, int offset, int limit);
 
     public Product get(int ID);
 
@@ -26,4 +28,6 @@ public interface ProductDAO {
     public int countByCategoryID(int categoryID);
 
     public int countByPrice(int min, int max);
+    
+    public int countBySerach(String name, int categoryID);
 }

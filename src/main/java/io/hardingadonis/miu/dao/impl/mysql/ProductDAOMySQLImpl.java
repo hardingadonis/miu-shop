@@ -153,6 +153,54 @@ public class ProductDAOMySQLImpl implements ProductDAO {
     }
 
     @Override
+    public List<Product> getBySearch(String name, int categoryID, int offset, int limit) {
+        List<Product> list = new ArrayList<>();
+
+        StringBuilder query = new StringBuilder("SELECT * FROM product WHERE delete_at IS NULL");
+
+        if (categoryID > 0) {
+            query.append(" AND category_id = ?");
+        }
+
+        if ((name != null) && (!name.isEmpty())) {
+            query.append(" AND name LIKE ?");
+        }
+
+        query.append(" LIMIT ?, ?");
+
+        try {
+            Connection conn = Singleton.dbContext.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement(query.toString());
+
+            int parameterIndex = 1;
+
+            if (categoryID > 0) {
+                smt.setInt(parameterIndex++, categoryID);
+            }
+
+            if ((name != null) && (!name.isEmpty())) {
+                smt.setString(parameterIndex++, "%" + name + "%");
+            }
+
+            smt.setInt(parameterIndex++, offset);
+            smt.setInt(parameterIndex, limit);
+
+            ResultSet rs = smt.executeQuery();
+
+            while (rs.next()) {
+                list.add(getFromResultSet(rs));
+            }
+
+            Singleton.dbContext.closeConnection(conn);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return list;
+    }
+
+    @Override
     public Product get(int ID) {
         Product product = null;
 
@@ -305,6 +353,49 @@ public class ProductDAOMySQLImpl implements ProductDAO {
             PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM product WHERE delete_at IS NULL AND price BETWEEN ? AND ?");
             smt.setInt(1, min);
             smt.setInt(2, max);
+
+            ResultSet rs = smt.executeQuery();
+
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+
+            Singleton.dbContext.closeConnection(conn);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return count;
+    }
+
+    @Override
+    public int countBySerach(String name, int categoryID) {
+        int count = 0;
+
+        StringBuilder query = new StringBuilder("SELECT COUNT(*) FROM product WHERE delete_at IS NULL");
+
+        if (categoryID > 0) {
+            query.append(" AND category_id = ?");
+        }
+
+        if ((name != null) && (!name.isEmpty())) {
+            query.append(" AND name LIKE ?");
+        }
+
+        try {
+            Connection conn = Singleton.dbContext.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement(query.toString());
+
+            int parameterIndex = 1;
+
+            if (categoryID > 0) {
+                smt.setInt(parameterIndex++, categoryID);
+            }
+
+            if ((name != null) && (!name.isEmpty())) {
+                smt.setString(parameterIndex++, "%" + name + "%");
+            }
 
             ResultSet rs = smt.executeQuery();
 

@@ -11,8 +11,8 @@
             </button>
             <div class="collapse navbar-collapse p-2 flex-column" id="navbarContent">
                 <div class="d-flex justify-content-center justify-content-lg-between flex-column flex-lg-row w-100">
-                    <form class="d-flex">
-                        <input type="search" class="form-control me-2" placeholder="Tìm kiếm" />
+                    <form class="d-flex" action="search" method="get">
+                        <input name="name" type="search" class="form-control me-2" placeholder="Tìm kiếm" />
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="fas fa-search"></i>
                         </button>
@@ -67,8 +67,8 @@
                     <ul class="navbar-nav d-flex justify-content-center align-items-center pt-3">
                         <c:forEach var="category" items="${Singleton.categoryDAO.getAll()}">
                             <li class="nav-item mx-2">
-                                <a href="<c:out value='${category.slug}'/>" class="nav-link">
-                                    <c:out value='${category.name}'/>
+                                <a href="search?category_id=${category.ID}" class="nav-link">
+                                    ${category.name}
                                 </a>
                             </li>
                         </c:forEach>
