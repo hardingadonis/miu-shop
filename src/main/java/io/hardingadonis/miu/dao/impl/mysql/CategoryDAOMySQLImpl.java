@@ -12,12 +12,11 @@ public class CategoryDAOMySQLImpl implements CategoryDAO {
     private static Category getFromResultSet(ResultSet rs) throws SQLException {
         int ID = rs.getInt("id");
         String name = rs.getString("name");
-        String slug = rs.getString("slug");
         LocalDateTime createAt = Converter.convert(rs.getTimestamp("create_at"));
         LocalDateTime updateAt = Converter.convert(rs.getTimestamp("update_at"));
         LocalDateTime deleteAt = Converter.convert(rs.getTimestamp("delete_at"));
 
-        return new Category(ID, name, slug, createAt, updateAt, deleteAt);
+        return new Category(ID, name, createAt, updateAt, deleteAt);
     }
 
     @Override
@@ -72,10 +71,9 @@ public class CategoryDAOMySQLImpl implements CategoryDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("INSERT INTO category(name, slug, create_at) VALUES (?, ?, ?)");
+            PreparedStatement smt = conn.prepareStatement("INSERT INTO category(name, create_at) VALUES (?, ?, ?)");
             smt.setString(1, obj.getName());
-            smt.setString(2, obj.getSlug());
-            smt.setString(3, Converter.convert(obj.getCreateAt()));
+            smt.setString(2, Converter.convert(obj.getCreateAt()));
 
             smt.executeUpdate();
 
@@ -90,11 +88,10 @@ public class CategoryDAOMySQLImpl implements CategoryDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("UPDATE category SET name = ?, slug = ?, update_at = ? WHERE id = ? AND delete_at IS NULL");
+            PreparedStatement smt = conn.prepareStatement("UPDATE category SET name = ?, update_at = ? WHERE id = ? AND delete_at IS NULL");
             smt.setString(1, obj.getName());
-            smt.setString(2, obj.getSlug());
-            smt.setString(3, Converter.convert(LocalDateTime.now()));
-            smt.setInt(4, obj.getID());
+            smt.setString(2, Converter.convert(LocalDateTime.now()));
+            smt.setInt(3, obj.getID());
 
             smt.executeUpdate();
 
