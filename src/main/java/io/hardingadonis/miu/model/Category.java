@@ -6,7 +6,6 @@ public class Category {
 
     private int ID;
     private String name;
-    private String slug;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
     private LocalDateTime deleteAt;
@@ -14,23 +13,20 @@ public class Category {
     public Category() {
     }
 
-    public Category(String name, String slug) {
+    public Category(String name) {
         this.name = name;
-        this.slug = slug;
     }
 
-    public Category(String name, String slug, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
+    public Category(String name, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
         this.name = name;
-        this.slug = slug;
         this.createAt = createAt;
         this.updateAt = updateAt;
         this.deleteAt = deleteAt;
     }
 
-    public Category(int ID, String name, String slug, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
+    public Category(int ID, String name, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
         this.ID = ID;
         this.name = name;
-        this.slug = slug;
         this.createAt = createAt;
         this.updateAt = updateAt;
         this.deleteAt = deleteAt;
@@ -50,14 +46,6 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getSlug() {
-        return slug;
-    }
-
-    public void setSlug(String slug) {
-        this.slug = slug;
     }
 
     public LocalDateTime getCreateAt() {
@@ -86,6 +74,6 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category{" + "ID=" + ID + ", name=" + name + ", slug=" + slug + ", createAt=" + createAt + ", updateAt=" + updateAt + ", deleteAt=" + deleteAt + '}';
+        return "Category{" + "ID=" + ID + ", name=" + name + ", createAt=" + createAt + ", updateAt=" + updateAt + ", deleteAt=" + deleteAt + '}';
     }
 }
