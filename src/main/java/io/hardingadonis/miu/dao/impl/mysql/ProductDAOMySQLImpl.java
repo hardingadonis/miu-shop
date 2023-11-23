@@ -186,8 +186,6 @@ public class ProductDAOMySQLImpl implements ProductDAO {
             smt.setInt(parameterIndex++, offset);
             smt.setInt(parameterIndex, limit);
 
-            System.out.println(smt.toString());
-
             ResultSet rs = smt.executeQuery();
 
             while (rs.next()) {
