@@ -15,19 +15,21 @@ public class UserDAOMySQLImpl implements UserDAO {
     private static List<UserAddress> toList(String json) {
         List<UserAddress> list = new ArrayList<>();
 
-        try {
-            JSONArray arr = (JSONArray) new JSONParser().parse(json);
+        if (json != null) {
+            try {
+                JSONArray arr = (JSONArray) new JSONParser().parse(json);
 
-            for (Object address : arr) {
-                String province = (String) ((JSONObject) address).get("province");
-                String district = (String) ((JSONObject) address).get("district");
-                String ward = (String) ((JSONObject) address).get("ward");
-                String specific = (String) ((JSONObject) address).get("specific");
+                for (Object address : arr) {
+                    String province = (String) ((JSONObject) address).get("province");
+                    String district = (String) ((JSONObject) address).get("district");
+                    String ward = (String) ((JSONObject) address).get("ward");
+                    String specific = (String) ((JSONObject) address).get("specific");
 
-                list.add(new UserAddress(province, district, ward, specific));
+                    list.add(new UserAddress(province, district, ward, specific));
+                }
+            } catch (ParseException ex) {
+                System.err.println(ex.getMessage());
             }
-        } catch (ParseException ex) {
-            System.err.println(ex.getMessage());
         }
 
         return list;
@@ -207,7 +209,7 @@ public class UserDAOMySQLImpl implements UserDAO {
             smt.setString(9, Converter.convert(LocalDateTime.now()));
 
             smt.executeUpdate();
-            
+
             Singleton.dbContext.closeConnection(conn);
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
