@@ -6,9 +6,6 @@ import io.hardingadonis.miu.model.detail.UserStatus;
 import io.hardingadonis.miu.services.Hash;
 import io.hardingadonis.miu.services.Singleton;
 import java.io.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
@@ -63,7 +60,7 @@ public class RegisterServlet extends HttpServlet {
             // Check if email already exists
             User existingUser = Singleton.userDAO.get(email);
             if (existingUser != null) {
-                out.println("<h2>Email đã tồn tại, vui lòng sử dụng email khác.</h2>");
+                out.println("Email đã tồn tại, vui lòng sử dụng email khác.");
             } else {
                 // Create a new user object
                 User newUser = new User();

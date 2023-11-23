@@ -56,7 +56,7 @@
                     <div class="col-sm-12 d-flex align-items-center mt-1">
                         <input type="checkbox" class="form-check d-inline" id="chb" required>
                         <label for="chb" class="form-check-label">
-                            &nbsp;Tôi chấp nhận tất cả các <span><a href="home">điều khoản</a></span>
+                            &nbsp;Tôi chấp nhận tất cả các <span><a href="about" target="_blank">điều khoản</a></span>
                         </label>
                     </div>
 
