@@ -162,7 +162,7 @@ public class ProductDAOMySQLImpl implements ProductDAO {
             query.append(" AND category_id = ?");
         }
 
-        if (!name.isEmpty()) {
+        if ((name != null) && (!name.isEmpty())) {
             query.append(" AND name LIKE ?");
         }
 
@@ -179,7 +179,7 @@ public class ProductDAOMySQLImpl implements ProductDAO {
                 smt.setInt(parameterIndex++, categoryID);
             }
 
-            if (!name.isEmpty()) {
+            if ((name != null) && (!name.isEmpty())) {
                 smt.setString(parameterIndex++, "%" + name + "%");
             }
 
