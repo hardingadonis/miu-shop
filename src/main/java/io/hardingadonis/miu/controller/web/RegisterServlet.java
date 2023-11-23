@@ -1,5 +1,6 @@
 package io.hardingadonis.miu.controller.web;
 
+import io.hardingadonis.miu.services.Hash;
 import java.io.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -80,13 +81,9 @@ public class RegisterServlet extends HttpServlet {
         String sex = request.getParameter("sex");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        
-        // Hash mật khẩu trước khi lưu vào cơ sở dữ liệu
-        String hashedPassword = null;
-        try {
-            hashedPassword = hashPassword(password);
-        } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
+
+        if (sex == null || sex.trim().isEmpty()) {
+            sex = "Male"; // Giá trị mặc định
         }
 
         try {
@@ -98,15 +95,19 @@ public class RegisterServlet extends HttpServlet {
                 out.println("<h2>Email đã tồn tại, vui lòng sử dụng email khác.</h2>");
             } else {
                 // Thêm dữ liệu vào cơ sở dữ liệu
-                String query = "INSERT INTO user (full_name, birth_year, gender, email, hashed_password,status) VALUES (?, ?, ?, ?, ?,'active')";
+                String query = "INSERT INTO user (full_name, birth_year, gender, email, hashed_password, status) VALUES (?, ?, ?, ?, ?, ?)";
                 try (PreparedStatement preparedStatement = conn.prepareStatement(query)) {
                     preparedStatement.setString(1, name);
                     preparedStatement.setInt(2, yob);
                     preparedStatement.setString(3, sex);
                     preparedStatement.setString(4, email);
-                    preparedStatement.setString(5, hashedPassword);
+                    preparedStatement.setString(5, Hash.SHA256(password)); // Băm mật khẩu trước khi lưu
+                    preparedStatement.setString(6, "activate");
+
+                    conn.setAutoCommit(true);
 
                     int rowsAffected = preparedStatement.executeUpdate();
+                    System.out.println("Rows affected: " + rowsAffected);
                     if (rowsAffected > 0) {
                         out.println("Register Successfully!");
                         response.sendRedirect("login");
@@ -118,13 +119,13 @@ public class RegisterServlet extends HttpServlet {
 
             conn.close();
         } catch (ClassNotFoundException | SQLException e) {
-            out.println("Register fail. Please try again!");
-            e.printStackTrace();
+            out.println("Fail!");
+            e.printStackTrace(out);
+            out.println("Database error: " + e.getMessage());
         }
 
         out.close();
 
-        
     }
 
     private boolean isEmailExists(Connection connection, String email) throws SQLException {
@@ -134,21 +135,6 @@ public class RegisterServlet extends HttpServlet {
             return preparedStatement.executeQuery().next();
         }
     }
-    
-    private String hashPassword(String password) throws NoSuchAlgorithmException {
-        MessageDigest md = MessageDigest.getInstance("SHA-256");
-        byte[] hashedBytes = md.digest(password.getBytes());
-        StringBuilder hexString = new StringBuilder();
-        for (byte b : hashedBytes) {
-            String hex = Integer.toHexString(0xff & b);
-            if (hex.length() == 1) {
-                hexString.append('0');
-            }
-            hexString.append(hex);
-        }
-        return hexString.toString();
-    }
-    
 
     /**
      * Returns a short description of the servlet.
