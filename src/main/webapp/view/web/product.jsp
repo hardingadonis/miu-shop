@@ -49,7 +49,7 @@
                                     int categoryID = ((Product) request.getAttribute("product")).getCategoryID();
                                     Category category = Singleton.categoryDAO.get(categoryID);
                                 %>
-                                <a href="<%=category.getSlug()%>"><%=category.getName()%></a>
+                                <a href="search?category_id=<%=categoryID%>"><%=category.getName()%></a>
                             </span>
 
                             <div class="d-flex flex-row my-3">
