@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/register.css" />
 
         <title>Miu Shop | Đăng ký</title>
+        
     </head>
     <body>
         <div class="mt-3">
@@ -21,7 +22,7 @@
                     </div>
 
                     <div class="col-sm-6 form-group">
-                        <label for="name">Họ và tên<span class="text-danger">(*)</span></label>
+                        <label for="name">Họ và tên<span class="text-danger"> *</span></label>
                         <input type="text" class="form-control" name="name" id="name" placeholder="Enter your full name" required>
                     </div>
 

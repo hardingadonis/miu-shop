@@ -1,8 +1,7 @@
 package io.hardingadonis.miu.controller.web;
 
 import io.hardingadonis.miu.model.User;
-import io.hardingadonis.miu.model.detail.UserGender;
-import io.hardingadonis.miu.model.detail.UserStatus;
+import io.hardingadonis.miu.model.detail.*;
 import io.hardingadonis.miu.services.Hash;
 import io.hardingadonis.miu.services.Singleton;
 import java.io.*;
@@ -13,14 +12,6 @@ import javax.servlet.http.*;
 @WebServlet(name = "register", urlPatterns = {"/register"})
 public class RegisterServlet extends HttpServlet {
 
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -30,14 +21,7 @@ public class RegisterServlet extends HttpServlet {
         request.getRequestDispatcher("/view/web/register.jsp").forward(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -50,11 +34,6 @@ public class RegisterServlet extends HttpServlet {
         String sex = request.getParameter("sex");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
-//        String defaultSex = "male";
-//        if (sex == null || sex.trim().isEmpty()) {
-//            sex = defaultSex;
-//        }
 
         try {
             // Check if email already exists
