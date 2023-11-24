@@ -2,9 +2,13 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.wrapper {
-    background-color: #ececec;
-    padding: 0 20px 0 20px
+body {
+    background-image: url('../../images/covers/d8c447f52ed8adc4ec394b0d1a0b7cda88dc9c90b6e3795796c90dd27267214b.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    backdrop-filter: blur(5px);
 }
 
 .main {
