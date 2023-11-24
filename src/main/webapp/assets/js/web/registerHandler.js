@@ -1,6 +1,7 @@
 const form = document.getElementById('register-form');
 const fullNameInput = document.getElementById('full-name');
 const birthYearInput = document.getElementById('birth-year');
+const genderInputs = document.querySelectorAll('input[name="gender"]');
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 const confirmPasswordInput = document.getElementById('confirm-password');
@@ -11,9 +12,13 @@ form.addEventListener('submit', function (event) {
 
     removeExtraSpaces(fullNameInput);
 
-    const birthYearValue = birthYearInput.value;
     const emailValue = emailInput.value;
     const passwordValue = passwordInput.value;
+
+    if (isSelectedGender() === false) {
+        errorMessage.textContent = 'Chưa chọn giới tính!';
+        return;
+    }
 
     if (!isValidEmail(emailValue)) {
         errorMessage.textContent = 'Email không hợp lệ!';
@@ -94,4 +99,17 @@ function isStrongPassword(password) {
     }
 
     return true;
+}
+
+function isSelectedGender() {
+    let genderSelected = false;
+
+    for (var i = 0; i < genderInputs.length; i++) {
+        if (genderInputs[i].checked) {
+            genderSelected = true;
+            break;
+        }
+    }
+
+    return genderSelected;
 }
