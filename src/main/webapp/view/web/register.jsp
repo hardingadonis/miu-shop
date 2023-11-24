@@ -19,7 +19,7 @@
         <div class="container main">
             <div class="register-container p-5">
                 <header>Đăng ký</header>
-                <form action="">
+                <form id="register-form" action="register" method="post">
                     <div class="row">
                         <div class="col-lg-6 col-sm-12">
                             <div class="input-field">
@@ -68,7 +68,7 @@
 
                     <div class="input-field m-2" id="submit-form">
                         <input type="submit" class="submit" value="Xác nhận">
-                        <div id="error-message" class="text-danger">${errorMsg}</div>
+                        <div id="error-message" class="text-danger mt-3">${errorMsg}</div>
                     </div>
 
                     <div class="login">

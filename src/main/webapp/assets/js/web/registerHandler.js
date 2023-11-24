@@ -1,28 +1,97 @@
+const form = document.getElementById('register-form');
+const fullNameInput = document.getElementById('full-name');
+const birthYearInput = document.getElementById('birth-year');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+const confirmPasswordInput = document.getElementById('confirm-password');
+const errorMessage = document.getElementById('error-message');
 
-function validateForm() {
+form.addEventListener('submit', function (event) {
+    event.preventDefault();
 
-    // Kiểm tra mật khẩu khớp nhau
-    var password = document.getElementById("pass").value;
-    var confirmPassword = document.getElementById("pass2").value;
-    var pass2Error = document.getElementById("pass2Error");
+    removeExtraSpaces(fullNameInput);
 
-    if (password !== confirmPassword) {
-        pass2Error.innerHTML = "Mật khẩu không khớp. Vui lòng nhập lại.";
-        return false; // Ngăn chặn việc gửi form
-    } else {
-        pass2Error.innerHTML = "";
-        return true; // Cho phép việc gửi form
+    const birthYearValue = birthYearInput.value;
+    const emailValue = emailInput.value;
+    const passwordValue = passwordInput.value;
+
+    if (!isValidEmail(emailValue)) {
+        errorMessage.textContent = 'Email không hợp lệ!';
+        emailInput.focus();
+        return;
     }
+
+    if (!isStrongPassword(passwordValue)) {
+        errorMessage.textContent = 'Mật khẩu phải có ít nhất 6 ký tự, trong đó có ít nhất 1 chữ số, 1 chữ cái viết hoa, 1 ký tự đặc biệt!';
+        passwordInput.focus();
+        return;
+    }
+
+    if (!isPasswordaMatch(passwordValue, confirmPasswordInput.value)) {
+        errorMessage.textContent = 'Mật khẩu không khớp!';
+        confirmPasswordInput.focus();
+        return;
+    }
+
+    this.submit();
+});
+
+birthYearInput.addEventListener('input', function () {
+    removeNonNumericCharacters(birthYearInput);
+
+    if (birthYearInput.value.length > 4) {
+        birthYearInput.value = birthYearInput.value.slice(0, 4);
+    }
+});
+
+emailInput.addEventListener('input', function () {
+    removeSpaces(emailInput);
+});
+
+passwordInput.addEventListener('input', function () {
+    removeSpaces(passwordInput);
+});
+
+confirmPasswordInput.addEventListener('input', function () {
+    removeSpaces(confirmPasswordInput);
+});
+
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-function setupEmailFocusEvent() {
-    var emailInput = document.getElementById("email");
-
-    if (emailInput) {
-        emailInput.addEventListener("focus", function () {
-            document.getElementById("emailError").innerHTML = ""; // Ẩn thông báo lỗi
-        });
-    }
+function removeSpaces(input) {
+    input.value = input.value.replace(/\s/g, '');
 }
-    // Gọi hàm setupEmailFocusEvent để thiết lập sự kiện khi trang được tải
-        setupEmailFocusEvent();
+
+function removeExtraSpaces(input) {
+    input.value = input.value.replace(/\s+/g, ' ').trim();
+}
+
+function removeNonNumericCharacters(input) {
+    input.value = input.value.replace(/[^0-9]/g, '');
+}
+
+function isPasswordaMatch(password, confirmPassword) {
+    return password === confirmPassword;
+}
+
+function isStrongPassword(password) {
+    if (password.length < 6) {
+        return false;
+    }
+
+    if (!/\d/.test(password)) {
+        return false;
+    }
+
+    if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(password)) {
+        return false;
+    }
+
+    if (!/[A-Z]/.test(password)) {
+        return false;
+    }
+
+    return true;
+}
