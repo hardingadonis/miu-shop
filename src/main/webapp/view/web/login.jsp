@@ -18,11 +18,10 @@
     <body>
         <div class="wrapper">
 
-
             <%-- Kiểm tra xem có URL parameter registerSuccess hay không --%>
             <c:if test="${param.registerSuccess == 'true'}">
                 <style>
-                    .main {
+                    .main { 
                         min-height: 75vh;
                         padding-bottom: 8.5vh;
                     }
@@ -32,7 +31,6 @@
                     Bạn đã đăng ký thành công. Vui lòng đăng nhập để tiếp tục.
                 </div>
             </c:if>
-
 
             <div class="container main">     
                 <div class="row">
