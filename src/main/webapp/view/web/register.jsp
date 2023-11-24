@@ -70,6 +70,10 @@
                         <input type="submit" class="submit" value="Xác nhận">
                         <div id="error-message" class="text-danger">${errorMsg}</div>
                     </div>
+
+                    <div class="login">
+                        <span>Đã có tài khoản? <a href="login">Đăng nhập ngay</a></span>
+                    </div>
                 </form>
             </div>
         </div>

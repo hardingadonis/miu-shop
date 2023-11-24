@@ -106,3 +106,21 @@ body {
     border-color: #000 !important;
     color: #fff !important;
 }
+
+.login {
+    text-align: center;
+    font-size: small;
+    margin-top: 25px;
+}
+
+span a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #000000;
+    transition: .5s;
+}
+
+span a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
