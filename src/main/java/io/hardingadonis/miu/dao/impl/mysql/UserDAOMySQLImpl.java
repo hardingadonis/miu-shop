@@ -15,21 +15,19 @@ public class UserDAOMySQLImpl implements UserDAO {
     private static List<UserAddress> toList(String json) {
         List<UserAddress> list = new ArrayList<>();
 
-        if (json != null) {
-            try {
-                JSONArray arr = (JSONArray) new JSONParser().parse(json);
+        try {
+            JSONArray arr = (JSONArray) new JSONParser().parse(json);
 
-                for (Object address : arr) {
-                    String province = (String) ((JSONObject) address).get("province");
-                    String district = (String) ((JSONObject) address).get("district");
-                    String ward = (String) ((JSONObject) address).get("ward");
-                    String specific = (String) ((JSONObject) address).get("specific");
+            for (Object address : arr) {
+                String province = (String) ((JSONObject) address).get("province");
+                String district = (String) ((JSONObject) address).get("district");
+                String ward = (String) ((JSONObject) address).get("ward");
+                String specific = (String) ((JSONObject) address).get("specific");
 
-                    list.add(new UserAddress(province, district, ward, specific));
-                }
-            } catch (ParseException ex) {
-                System.err.println(ex.getMessage());
+                list.add(new UserAddress(province, district, ward, specific));
             }
+        } catch (ParseException ex) {
+            System.err.println(ex.getMessage());
         }
 
         return list;
@@ -199,15 +197,10 @@ public class UserDAOMySQLImpl implements UserDAO {
             smt.setString(4, obj.getEmail());
             smt.setString(5, obj.getHashedPassword());
             smt.setString(6, obj.getAvatarPath());
-            // Check if the address is not null
-            if (obj.getAddress() != null) {
-                smt.setString(7, toJson(obj.getAddress()));
-            } else {
-                smt.setNull(7, Types.VARCHAR);
-            }
+            smt.setString(7, toJson(obj.getAddress()));
             smt.setString(8, obj.getStatus().toString());
             smt.setString(9, Converter.convert(LocalDateTime.now()));
-
+            
             smt.executeUpdate();
 
             Singleton.dbContext.closeConnection(conn);
@@ -232,6 +225,8 @@ public class UserDAOMySQLImpl implements UserDAO {
             smt.setString(8, obj.getStatus().toString());
             smt.setString(9, Converter.convert(LocalDateTime.now()));
             smt.setInt(10, obj.getID());
+            
+            smt.executeUpdate();
 
             Singleton.dbContext.closeConnection(conn);
         } catch (SQLException ex) {
