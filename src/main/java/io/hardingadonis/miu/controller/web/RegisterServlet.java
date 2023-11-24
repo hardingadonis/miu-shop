@@ -53,6 +53,8 @@ public class RegisterServlet extends HttpServlet {
             
             Singleton.userDAO.insert(user);
             
+            Singleton.email.sendWelcomeEmail(user);
+            
             response.sendRedirect("login?" + REGISTER_SUCCESS_PARAM + "=true");
         } else {
             String errorMsg = "Email đã tồn tại!";
