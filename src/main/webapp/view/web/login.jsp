@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="input-field" id="submit-form">
                                     <input type="submit" class="submit" value="Đăng nhập">
-                                    <div id="error-message" class="text-danger">${errorMsg}</div>
+                                    <div id="error-message" class="text-danger mt-3">${errorMsg}</div>
                                 </div>
                             </form>
                             <div class="register">

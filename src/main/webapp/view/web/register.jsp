@@ -13,67 +13,68 @@
         <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/assets/images/favicon/favicon.png">
 
         <title>Miu Shop | Đăng ký</title>
-        
     </head>
     <body>
-        <div class="mt-3">
-            <form onsubmit="return validateForm()" id="register-form" action="register" method="post">
-                <div class="row jumbotron box8 border border-dark rounded bg-light">
-                    <div class="col-sm-12 mx-t3 mb-4">
-                        <h3 class="text-center text-white bg-dark p-3 rounded">ĐĂNG KÝ</h3>
+
+        <div class="container main">
+            <div class="register-container p-5">
+                <header>Đăng ký</header>
+                <form id="register-form" action="register" method="post">
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-12">
+                            <div class="input-field">
+                                <input name="full-name"" type="text" class="input" id="full-name" required value="${fullName}">
+                                <label for="full-name"">Họ và tên</label>
+                            </div>
+                            <div class="input-field">
+                                <input name="birth-year" type="text" class="input" id="birth-year" required value="${birthYear}">
+                                <label for="birth-year">Năm sinh</label>
+                            </div>
+
+                            <div class="input-field-gender">
+                                <label for="gender">Giới tính</label>
+                                <div class="m-1 p-1">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="male" value="male" ${gender eq 'male' ? 'checked' : ''}>
+                                        <label class="form-check-label" for="male">
+                                            Nam
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="female" value="female" ${gender eq 'female' ? 'checked' : ''}>
+                                        <label class="form-check-label" for="female">
+                                            Nữ
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-sm-12">
+                            <div class="input-field">
+                                <input name="email" type="text" class="input" id="email" required value="${email}">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input name="password" type="password" class="input" id="password" required>
+                                <label for="password">Mật khẩu</label>
+                            </div>
+                            <div class="input-field">
+                                <input name="confirm-password" type="password" class="input" id="confirm-password" required>
+                                <label for="confirm-password">Xác nhận mật khẩu</label>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="col-sm-6 form-group">
-                        <label for="name">Họ và tên<span class="text-danger"> *</span></label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your full name" required>
+                    <div class="input-field m-2" id="submit-form">
+                        <input type="submit" class="submit" value="Xác nhận">
+                        <div id="error-message" class="text-danger mt-3">${errorMsg}</div>
                     </div>
 
-                    <div class="col-sm-6 form-group">
-                        <label for="yob">Năm sinh<span class="text-danger">(*)</span></label>
-                        <input type="number" name="yob" class="form-control" id="yob" placeholder="" required>
+                    <div class="login">
+                        <span>Đã có tài khoản? <a href="login">Đăng nhập ngay</a></span>
                     </div>
-
-                    <div class="col-sm-12 form-group">
-                        <label for="sex">Giới tính</label>
-                        <select name="sex" id="sex" class="form-control browser-default custom-select">
-                            <option value="male" ${"male".equals(request.getParameter("sex")) ? "selected" : ""}>Male</option>
-                            <option value="female" ${"female".equals(request.getParameter("sex")) ? "selected" : ""}>Female</option>
-                        </select>
-                    </div>
-
-                    <div class="col-sm-12 form-group">
-                        <label for="email">Email<span class="text-danger">(*)</span></label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" required value="${email}">
-                        <c:if test="${param.emailExist == 'true'}">
-                            <small id="emailError" class="text-danger">Email đã tồn tại. Vui lòng sử dụng email khác.</small>
-                        </c:if>
-                    </div>      
-
-                    <div class="col-sm-12 form-group">
-                        <label for="pass">Mật khẩu<span class="text-danger">(*)</span></label>
-                        <input type="Password" name="password" class="form-control" id="pass" placeholder="Enter your password" required>
-                    </div>
-
-                    <div class="col-sm-12 form-group">
-                        <label for="pass2">Xác nhận mật khẩu<span class="text-danger">(*)</span></label>
-                        <input type="Password" name="cnf-password" class="form-control" id="pass2" placeholder="Re-enter your password" required>
-                        <small id="pass2Error" class="text-danger"></small>
-                    </div>
-                    <div class="col-sm-12 d-flex align-items-center mt-1">
-                        <input type="checkbox" class="form-check d-inline" id="chb" required>
-                        <label for="chb" class="form-check-label">
-                            &nbsp;Tôi chấp nhận tất cả các <span><a href="about" target="_blank">điều khoản</a></span>
-                        </label>
-                    </div>
-
-                    <div class="form-group mt-3 mb-0">
-                        <button class="btn">Đăng ký</button>
-                    </div>
-                </div>
-            </form>
-
-            <div class="login">
-                <span>Đã có tài khoản? <a href="login">Đăng nhập ngay!</a></span>
+                </form>
             </div>
         </div>
 
