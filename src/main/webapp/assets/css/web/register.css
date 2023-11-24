@@ -1,84 +1,104 @@
-
-
-body {
-    background-color: #f8f9fa; /* Light grey background */
-    font-family: Arial, sans-serif; /* Font style for the whole page */
-    display: flex; /* Using flexbox for alignment */
-    justify-content: center; /* Centering horizontally */
-    align-items: center; /* Centering vertically */
-    min-height: 80vh; /* Full viewport height */
-    margin: 0; /* Removing default margin */
+* {
+    font-family: 'Poppins', sans-serif;
 }
 
-.container {
-    max-width: 800px; /* Restricting the form container width */
-    padding: 15px; /* Padding inside the container */
-    background-color: white; /* White background for the form */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow to the container */
-    border-radius: 8px; /* Rounded corners for the container */
+.wrapper {
+    background-color: #ececec;
+    padding: 0 20px 0 20px
 }
 
-.jumbotron {
-    padding: 20px; /* Padding inside the jumbotron */
-    max-width: 800px; 
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-.form-group label {
-    font-weight: bold; /* Making labels bold */
+.register-container {
+    width: 65%;
+    min-height: 400px;
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
 }
 
-.form-control {
-    border-radius: 4px; /* Slightly rounded borders for input fields */
-    border: 1px solid #ced4da; /* Default Bootstrap input border color */
-    margin-bottom: 10px;
-}
-
-.form-check-label {
-    margin-left: 5px; /* Spacing between checkbox and label text */
-}
-
-.btn {
-    background: #646060;
-    padding: 10px 20px; /* Padding for the button */
-    border-radius: 4px; /* Rounded corners for the button */
-    color: white; /* White text for the button */
-    font-size: 16px; /* Font size for the button text */
-    width: 100%; /* Making the button full width */
-}
-
-.btn:hover {
-    background: black;
-    color: #fff;
-}
-
-.login {
-    text-align: center;
-    font-size: small;
-    margin-top: 20px;
-    font-size: 18px;
-}
-
-span a {
-    text-decoration: none;
+.register-container header {
     font-weight: 700;
-    color: blue;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 45px;
 }
 
-span a:hover {
-    text-decoration: underline;
-    color: blue;
+.input-field {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 10px 0 10px;
 }
 
-span a:focus{
-    text-decoration: none;
-    color: orange;
+.input {
+    height: 45px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    margin-bottom: 20px;
+    color: #40414a;
 }
 
+.register-container .input-field label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: none;
+    transition: .3s;
+}
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .container {
-        margin: 10px;
-        width: auto;
-    }
+.input-field .input:focus~label {
+    top: -10px;
+    font-size: 13px;
+}
+
+.input-field .input:valid~label {
+    top: -10px;
+    font-size: 13px;
+    color: rgb(33, 37, 41);
+}
+
+.input-field .input:focus,
+.input-field .input:valid {
+    border-bottom: 1px solid rgb(33, 37, 41);
+}
+
+#submit-form {
+    align-items: center;
+}
+
+.submit {
+    margin: 0 0;
+    border: none;
+    outline: none;
+    height: 45px;
+    width: 50%;
+    background: #ececec;
+    border-radius: 5px;
+    transition: .2s;
+}
+
+.submit:hover {
+    background: rgba(33, 37, 41, 0.9);
+    color: #ffffff;
+}
+
+.input-field-gender {
+    display: block;
+    margin-bottom: 20px;
+    padding: 0 10px 0 10px;
+}
+
+.form-check-input:checked {
+    background-color: #000 !important;
+    border-color: #000 !important;
+    color: #fff !important;
 }
