@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse p-2 flex-column" id="navbarContent">
                 <div class="d-flex justify-content-center justify-content-lg-between flex-column flex-lg-row w-100">
                     <form class="d-flex" action="search" method="get">
-                        <input name="name" type="search" class="form-control me-2" placeholder="Tìm kiếm" />
+                        <input name="search-name" type="search" class="form-control me-2" placeholder="Tìm kiếm" />
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="fas fa-search"></i>
                         </button>

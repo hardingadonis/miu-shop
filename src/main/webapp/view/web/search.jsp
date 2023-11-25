@@ -58,7 +58,7 @@
             <div class="m-5 p-5 pagination">
                 <c:if test="${end_page > 1}">
                     <%
-                        String name = (String) request.getAttribute("name");
+                        String searchName = (String) request.getAttribute("search_name");
                         int category_id = (int) request.getAttribute("category_id");
                         int endPage = (int) request.getAttribute("end_page");
                         int currentPage = (int) request.getAttribute("current_page");
@@ -70,8 +70,8 @@
                                 href.append("&category_id=").append(category_id);
                             }
 
-                            if (name != null) {
-                                href.append("&name=").append(name);
+                            if (searchName != null) {
+                                href.append("&search-name=").append(searchName);
                             }
 
                             String isCurrent = (currentPage == i) ? "page-current" : "";
