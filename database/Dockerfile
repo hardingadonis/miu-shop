@@ -15,5 +15,10 @@ ENV MYSQL_ALLOW_EMPTY_PASSWORD yes
 # Set the default database name
 ENV MYSQL_DATABASE=miu
 
+# Set the default charset and collation
+ENV LANG=C.UTF-8
+ENV MYSQL_CHARSET=utf8mb4
+ENV MYSQL_COLLATION=utf8mb4_general_ci
+
 # Set the default port
 EXPOSE 3306
