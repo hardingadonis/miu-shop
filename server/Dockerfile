@@ -5,7 +5,6 @@ LABEL org.opencontainers.image.description="Container that runs Tomcat for Miu S
 LABEL org.opencontainers.image.licenses=Apache-2.0
 
 LABEL maintainer=hardingadonis@gmail.com
-LABEL maintainer=hardingadonis@gmail.com
 
 # Copy the war file to the container
 COPY ./*.war /usr/local/tomcat/webapps/miu.war
