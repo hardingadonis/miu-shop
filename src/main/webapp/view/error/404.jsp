@@ -27,21 +27,6 @@
                         <img src="https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif" alt="404" class="img-fluid" />
                     </div>
                 </div>
-                <!-- <div class="col-sm-12 justify-content-center">
-                    <div class="col-sm-10 col-sm-offset-1 text-center">
-                        <div class="four_zero_four_bg">
-                            <h1 class="text-center ">404</h1>
-                        </div>
-
-                        <div class="contant_box_404">
-                            <h3 class="h2">
-                                Có vẻ như bạn đang bị lạc
-                            </h3>
-
-                            <a href="home" class="btn btn-light">Trở về trang chủ</a>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
 
