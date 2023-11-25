@@ -35,30 +35,35 @@
                 </div>
 
                 <div class="col-lg-9 justify-content-between">
-                    <div class="row">
-                        <c:forEach var="item" items="${requestScope.products}">
-                            <div class="col-lg-4 col-sm-6 m-0 product">
-                                <div class="card m-4 product-detail">
-                                    <a href="product?id=${item.ID}">
-                                        <img src="<%=request.getContextPath()%>/${item.thumbnail}" class="card-img-top">
-                                    </a>
-                                    <div class="card-body">
-                                        <p class="card-text font-weight-bold">
-                                            <a href="product?id=${item.ID}">${item.name}</a>
-                                        </p>
-                                        <span class="text-muted price">${item.price}</span>
+                    <c:if test="${end_page > 0}">
+                        <div class="row">
+                            <c:forEach var="item" items="${requestScope.products}">
+                                <div class="col-lg-4 col-sm-6 m-0 product">
+                                    <div class="card m-4 product-detail">
+                                        <a href="product?id=${item.ID}">
+                                            <img src="<%=request.getContextPath()%>/${item.thumbnail}" class="card-img-top">
+                                        </a>
+                                        <div class="card-body">
+                                            <p class="card-text font-weight-bold">
+                                                <a href="product?id=${item.ID}">${item.name}</a>
+                                            </p>
+                                            <span class="text-muted price">${item.price}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </c:forEach>
-                    </div>
+                            </c:forEach>
+                        </div>
+                    </c:if>
+                    <c:if test="${end_page == 0}">
+                        <h3 class="m-5 p-5">Không tìm thấy kết quả nào</h3>
+                    </c:if>
                 </div>
             </div>
 
             <div class="m-5 p-5 pagination">
                 <c:if test="${end_page > 1}">
                     <%
-                        String name = (String) request.getAttribute("name");
+                        String searchName = (String) request.getAttribute("search_name");
                         int category_id = (int) request.getAttribute("category_id");
                         int endPage = (int) request.getAttribute("end_page");
                         int currentPage = (int) request.getAttribute("current_page");
@@ -70,8 +75,8 @@
                                 href.append("&category_id=").append(category_id);
                             }
 
-                            if (name != null) {
-                                href.append("&name=").append(name);
+                            if (searchName != null) {
+                                href.append("&search-name=").append(searchName);
                             }
 
                             String isCurrent = (currentPage == i) ? "page-current" : "";

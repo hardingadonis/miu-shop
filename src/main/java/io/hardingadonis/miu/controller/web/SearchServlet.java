@@ -19,14 +19,14 @@ public class SearchServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
 
-        String name = parseName(request);
+        String searchName = parseName(request);
         int categoryID = parseCategoryID(request);
-        int endPage = (int) Math.ceil(Singleton.productDAO.countBySerach(name, categoryID) / (double) PRODUCTS_PER_PAGE);
+        int endPage = (int) Math.ceil(Singleton.productDAO.countBySerach(searchName, categoryID) / (double) PRODUCTS_PER_PAGE);
         int page = parsePage(request, endPage);
 
-        List<Product> products = Singleton.productDAO.getBySearch(name, categoryID, (page - 1) * PRODUCTS_PER_PAGE, PRODUCTS_PER_PAGE);
+        List<Product> products = Singleton.productDAO.getBySearch(searchName, categoryID, (page - 1) * PRODUCTS_PER_PAGE, PRODUCTS_PER_PAGE);
 
-        request.setAttribute("name", name);
+        request.setAttribute("search_name", searchName);
         request.setAttribute("category_id", categoryID);
         request.setAttribute("current_page", page);
         request.setAttribute("end_page", endPage);
@@ -36,13 +36,13 @@ public class SearchServlet extends HttpServlet {
     }
 
     private static String parseName(HttpServletRequest request) {
-        String name = request.getParameter("name");
+        String searchName = request.getParameter("search-name");
 
-        if ((name != null) && (name.isEmpty())) {
-            name = null;
+        if ((searchName != null) && (searchName.isEmpty())) {
+            searchName = null;
         }
 
-        return name;
+        return searchName;
     }
 
     private static int parseCategoryID(HttpServletRequest request) {

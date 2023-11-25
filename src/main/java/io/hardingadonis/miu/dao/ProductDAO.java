@@ -29,5 +29,5 @@ public interface ProductDAO {
 
     public int countByPrice(int min, int max);
     
-    public int countBySerach(String name, int categoryID);
+    public int countBySerach(String searchName, int categoryID);
 }

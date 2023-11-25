@@ -369,7 +369,7 @@ public class ProductDAOMySQLImpl implements ProductDAO {
     }
 
     @Override
-    public int countBySerach(String name, int categoryID) {
+    public int countBySerach(String searchName, int categoryID) {
         int count = 0;
 
         StringBuilder query = new StringBuilder("SELECT COUNT(*) FROM product WHERE delete_at IS NULL");
@@ -378,7 +378,7 @@ public class ProductDAOMySQLImpl implements ProductDAO {
             query.append(" AND category_id = ?");
         }
 
-        if ((name != null) && (!name.isEmpty())) {
+        if ((searchName != null) && (!searchName.isEmpty())) {
             query.append(" AND name LIKE ?");
         }
 
@@ -393,8 +393,8 @@ public class ProductDAOMySQLImpl implements ProductDAO {
                 smt.setInt(parameterIndex++, categoryID);
             }
 
-            if ((name != null) && (!name.isEmpty())) {
-                smt.setString(parameterIndex++, "%" + name + "%");
+            if ((searchName != null) && (!searchName.isEmpty())) {
+                smt.setString(parameterIndex++, "%" + searchName + "%");
             }
 
             ResultSet rs = smt.executeQuery();
