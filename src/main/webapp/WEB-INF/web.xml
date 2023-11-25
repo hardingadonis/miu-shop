@@ -17,6 +17,10 @@
         <error-code>404</error-code>
         <location>/view/error/404.jsp</location>
     </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/view/error/500.jsp</location>
+    </error-page>
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
