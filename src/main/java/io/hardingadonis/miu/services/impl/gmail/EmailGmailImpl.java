@@ -42,13 +42,13 @@ public class EmailGmailImpl implements Email {
         Session session = Session.getInstance(this.props, this.getAuthenticator());
 
         try {
-            Message message = new MimeMessage(session);
+            MimeMessage message = new MimeMessage(session);
 
             message.setFrom(new InternetAddress(this.email));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(user.getEmail()));
-            message.setSubject("Welcome to R7 Shop!!!");
+            message.setSubject("Chào mừng đến với Miu Shop!!!", "UTF-8");
 
-            String msgStr = String.format("<html><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>body{font-family:Arial,sans-serif;background-color:#f5f5f5;text-align:center;padding:20px}.container{max-width:600px;margin:0 auto;background-color:#fff;padding:30px;border-radius:8px;box-shadow:0 0 20px rgba(0,0,0,.1);text-align:justify}h1{color:#333;font-size:24px;margin-bottom:20px}p{color:#666;text-align:justify;line-height:1.6;margin-bottom:15px}.footer{margin-top:20px;color:#999}.footer a{color:#4caf50;text-decoration:none}</style></head><body><div class=\"container\"><h1>Welcome to R7 Shop, %s!</h1><p>We're thrilled to have you join our community. Thank you for choosing R7 Shop for your shopping needs. Get ready for an amazing experience with our high-quality products and excellent customer service.</p><p>If you have any questions or need assistance, feel free to reach out to our support team. Happy shopping!</p></div></body></html>", user.getFullName());
+            String msgStr = String.format("<html><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>body{font-family:Arial,sans-serif;background-color:#f5f5f5;text-align:center;padding:20px}.container{max-width:600px;margin:0 auto;background-color:#fff;padding:30px;border-radius:8px;box-shadow:0 0 20px rgba(0,0,0,.1);text-align:justify}h1{color:#333;font-size:24px;margin-bottom:20px}p{color:#666;text-align:justify;line-height:1.6;margin-bottom:15px}.footer{margin-top:20px;color:#999}.footer a{color:#4caf50;text-decoration:none}</style></head><body><div class=\"container\"><h1>Chào mừng đến với Miu Shop, %s!</h1><p>Miu Shop thực sự hạnh phúc khi chào đón quý khách tới cửa hàng. Chúng tôi trân trọng sự lựa chọn của quý khách khi tạo tài khoản tại Miu Shop. Chúng tôi tin rằng quý khách sẽ tìm thấy những sản phẩm phù hợp và độc đáo tại cửa hàng của chúng tôi.</p><p>Nếu quý khách có bất kỳ câu hỏi hoặc cần hỗ trợ, đừng ngần ngại liên hệ với chúng tôi. Xin chân thành cảm ơn và mong rằng quý khách sẽ có những khoảnh khắc thú vị khi khám phá sản phẩm của Miu Shop.</p></div></body></html>", user.getFullName());
 
             message.setContent(msgStr, "text/html; charset=UTF-8");
 

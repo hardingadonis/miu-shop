@@ -49,10 +49,10 @@
                         </c:if>
                         <c:if test="${sessionScope.user == null}">
                             <li class="nav-item d-flex align-items-center">
-                                <button class="btn btn-light">
+                                <a href="register" class="btn btn-light">
                                     <i class="fas fa-plus"></i>
                                     Đăng ký
-                                </button>
+                                </a>
                             </li>
                             <li class="nav-item d-flex align-items-center">
                                 <a href="login" class="btn btn-light">

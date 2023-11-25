@@ -200,6 +200,8 @@ public class UserDAOMySQLImpl implements UserDAO {
             smt.setString(7, toJson(obj.getAddress()));
             smt.setString(8, obj.getStatus().toString());
             smt.setString(9, Converter.convert(LocalDateTime.now()));
+            
+            smt.executeUpdate();
 
             Singleton.dbContext.closeConnection(conn);
         } catch (SQLException ex) {
@@ -223,6 +225,8 @@ public class UserDAOMySQLImpl implements UserDAO {
             smt.setString(8, obj.getStatus().toString());
             smt.setString(9, Converter.convert(LocalDateTime.now()));
             smt.setInt(10, obj.getID());
+            
+            smt.executeUpdate();
 
             Singleton.dbContext.closeConnection(conn);
         } catch (SQLException ex) {
