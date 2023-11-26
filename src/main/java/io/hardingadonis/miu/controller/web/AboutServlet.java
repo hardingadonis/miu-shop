@@ -5,7 +5,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
-@WebServlet(name = "about", urlPatterns = {"/about"})
+@WebServlet(name = "AboutServlet", urlPatterns = {"/about"})
 public class AboutServlet extends HttpServlet {
 
     @Override
