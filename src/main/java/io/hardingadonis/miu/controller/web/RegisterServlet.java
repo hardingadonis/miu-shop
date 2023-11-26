@@ -9,7 +9,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
-@WebServlet(name = "register", urlPatterns = {"/register"})
+@WebServlet(name = "RegisterServlet", urlPatterns = {"/register"})
 public class RegisterServlet extends HttpServlet {
     
     private static final String REGISTER_SUCCESS_PARAM = "registerSuccess";
