@@ -37,7 +37,7 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    padding: 0 10px 0 10px;
+    padding: 0 10px;
 }
 
 .input {
@@ -80,7 +80,7 @@ body {
 }
 
 .submit {
-    margin: 0 0;
+    margin: 0;
     border: none;
     outline: none;
     height: 45px;
@@ -98,7 +98,7 @@ body {
 .input-field-gender {
     display: block;
     margin-bottom: 20px;
-    padding: 0 10px 0 10px;
+    padding: 0 10px;
 }
 
 .form-check-input:checked {
