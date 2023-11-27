@@ -1,0 +1,10 @@
+{
+    "schedule": "daily",
+    "ignoredFiles": [
+        "src/main/webapp/assets/images/banners/*",
+        "src/main/webapp/assets/images/covers/*",
+        "src/main/webapp/assets/images/favicon/*"
+    ],
+    "compressWiki": "false",
+    "minKBReduced": 100
+}
