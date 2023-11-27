@@ -64,7 +64,13 @@ function addToCart() {
 
     setTotalProductQuantityToCart();
 
-    alert('Added ' + currentQuantity + ' items to the cart!');
+    Toastify({
+        text: 'Đã thêm ' + currentQuantity + ' sản phẩm vào giỏ hàng',
+        position: 'right',
+        gravity: 'bottom',
+        duration: 3000,
+        backgroundColor: '#000000'
+    }).showToast();
 }
 
 function checkQuantity() {
@@ -104,7 +110,7 @@ function updateProductHeight() {
     });
 }
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     setTotalProductQuantityToCart();
     updateProductHeight();
 });
