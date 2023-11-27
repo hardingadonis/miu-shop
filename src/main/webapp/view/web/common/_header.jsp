@@ -59,7 +59,7 @@
                             <a href="#" class="nav-link mx-2">
                                 <i class="fas fa-shopping-cart"></i>
                             </a>
-                            <span class="badge rounded-pill bg-secondary">0</span>
+                            <span id="total-products-in-cart" class="badge rounded-pill bg-secondary">0</span>
                         </li>
                     </ul>
                 </div>

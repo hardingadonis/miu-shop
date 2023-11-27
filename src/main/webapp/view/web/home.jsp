@@ -78,6 +78,7 @@
         <%@include file="common/_footer.jsp" %>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="<%=request.getContextPath()%>/assets/js/web/common/commonHandler.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/web/homeHandler.js"></script>
     </body>
 

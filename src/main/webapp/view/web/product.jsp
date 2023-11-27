@@ -44,6 +44,7 @@
                             <h4 class="title text-dark">
                                 ${requestScope.product.name}
                             </h4>
+                            <div id="product-id" hidden>${requestScope.product.ID}</div>
                             <span class="text-dark">
                                 <%
                                     int categoryID = ((Product) request.getAttribute("product")).getCategoryID();
@@ -148,6 +149,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js"></script>
+        <script src="<%=request.getContextPath()%>/assets/js/web/common/commonHandler.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/web/productHandler.js"></script>
     </body>
 </html>
