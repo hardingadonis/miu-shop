@@ -40,12 +40,6 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item d-flex align-items-center">
-                                <a href="#" class="nav-link mx-2">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </a>
-                                <span class="badge rounded-pill bg-secondary">0</span>
-                            </li>
                         </c:if>
                         <c:if test="${sessionScope.user == null}">
                             <li class="nav-item d-flex align-items-center">
@@ -61,6 +55,12 @@
                                 </a>
                             </li>
                         </c:if>
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="#" class="nav-link mx-2">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+                            <span class="badge rounded-pill bg-secondary">0</span>
+                        </li>
                     </ul>
                 </div>
                 <div class="d-block w-100">
