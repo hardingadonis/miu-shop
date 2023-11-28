@@ -1,5 +1,6 @@
 const prices = document.getElementsByClassName("price");
 const maxAmount = parseInt(document.getElementById("max-amount").textContent);
+const productID = parseInt(document.getElementById("product-id").textContent);
 const quantity = document.getElementById("quantity");
 
 for (let price of prices) {
@@ -45,7 +46,31 @@ function decreaseQuantity() {
 
 function addToCart() {
     let currentQuantity = parseInt(quantity.value);
-    alert('Added ' + currentQuantity + ' items to the cart!');
+
+    let cartCookie = getCartCookie();
+
+    if (cartCookie.hasOwnProperty(productID)) {
+        cartCookie[productID] += currentQuantity;
+    } else {
+        cartCookie[productID] = currentQuantity;
+    }
+
+    let expirationDate = new Date();
+    expirationDate.setFullYear(expirationDate.getFullYear() + 1);
+
+    let cartJson = JSON.stringify(cartCookie);
+
+    document.cookie = 'cart=' + cartJson + '; expires=' + expirationDate.toUTCString();
+
+    setTotalProductQuantityToCart();
+
+    Toastify({
+        text: 'Đã thêm ' + currentQuantity + ' sản phẩm vào giỏ hàng',
+        position: 'right',
+        gravity: 'bottom',
+        duration: 3000,
+        backgroundColor: '#000000'
+    }).showToast();
 }
 
 function checkQuantity() {
@@ -85,5 +110,8 @@ function updateProductHeight() {
     });
 }
 
-window.addEventListener('load', updateProductHeight);
+window.addEventListener('load', function () {
+    setTotalProductQuantityToCart();
+    updateProductHeight();
+});
 window.addEventListener('resize', updateProductHeight);

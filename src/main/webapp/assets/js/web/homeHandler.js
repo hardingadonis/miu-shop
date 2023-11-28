@@ -30,5 +30,8 @@ function updateProductHeight() {
     });
 }
 
-window.addEventListener('load', updateProductHeight);
+window.addEventListener('load', function() {
+    setTotalProductQuantityToCart();
+    updateProductHeight();
+});
 window.addEventListener('resize', updateProductHeight);
