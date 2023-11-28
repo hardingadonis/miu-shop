@@ -55,7 +55,7 @@
             <div class="my-5">
                 <div class="row">
                     <c:forEach var="item" items="${Singleton.productDAO.getRandom(4)}">
-                        <div class="col-lg-3 col-sm-6 m-0 product">
+                        <div class="col-lg-3 col-sm-6 m-0 product" data-bs-placement="top" title="${item.name}">
                             <div class="card m-4 product-detail">
                                 <a href="product?id=${item.ID}">
                                     <img src="<%=request.getContextPath()%>/${item.thumbnail}" class="card-img-top">
