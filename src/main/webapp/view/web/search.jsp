@@ -38,7 +38,7 @@
                     <c:if test="${end_page > 0}">
                         <div class="row">
                             <c:forEach var="item" items="${requestScope.products}">
-                                <div class="col-lg-4 col-sm-6 m-0 product">
+                                <div class="col-lg-4 col-sm-6 m-0 product" data-bs-placement="top" title="${item.name}">
                                     <div class="card m-4 product-detail">
                                         <a href="product?id=${item.ID}">
                                             <img src="<%=request.getContextPath()%>/${item.thumbnail}" class="card-img-top">
@@ -62,29 +62,7 @@
 
             <div class="m-5 p-5 pagination">
                 <c:if test="${end_page > 1}">
-                    <%
-                        String searchName = (String) request.getAttribute("search_name");
-                        int category_id = (int) request.getAttribute("category_id");
-                        int endPage = (int) request.getAttribute("end_page");
-                        int currentPage = (int) request.getAttribute("current_page");
-
-                        for (int i = 1; i <= endPage; i++) {
-                            StringBuilder href = new StringBuilder("search?page=").append(i);
-
-                            if (category_id > 0) {
-                                href.append("&category_id=").append(category_id);
-                            }
-
-                            if (searchName != null) {
-                                href.append("&search-name=").append(searchName);
-                            }
-
-                            String isCurrent = (currentPage == i) ? "page-current" : "";
-                    %>
-                    <a class="<%=isCurrent%>" href="<%=href.toString()%>"><%=i%></a>
-                    <%
-                        }
-                    %>
+                    ${pagination_str}
                 </c:if>
             </div>
 

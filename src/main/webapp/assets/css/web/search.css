@@ -66,10 +66,17 @@ p a:hover {
     color: #ffffff;
 }
 
+
+.pagination span {
+    color: #000000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
 .product-name {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     display: block;
     max-width: 100%;
+}
 }
