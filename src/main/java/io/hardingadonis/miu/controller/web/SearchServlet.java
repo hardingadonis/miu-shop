@@ -178,7 +178,7 @@ public class SearchServlet extends HttpServlet {
 
             manyPagination.append("<span>...</span>");
 
-            manyPagination.append(createNormalPagination(searchName, categoryID, currentPage, currentPage, endPage));
+            manyPagination.append(createNormalPagination(searchName, categoryID, currentPage, currentPage - 1, endPage));
 
         }
 
