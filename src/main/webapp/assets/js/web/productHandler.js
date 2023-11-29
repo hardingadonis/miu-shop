@@ -60,7 +60,7 @@ function addToCart() {
 
     let cartJson = JSON.stringify(cartCookie);
 
-    document.cookie = 'cart=' + cartJson + '; expires=' + expirationDate.toUTCString();
+    document.cookie = 'cart=' + encodeURIComponent(cartJson) + '; expires=' + expirationDate.toUTCString();
 
     setTotalProductQuantityToCart();
 
