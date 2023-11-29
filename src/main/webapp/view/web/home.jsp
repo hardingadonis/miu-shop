@@ -62,7 +62,7 @@
                                 </a>
                                 <div class="card-body">
                                     <p class="card-text font-weight-bold">
-                                        <a href="product?id=${item.ID}">${item.name}</a>
+                                        <a href="product?id=${item.ID}" class="product-name">${item.name}</a>
                                     </p>
                                     <span class="text-muted price">${item.price}</span>
                                 </div>

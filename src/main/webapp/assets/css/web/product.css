@@ -46,3 +46,11 @@ p a:hover {
 .vrmedia-gallery .lSGallery li.active {
     border: 1px solid #242423
 }
+
+.product-name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 100%;
+}
