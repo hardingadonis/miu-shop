@@ -56,7 +56,7 @@
                             </li>
                         </c:if>
                         <li class="nav-item d-flex align-items-center">
-                            <a href="#" class="nav-link mx-2">
+                            <a href="cart" class="nav-link mx-2">
                                 <i class="fas fa-shopping-cart"></i>
                             </a>
                             <span id="total-products-in-cart" class="badge rounded-pill bg-secondary">0</span>
