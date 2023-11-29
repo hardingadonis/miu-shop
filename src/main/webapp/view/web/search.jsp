@@ -62,59 +62,7 @@
 
             <div class="m-5 p-5 pagination">
                 <c:if test="${end_page > 1}">
-                    <%
-                        String searchName = (String) request.getAttribute("search_name");
-                        int category_id = (int) request.getAttribute("category_id");
-                        int endPage = (int) request.getAttribute("end_page");
-                        int currentPage = (int) request.getAttribute("current_page");
-
-                        StringBuilder prevHref = null;
-                        if (currentPage > 1) {
-                            prevHref = new StringBuilder("search?page=").append(currentPage - 1);
-                            if (category_id > 0) {
-                                prevHref.append("&category_id=").append(category_id);
-                            }
-                            if (searchName != null) {
-                                prevHref.append("&search-name=").append(searchName);
-                            }
-                        } else {
-                            prevHref = new StringBuilder("#");
-                        }
-
-                    %>
-                    <a href="<%=prevHref.toString()%>">Trước</a>
-                    <%
-                        for (int i = 1; i <= endPage; i++) {
-                            StringBuilder href = new StringBuilder("search?page=").append(i);
-
-                            if (category_id > 0) {
-                                href.append("&category_id=").append(category_id);
-                            }
-
-                            if (searchName != null) {
-                                href.append("&search-name=").append(searchName);
-                            }
-
-                            String isCurrent = (currentPage == i) ? "page-current" : "";
-                    %>
-                    <a class="<%=isCurrent%>" href="<%=href.toString()%>"><%=i%></a>
-                    <%
-                        }
-
-                        StringBuilder nextHref = null;
-                        if (currentPage < endPage) {
-                            nextHref = new StringBuilder("search?page=").append(currentPage + 1);
-                            if (category_id > 0) {
-                                nextHref.append("&category_id=").append(category_id);
-                            }
-                            if (searchName != null) {
-                                nextHref.append("&search-name=").append(searchName);
-                            }
-                        } else {
-                            nextHref = new StringBuilder("#");
-                        }
-                    %>
-                    <a href="<%=nextHref.toString()%>">Sau</a>
+                    ${pagination_str}
                 </c:if>
             </div>
 
