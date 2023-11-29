@@ -1,5 +1,6 @@
 package io.hardingadonis.miu.controller.web;
 
+import io.hardingadonis.miu.services.*;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.annotation.*;
@@ -14,7 +15,18 @@ public class CartServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
 
-        request.getRequestDispatcher("/view/web/cart.jsp").forward(request, response);
+        String cartDataStr = getCartCookie(request);
 
+        request.getRequestDispatcher("/view/web/cart.jsp").forward(request, response);
+    }
+
+    private static String getCartCookie(HttpServletRequest request) {
+        for (Cookie cookie : request.getCookies()) {
+            if (cookie.getName().equals("cart")) {
+                return Hash.decodeURIComponent(cookie.getValue());
+            }
+        }
+
+        return null;
     }
 }
