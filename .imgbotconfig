@@ -6,5 +6,5 @@
         "src/main/webapp/assets/images/favicon/*"
     ],
     "compressWiki": "false",
-    "minKBReduced": 100
+    "minKBReduced": 0
 }

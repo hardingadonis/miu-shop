@@ -40,3 +40,4 @@ window.addEventListener('load', function () {
     updateProductHeight();
 });
 window.addEventListener('resize', updateProductHeight);
+}

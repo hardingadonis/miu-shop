@@ -10,7 +10,7 @@
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-        <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/web/common.css" />
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/web/common/common.css" />
         <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/web/home.css" />
 
         <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/assets/images/favicon/favicon.png">
@@ -62,7 +62,7 @@
                                 </a>
                                 <div class="card-body">
                                     <p class="card-text font-weight-bold">
-                                        <a href="product?id=${item.ID}">${item.name}</a>
+                                        <a href="product?id=${item.ID}" class="product-name">${item.name}</a>
                                     </p>
                                     <span class="text-muted price">${item.price}</span>
                                 </div>
