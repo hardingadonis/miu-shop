@@ -65,3 +65,9 @@ p a:hover {
     background-color: rgba(165, 175, 185, 0.9);
     color: #ffffff;
 }
+
+.pagination span {
+    color: #000000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
