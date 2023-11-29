@@ -38,4 +38,14 @@ public class Hash {
             return null;
         }
     }
+
+    public static String decodeURIComponent(String message) {
+        try {
+            return URLDecoder.decode(message, "UTF-8");
+        } catch (UnsupportedEncodingException ex) {
+            System.err.println(ex.getMessage());
+
+            return null;
+        }
+    }
 }
