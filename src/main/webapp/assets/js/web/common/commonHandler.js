@@ -15,9 +15,7 @@ function getTotalProductQuantity() {
     let totalQuantity = 0;
 
     for (let productID in cartCookie) {
-        if (cartCookie.hasOwnProperty(productID)) {
-            totalQuantity += cartCookie[productID];
-        }
+        totalQuantity++;
     }
 
     return totalQuantity;
