@@ -65,3 +65,11 @@ p a:hover {
     background-color: rgba(165, 175, 185, 0.9);
     color: #ffffff;
 }
+
+.product-name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 100%;
+}
