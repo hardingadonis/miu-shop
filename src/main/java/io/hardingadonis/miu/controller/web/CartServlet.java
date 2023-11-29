@@ -17,6 +17,8 @@ public class CartServlet extends HttpServlet {
 
         String cartDataStr = getCartCookie(request);
 
+        request.setAttribute("cart_data_str", cartDataStr);
+
         request.getRequestDispatcher("/view/web/cart.jsp").forward(request, response);
     }
 
