@@ -3,7 +3,7 @@ function getCartCookie() {
     for (let i = 0; i < cookies.length; i++) {
         let cookie = cookies[i].trim();
         if (cookie.startsWith('cart=')) {
-            return JSON.parse(cookie.substring(5));
+            return JSON.parse(decodeURIComponent(cookie.substring(5)));
         }
     }
 
