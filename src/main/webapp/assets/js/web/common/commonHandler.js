@@ -12,11 +12,7 @@ function getCartCookie() {
 
 function getTotalProductQuantity() {
     let cartCookie = getCartCookie();
-    let totalQuantity = 0;
-
-    for (let productID in cartCookie) {
-        totalQuantity++;
-    }
+    const totalQuantity = Object.keys(cartCookie).length;
 
     return totalQuantity;
 }
