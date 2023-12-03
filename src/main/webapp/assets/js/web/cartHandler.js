@@ -40,7 +40,19 @@ function decreaseQuantity(productID) {
 
 function increaseQuantity(productID) {
     const quantity = document.getElementById("product-amount-" + productID);
+    const quantityMax = parseInt(quantity.getAttribute("max"));
     const quantityValue = parseInt(quantity.innerText);
+
+    if (quantityValue >= quantityMax) {
+        Toastify({
+            text: 'Số lượng sản phẩm đã đạt giới hạn tối đa!',
+            position: 'right',
+            gravity: 'bottom',
+            duration: 3000,
+            backgroundColor: '#000000'
+        }).showToast();
+        return;
+    }
 
     quantity.innerText = quantityValue + 1;
 

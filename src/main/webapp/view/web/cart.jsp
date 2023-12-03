@@ -16,6 +16,7 @@
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/web/common/common.css" />
         <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/web/cart.css" />
 
@@ -86,7 +87,7 @@
                                     <td class="align-middle text-center">
                                         <div class="d-flex align-items-center justify-content-center">
                                             <button class="btn btn-sm btn-outline-dark" onclick="decreaseQuantity(<%=product.getID()%>)">-</button>
-                                            <span class="mx-2" id="product-amount-<%=product.getID()%>"><%=value%></span>
+                                            <span class="mx-2" id="product-amount-<%=product.getID()%>" max="<%=product.getAmount()%>"><%=value%></span>
                                             <button class="btn btn-sm btn-outline-dark" onclick="increaseQuantity(<%=product.getID()%>)">+</button>
                                         </div>
                                     </td>
@@ -123,6 +124,7 @@
         <%@include file="common/_footer.jsp" %>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/web/common/commonHandler.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/web/cartHandler.js"></script>
     </body>
