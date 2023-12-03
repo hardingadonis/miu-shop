@@ -2,8 +2,7 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    display: block;
-    max-width: 100%;
+    max-width: 500px;
 }
 
 .product {
