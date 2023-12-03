@@ -1,5 +1,7 @@
 package io.hardingadonis.miu.services;
 
+import java.io.*;
+import java.net.*;
 import java.security.*;
 
 public class Hash {
@@ -22,6 +24,27 @@ public class Hash {
             return hexString.toString();
         } catch (NoSuchAlgorithmException ex) {
             System.err.println(ex.getMessage());
+
+            return null;
+        }
+    }
+
+    public static String encodeURIComponent(String message) {
+        try {
+            return URLEncoder.encode(message, "UTF-8");
+        } catch (UnsupportedEncodingException ex) {
+            System.err.println(ex.getMessage());
+
+            return null;
+        }
+    }
+
+    public static String decodeURIComponent(String message) {
+        try {
+            return URLDecoder.decode(message, "UTF-8");
+        } catch (UnsupportedEncodingException ex) {
+            System.err.println(ex.getMessage());
+
             return null;
         }
     }
