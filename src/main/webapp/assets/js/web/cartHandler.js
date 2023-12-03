@@ -30,6 +30,11 @@ function decreaseQuantity(productID) {
         updateTotalPriceForEachProduct(productID, quantityValue - 1);
 
         updateToCookie(productID, quantityValue - 1);
+
+        updateTotalPrice();
+    }
+    else {
+        removeProduct(productID);
     }
 }
 
@@ -42,6 +47,8 @@ function increaseQuantity(productID) {
     updateTotalPriceForEachProduct(productID, quantityValue + 1);
 
     updateToCookie(productID, quantityValue + 1);
+
+    updateTotalPrice();
 }
 
 function updateTotalPriceForEachProduct(productID, quantity) {
@@ -51,8 +58,6 @@ function updateTotalPriceForEachProduct(productID, quantity) {
     const totalPrice = document.getElementById("product-total-price-" + productID);
 
     totalPrice.innerText = formatCurrencyVND(priceValue * quantity);
-
-    updateTotalPrice();
 }
 
 function updateTotalPrice() {
