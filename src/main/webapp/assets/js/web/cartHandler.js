@@ -19,3 +19,66 @@ function formatCurrencyVND(amount) {
 tooltips.forEach(t => {
     new bootstrap.Tooltip(t);
 });
+
+function decreaseQuantity(productID) {
+    const quantity = document.getElementById("product-amount-" + productID);
+    const quantityValue = parseInt(quantity.innerText);
+
+    if (quantityValue > 1) {
+        quantity.innerText = quantityValue - 1;
+
+        updateTotalPriceForEachProduct(productID, quantityValue - 1);
+
+        updateToCookie(productID, quantityValue - 1);
+    }
+}
+
+function increaseQuantity(productID) {
+    const quantity = document.getElementById("product-amount-" + productID);
+    const quantityValue = parseInt(quantity.innerText);
+
+    quantity.innerText = quantityValue + 1;
+
+    updateTotalPriceForEachProduct(productID, quantityValue + 1);
+
+    updateToCookie(productID, quantityValue + 1);
+}
+
+function updateTotalPriceForEachProduct(productID, quantity) {
+    const price = document.getElementById("product-price-" + productID);
+    const priceValue = parseInt(price.innerText.replace(/[^0-9]/g, ''));
+
+    const totalPrice = document.getElementById("product-total-price-" + productID);
+
+    totalPrice.innerText = formatCurrencyVND(priceValue * quantity);
+}
+
+function removeProduct(productID) {
+    const product = document.getElementById("product-" + productID);
+
+    product.remove();
+
+    updateToCookie(productID, 0);
+}
+
+function updateToCookie(productID, quantity) {
+    let cartCookie = getCartCookie();
+
+    if (quantity === 0) {
+        delete cartCookie[productID];
+    }
+    else if (cartCookie.hasOwnProperty(productID)) {
+        cartCookie[productID] = quantity;
+    }
+
+    if (Object.keys(cartCookie).length === 0) {
+        document.cookie = 'cart=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+    } else {
+        let expirationDate = new Date();
+        expirationDate.setFullYear(expirationDate.getFullYear() + 1);
+
+        let cartJson = JSON.stringify(cartCookie);
+
+        document.cookie = 'cart=' + encodeURIComponent(cartJson) + '; expires=' + expirationDate.toUTCString();
+    }
+}

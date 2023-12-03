@@ -29,82 +29,85 @@
 
         <section class="py-5 my-5">
             <div class="container">
-                <div class="py-3">
-                    <c:if test="${cart_data_str == null}">
-                        <div class="container my-5">
-                            <h6 class="display-6 mb-4 d-flex justify-content-center">
-                                Không có sản phẩm nào
-                            </h6>
-                            <br>
-                            <div class="d-flex justify-content-center">
-                                <a href="home" class="btn btn-outline-dark">Tiếp tục mua hàng</a>
-                            </div>
+                <c:if test="${cart_data_str == null}">
+                    <div class="container my-5">
+                        <h6 class="display-6 mb-4 d-flex justify-content-center">
+                            Không có sản phẩm nào
+                        </h6>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            <a href="home" class="btn btn-outline-dark">Tiếp tục mua hàng</a>
                         </div>
-                    </c:if>
+                    </div>
+                </c:if>
 
-                    <c:if test="${cart_data_str != null}">
-                        <div class="container">
-                            <h6 class="display-6 d-flex justify-content-center mb-5">
-                                Giỏ hàng của bạn
-                            </h6>
+                <c:if test="${cart_data_str != null}">
+                    <div class="container">
+                        <h6 class="display-6 d-flex justify-content-center mb-5">
+                            Giỏ hàng của bạn
+                        </h6>
 
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="col-1 text-center">#</th>
-                                        <th scope="col" class="col-4 text-center">Sản phẩm</th>
-                                        <th scope="col" class="col-2 text-center">Đơn giá</th>
-                                        <th scope="col" class="col-1 text-center">Số lượng</th>
-                                        <th scope="col" class="col-2 text-center">Số tiền</th>
-                                        <th scope="col" class="col-2 text-center">Thao tác</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <%
-                                        try {
-                                            JSONObject data = (JSONObject) new JSONParser().parse((String) request.getAttribute("cart_data_str"));
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="col-1 text-center">#</th>
+                                    <th scope="col" class="col-3 text-center">Sản phẩm</th>
+                                    <th scope="col" class="col-2 text-center">Đơn giá</th>
+                                    <th scope="col" class="col-2 text-center">Số lượng</th>
+                                    <th scope="col" class="col-2 text-center">Thành tiền</th>
+                                    <th scope="col" class="col-2 text-center">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%
+                                    try {
+                                        JSONObject data = (JSONObject) new JSONParser().parse((String) request.getAttribute("cart_data_str"));
 
-                                            int index = 1;
-                                            for (Object keyStr : data.keySet()) {
-                                                Object valueStr = data.get(keyStr);
-                                                int value = Integer.parseInt(valueStr.toString());
-                                                int key = Integer.parseInt(keyStr.toString());
+                                        int index = 1;
+                                        for (Object keyStr : data.keySet()) {
+                                            Object valueStr = data.get(keyStr);
+                                            int value = Integer.parseInt(valueStr.toString());
+                                            int key = Integer.parseInt(keyStr.toString());
 
-                                                Product product = Singleton.productDAO.get(key);
-                                    %>
-                                    <tr>
-                                        <td scope="row" class="align-middle text-center"><%=index++%></td>
-                                        <td class="align-middle">
-                                            <a href="product?id=<%=product.getID()%>" class="d-flex align-items-center product" data-bs-placement="top" title="<%=product.getName()%>">
-                                                <img src="<%=request.getContextPath()%>/<%=product.getThumbnail()%>" class="img-fluid me-3" style="width: 100px;">
+                                            Product product = Singleton.productDAO.get(key);
+                                %>
+                                <tr id="product-<%=product.getID()%>">
+                                    <td scope="row" class="align-middle text-center"><%=index++%></td>
+                                    <td class="align-middle">
+                                        <a href="product?id=<%=product.getID()%>" class="d-flex align-items-center product" data-bs-placement="top" title="<%=product.getName()%>">
+                                            <img src="<%=request.getContextPath()%>/<%=product.getThumbnail()%>" class="img-fluid me-3" style="width: 100px;">
 
-                                                <p class="product-name lead"><%=product.getName()%></p>
-                                            </a>
-                                        </td>
-                                        <td class="price align-middle text-center"><%=product.getPrice()%></td>
-                                        <td class="align-middle text-center">
-                                            <div class="d-flex align-items-center justify-content-center">
-                                                <button class="btn btn-sm btn-outline-dark">-</button>
-                                                <span class="mx-2"><%=value%></span>
-                                                <button class="btn btn-sm btn-outline-dark">+</button>
-                                            </div>
-                                        </td>
-                                        <td class="price align-middle text-center"><%=product.getPrice() * value%></td>
-                                        <td class="align-middle text-center">
-                                            <button class="btn btn-sm btn-outline-danger">Xóa</button>
-                                        </td>
-                                    </tr>
-                                    <%
-                                            }
-                                        } catch (ParseException ex) {
-                                            System.err.println(ex.getMessage());
+                                            <p class="product-name lead"><%=product.getName()%></p>
+                                        </a>
+                                    </td>
+                                    <td class="price align-middle text-center" id="product-price-<%=product.getID()%>"><%=product.getPrice()%></td>
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <button class="btn btn-sm btn-outline-dark" onclick="decreaseQuantity(<%=product.getID()%>)">-</button>
+                                            <span class="mx-2" id="product-amount-<%=product.getID()%>"><%=value%></span>
+                                            <button class="btn btn-sm btn-outline-dark" onclick="increaseQuantity(<%=product.getID()%>)">+</button>
+                                        </div>
+                                    </td>
+                                    <td class="price align-middle text-center" id="product-total-price-<%=product.getID()%>"><%=product.getPrice() * value%></td>
+                                    <td class="align-middle text-center">
+                                        <button class="btn btn-sm btn-outline-danger" onclick="removeProduct(<%=product.getID()%>)">Xóa</button>
+                                    </td>
+                                </tr>
+                                <%
                                         }
-                                    %>
-                                </tbody>
-                            </table>
+                                    } catch (ParseException ex) {
+                                        System.err.println(ex.getMessage());
+                                    }
+                                %>
+                            </tbody>
+                        </table>
+
+                        <div class="d-flex justify-content-end">
+                            <a href="home" class="btn btn-outline-dark me-2">Tiếp tục mua hàng</a>
+                            <a href="checkout" class="btn btn-outline-dark">Thanh toán</a>
                         </div>
-                    </c:if>
-                </div>
+                    </div>
+                </c:if>
             </div>
         </section>
 
