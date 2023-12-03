@@ -95,6 +95,8 @@ function removeProduct(productID) {
     updateToCookie(productID, 0);
 
     updateTotalPrice();
+    
+    setTotalProductQuantityToCart();
 }
 
 function updateToCookie(productID, quantity) {
