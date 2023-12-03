@@ -64,12 +64,14 @@
                                         JSONObject data = (JSONObject) new JSONParser().parse((String) request.getAttribute("cart_data_str"));
 
                                         int index = 1;
+                                        long totalPrice = 0;
                                         for (Object keyStr : data.keySet()) {
                                             Object valueStr = data.get(keyStr);
                                             int value = Integer.parseInt(valueStr.toString());
                                             int key = Integer.parseInt(keyStr.toString());
 
                                             Product product = Singleton.productDAO.get(key);
+                                            totalPrice += product.getPrice() * value;
                                 %>
                                 <tr id="product-<%=product.getID()%>">
                                     <td scope="row" class="align-middle text-center"><%=index++%></td>
@@ -94,16 +96,23 @@
                                     </td>
                                 </tr>
                                 <%
-                                        }
-                                    } catch (ParseException ex) {
-                                        System.err.println(ex.getMessage());
                                     }
                                 %>
                             </tbody>
                         </table>
 
-                        <div class="d-flex justify-content-end">
-                            <a href="home" class="btn btn-outline-dark me-2">Tiếp tục mua hàng</a>
+                        <div class="d-flex justify-content-end align-items-center m-5">
+                            <h6 class="display-6 mx-3">Tổng tiền:</h6>
+                            <h6 class="display-6 price" id="total-price"><%=totalPrice%></h6>
+                        </div>
+                        <%
+                            } catch (ParseException ex) {
+                                System.err.println(ex.getMessage());
+                            }
+                        %>
+
+                        <div class="d-flex justify-content-end m-5">
+                            <a href="home" class="btn btn-outline-dark mx-3">Tiếp tục mua hàng</a>
                             <a href="checkout" class="btn btn-outline-dark">Thanh toán</a>
                         </div>
                     </div>
