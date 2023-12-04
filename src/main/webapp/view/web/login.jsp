@@ -32,6 +32,20 @@
                 </div>
             </c:if>
 
+            <%-- Kiểm tra xem có URL parameter changePasswordSuccess hay không --%>
+            <c:if test="${param.changePasswordSuccess == 'true'}">
+                <style>
+                    .main { 
+                        min-height: 75vh;
+                        padding-bottom: 8.5vh;
+                    }
+                </style>
+                
+                <div class="alert alert-success mx-auto" role="alert" style="max-width: 500px;">
+                    Bạn đã đổi mật khẩu thành công. Vui lòng đăng nhập để tiếp tục.
+                </div>
+            </c:if>
+
             <div class="container main">     
                 <div class="row">
                     <div class="col-md-6 side-image">
