@@ -25,6 +25,7 @@
 
 ## Licenses:
 - [Miu Shop](https://github.com/hardingadonis/miu-shop) is under the [Apache-2.0 license](https://github.com/hardingadonis/miu-shop/blob/main/LICENSE).
+- [location_data.json](https://raw.githubusercontent.com/hardingadonis/miu-shop/main/database/location_data.json) is collected by [DiaGioiHanhChinhVN](https://github.com/kenzouno1/DiaGioiHanhChinhVN).
 - [favicon](https://github.com/hardingadonis/miu-shop/blob/main/src/main/webapp/assets/images/favicon/favicon.png) is under the [flaticon](https://www.flaticon.com/free-icon/cosmetics_3194619).
 - [male](https://github.com/hardingadonis/miu-shop/blob/main/src/main/webapp/assets/images/avatars/male.webp) is under the [flaticon](https://www.flaticon.com/free-icon/man_3741578).
 - [female](https://github.com/hardingadonis/miu-shop/blob/main/src/main/webapp/assets/images/avatars/female.webp) is under the [flaticon](https://www.flaticon.com/free-icon/woman_3741715).
