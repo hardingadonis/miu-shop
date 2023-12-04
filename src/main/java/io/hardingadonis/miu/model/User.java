@@ -13,7 +13,7 @@ public class User {
     private String email;
     private String hashedPassword;
     private String avatarPath;
-    private List<UserAddress> address;
+    private List<String> address;
     private UserStatus status;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
@@ -22,7 +22,7 @@ public class User {
     public User() {
     }
 
-    public User(String fullName, int birthYear, UserGender gender, String email, String hashedPassword, String avatarPath, List<UserAddress> address, UserStatus status) {
+    public User(String fullName, int birthYear, UserGender gender, String email, String hashedPassword, String avatarPath, List<String> address, UserStatus status) {
         this.fullName = fullName;
         this.birthYear = birthYear;
         this.gender = gender;
@@ -33,7 +33,7 @@ public class User {
         this.status = status;
     }
 
-    public User(String fullName, int birthYear, UserGender gender, String email, String hashedPassword, String avatarPath, List<UserAddress> address, UserStatus status, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
+    public User(String fullName, int birthYear, UserGender gender, String email, String hashedPassword, String avatarPath, List<String> address, UserStatus status, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
         this.fullName = fullName;
         this.birthYear = birthYear;
         this.gender = gender;
@@ -47,7 +47,7 @@ public class User {
         this.deleteAt = deleteAt;
     }
 
-    public User(int ID, String fullName, int birthYear, UserGender gender, String email, String hashedPassword, String avatarPath, List<UserAddress> address, UserStatus status, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
+    public User(int ID, String fullName, int birthYear, UserGender gender, String email, String hashedPassword, String avatarPath, List<String> address, UserStatus status, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
         this.ID = ID;
         this.fullName = fullName;
         this.birthYear = birthYear;
@@ -118,11 +118,11 @@ public class User {
         this.avatarPath = avatarPath;
     }
 
-    public List<UserAddress> getAddress() {
+    public List<String> getAddress() {
         return address;
     }
 
-    public void setAddress(List<UserAddress> address) {
+    public void setAddress(List<String> address) {
         this.address = address;
     }
 
