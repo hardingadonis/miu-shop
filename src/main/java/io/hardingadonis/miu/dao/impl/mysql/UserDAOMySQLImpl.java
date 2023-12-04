@@ -12,19 +12,14 @@ import org.json.simple.parser.*;
 
 public class UserDAOMySQLImpl implements UserDAO {
 
-    private static List<UserAddress> toList(String json) {
-        List<UserAddress> list = new ArrayList<>();
+    private static List<String> toList(String json) {
+        List<String> list = new ArrayList<>();
 
         try {
             JSONArray arr = (JSONArray) new JSONParser().parse(json);
 
             for (Object address : arr) {
-                String province = (String) ((JSONObject) address).get("province");
-                String district = (String) ((JSONObject) address).get("district");
-                String ward = (String) ((JSONObject) address).get("ward");
-                String specific = (String) ((JSONObject) address).get("specific");
-
-                list.add(new UserAddress(province, district, ward, specific));
+                list.add((String) address);
             }
         } catch (ParseException ex) {
             System.err.println(ex.getMessage());
@@ -33,17 +28,11 @@ public class UserDAOMySQLImpl implements UserDAO {
         return list;
     }
 
-    private static String toJson(List<UserAddress> list) {
+    private static String toJson(List<String> list) {
         JSONArray json = new JSONArray();
 
-        for (UserAddress address : list) {
-            JSONObject obj = new JSONObject();
-            obj.put("province", address.getProvince());
-            obj.put("district", address.getDistrict());
-            obj.put("ward", address.getWard());
-            obj.put("specific", address.getSpecific());
-
-            json.add(obj);
+        for (String address : list) {
+            json.add(address);
         }
 
         return json.toJSONString();
@@ -57,7 +46,7 @@ public class UserDAOMySQLImpl implements UserDAO {
         String email = rs.getString("email");
         String hashedPassword = rs.getString("hashed_password");
         String avatarPath = rs.getString("avatar_path");
-        List<UserAddress> address = toList(rs.getString("address"));
+        List<String> address = toList(rs.getString("address"));
         UserStatus status = UserStatus.create(rs.getString("status"));
         LocalDateTime createAt = Converter.convert(rs.getTimestamp("create_at"));
         LocalDateTime updateAt = Converter.convert(rs.getTimestamp("update_at"));
@@ -200,7 +189,7 @@ public class UserDAOMySQLImpl implements UserDAO {
             smt.setString(7, toJson(obj.getAddress()));
             smt.setString(8, obj.getStatus().toString());
             smt.setString(9, Converter.convert(LocalDateTime.now()));
-            
+
             smt.executeUpdate();
 
             Singleton.dbContext.closeConnection(conn);
@@ -225,7 +214,7 @@ public class UserDAOMySQLImpl implements UserDAO {
             smt.setString(8, obj.getStatus().toString());
             smt.setString(9, Converter.convert(LocalDateTime.now()));
             smt.setInt(10, obj.getID());
-            
+
             smt.executeUpdate();
 
             Singleton.dbContext.closeConnection(conn);
