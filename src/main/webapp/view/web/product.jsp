@@ -54,20 +54,7 @@
                                 <a href="search?category_id=<%=categoryID%>"><%=category.getName()%></a>
                             </span>
 
-                            <div class="d-flex flex-row my-3">
-                                <div class="text-warning mb-1 me-2">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                    <span class="ms-1">
-                                        4.5
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
+                            <div class="my-2">
                                 <span class="h5 price">${requestScope.product.price}</span>
                                 <span class="text-muted"> / Sản phẩm</span>
                             </div>
