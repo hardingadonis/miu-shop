@@ -31,6 +31,7 @@ public class SearchServlet extends HttpServlet {
 
         request.setAttribute("products", products);
         request.setAttribute("end_page", endPage);
+        request.setAttribute("category_id", categoryID);
         request.setAttribute("pagination_str", paginationStr);
 
         request.getRequestDispatcher("/view/web/search.jsp").forward(request, response);
