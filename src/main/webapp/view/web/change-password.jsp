@@ -15,7 +15,7 @@
 
         <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/assets/images/favicon/favicon.png">
 
-        <title>Miu Shop | Thông tin chung</title>
+        <title>Miu Shop | Đổi mật khẩu</title>
     </head>
 
     <body>
