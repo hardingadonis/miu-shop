@@ -20,13 +20,13 @@
                     <a href="home" class="nav-link text-dark">Hỗ trợ</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-muted">Cài đặt</a>
+                    <a href="profile" class="nav-link text-muted">Cài đặt</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-muted">Giỏ hàng</a>
+                    <a href="cart" class="nav-link text-muted">Giỏ hàng</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-muted">Lịch sử mua hàng</a>
+                    <a href="purchase-history" class="nav-link text-muted">Lịch sử mua hàng</a>
                 </li>
             </ul>
             <ul class="nav flex-column">

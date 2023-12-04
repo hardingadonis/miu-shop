@@ -1,0 +1,27 @@
+.option {
+    transition: background-color 0.3s;
+}
+
+.option:hover {
+    background-color: #d1d8e0;
+}
+
+.option:active {
+    background-color: rgba(109, 121, 134, 0.9);
+    color: #ffffff;
+}
+
+.option-selected {
+    background-color: rgba(165, 175, 185, 0.9);
+    color: #ffffff;
+}
+
+.form-check-input:checked {
+    background-color: #000 !important;
+    border-color: #000 !important;
+    color: #fff !important;
+}
+
+.input-field-gender {
+    display: flex;
+}

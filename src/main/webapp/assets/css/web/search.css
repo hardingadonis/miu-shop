@@ -39,7 +39,7 @@ p a:hover {
     color: #ffffff;
 }
 
-.category-slected {
+.category-selected {
     background-color: rgba(165, 175, 185, 0.9);
     color: #ffffff;
 }
@@ -72,6 +72,7 @@ p a:hover {
     padding: 8px 16px;
     text-decoration: none;
 }
+
 .product-name {
     overflow: hidden;
     white-space: nowrap;
