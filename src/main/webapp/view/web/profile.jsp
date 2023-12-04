@@ -30,8 +30,8 @@
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a href="profile" class="nav-link text-muted option option-selected">Thông tin chung</a>
-                                <a href="#" class="nav-link text-muted option">Địa chỉ giao hàng</a>
-                                <a href="#" class="nav-link text-muted option">Lịch sử mua hàng</a>
+                                <a href="delivery-address" class="nav-link text-muted option">Địa chỉ giao hàng</a>
+                                <a href="purchase-history" class="nav-link text-muted option">Lịch sử mua hàng</a>
                                 <a href="change-password" class="nav-link text-muted option">Đổi mật khẩu</a>
                             </li>
                         </ul>
