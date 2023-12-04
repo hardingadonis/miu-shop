@@ -27,10 +27,10 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a class="dropdown-item" href="#">Cài đặt</a>
+                                        <a class="dropdown-item" href="profile">Cài đặt</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">Lịch sử mua hàng</a>
+                                        <a class="dropdown-item" href="purchase-history">Lịch sử mua hàng</a>
                                     </li>
                                     <li>
                                         <hr class="dropdown-divider">

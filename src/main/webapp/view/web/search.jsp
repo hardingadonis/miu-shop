@@ -28,7 +28,7 @@
                     <ul class="nav flex-column">
                         <c:forEach var="category" items="${Singleton.categoryDAO.getAll()}">
                             <li class="nav-item">
-                                <a href="search?category_id=${category.ID}" class="nav-link text-muted category ${category_id == category.ID ? "category-slected": ""}">${category.name}</a>
+                                <a href="search?category_id=${category.ID}" class="nav-link text-muted category ${category_id == category.ID ? 'category-selected': ''}">${category.name}</a>
                             </li>
                         </c:forEach>
                     </ul>

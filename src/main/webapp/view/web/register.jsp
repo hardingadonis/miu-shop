@@ -23,8 +23,8 @@
                     <div class="row">
                         <div class="col-lg-6 col-sm-12">
                             <div class="input-field">
-                                <input name="full-name"" type="text" class="input" id="full-name" required value="${fullName}">
-                                <label for="full-name"">Họ và tên</label>
+                                <input name="full-name" type="text" class="input" id="full-name" required value="${fullName}">
+                                <label for="full-name">Họ và tên</label>
                             </div>
                             <div class="input-field">
                                 <input name="birth-year" type="text" class="input" id="birth-year" required value="${birthYear}">
