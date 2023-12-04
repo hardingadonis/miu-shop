@@ -32,7 +32,7 @@ form.addEventListener('submit', function (event) {
         return;
     }
 
-    if (!isPasswordaMatch(passwordValue, confirmPasswordInput.value)) {
+    if (!isPasswordMatch(passwordValue, confirmPasswordInput.value)) {
         errorMessage.textContent = 'Mật khẩu không khớp!';
         confirmPasswordInput.focus();
         return;
@@ -77,7 +77,7 @@ function removeNonNumericCharacters(input) {
     input.value = input.value.replace(/[^0-9]/g, '');
 }
 
-function isPasswordaMatch(password, confirmPassword) {
+function isPasswordMatch(password, confirmPassword) {
     return password === confirmPassword;
 }
 
