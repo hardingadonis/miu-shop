@@ -32,7 +32,7 @@
                                 <a href="profile" class="nav-link text-muted option option-selected">Thông tin chung</a>
                                 <a href="#" class="nav-link text-muted option">Địa chỉ giao hàng</a>
                                 <a href="#" class="nav-link text-muted option">Lịch sử mua hàng</a>
-                                <a href="#" class="nav-link text-muted option">Đổi mật khẩu</a>
+                                <a href="change-password" class="nav-link text-muted option">Đổi mật khẩu</a>
                             </li>
                         </ul>
                     </div>
@@ -41,20 +41,20 @@
                         <div class="container-fluid p-3 border border-dark">
                             <h6 class="m-3 text-center display-6">Thông tin chung</h6>
 
-                            <form id="profile-form" action="profile" method="post" enctype="multipart/form-data">
+                            <form id="profile-form" action="profile" method="post" enctype="multipart/form-data" class="px-5">
                                 <div class="mb-3">
                                     <label for="full-name" class="form-label">Họ và tên</label>
-                                    <input name="full-name" class="form-control" type="text" id="full-name" required value="${sessionScope.user.fullName}" required>
+                                    <input name="full-name" class="form-control" type="text" id="full-name" value="${sessionScope.user.fullName}" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
-                                    <input name="email" type="text" class="form-control" id="email" required value="${sessionScope.user.email}" disabled required>
+                                    <input name="email" type="text" class="form-control" id="email" value="${sessionScope.user.email}" disabled required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="birth-year" class="form-label">Năm sinh</label>
-                                    <input name="birth-year" class="form-control" type="text" id="birth-year" required value="${sessionScope.user.birthYear}" required>
+                                    <input name="birth-year" class="form-control" type="text" id="birth-year" value="${sessionScope.user.birthYear}" required>
                                 </div>
 
                                 <div class="mb-3 input-field-gender">
