@@ -30,14 +30,50 @@
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a href="profile" class="nav-link text-muted option">Thông tin chung</a>
-                                <a href="delivery-address" class="nav-link text-muted option">Địa chỉ giao hàng</a>
+                                <a href="delivery-address" class="nav-link text-muted option option-selected">Địa chỉ giao hàng</a>
                                 <a href="purchase-history" class="nav-link text-muted option">Lịch sử mua hàng</a>
-                                <a href="change-password" class="nav-link text-muted  option option-selected">Đổi mật khẩu</a>
+                                <a href="change-password" class="nav-link text-muted  option">Đổi mật khẩu</a>
                             </li>
                         </ul>
                     </div>
 
                     <div class="col-lg-9 col-sm-12">
+                        <div class="container-fluid p-3 border border-dark">
+                            <h6 class="m-3 text-center display-6">Địa chỉ giao hàng</h6>
+
+                            <div class="px-5">
+                                <c:if test="${sessionScope.user.address.size() > 0}">
+                                    <table class="table py-3">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="col-10 text-center">Địa chỉ</th>
+                                                <th scope="col" class="col-2 text-center">Thao tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach var="address" items="${sessionScope.user.address}">
+                                                <tr>
+                                                    <td class="text-center">${address}</td>
+                                                    <td class="text-center">
+                                                        <button class="btn btn-outline-danger" onclick="deleteAddress('${address}')">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </c:if>
+
+                                <c:if test="${sessionScope.user.address.size() < 5}">
+                                    <div class="text-center py-3">
+                                        <button class="btn btn-outline-dark" onclick="openAddDialog()">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </c:if>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

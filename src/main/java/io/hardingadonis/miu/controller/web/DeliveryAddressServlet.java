@@ -1,5 +1,6 @@
 package io.hardingadonis.miu.controller.web;
 
+import io.hardingadonis.miu.model.*;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.annotation.*;
@@ -13,6 +14,13 @@ public class DeliveryAddressServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
+
+        User user = (User) request.getSession().getAttribute("user");
+
+        if (user == null) {
+            response.sendRedirect("login");
+            return;
+        }
 
         request.getRequestDispatcher("/view/web/delivery-address.jsp").forward(request, response);
     }
