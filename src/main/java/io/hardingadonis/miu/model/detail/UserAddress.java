@@ -51,6 +51,6 @@ public class UserAddress {
 
     @Override
     public String toString() {
-        return "UserAddress{" + "province=" + province + ", district=" + district + ", ward=" + ward + ", specific=" + specific + '}';
+        return specific + ", " + ward + ", " + district + ", " + province;
     }
 }
