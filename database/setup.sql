@@ -96,6 +96,7 @@ INSERT INTO `category` (`id`, `name`, `create_at`, `update_at`, `delete_at`) VAL
 CREATE TABLE `order` (
   `id` int(11) NOT NULL COMMENT 'ID dùng để quản lý, tự động tăng',
   `user_id` int(11) NOT NULL COMMENT 'Liên kết với id bảng user',
+  `address` longtext NOT NULL COMMENT 'Địa chỉ nhận hàng',
   `total_price` bigint(20) NOT NULL COMMENT 'Được tính dựa trên bảng order_data',
   `payment` enum('cod','vnpay') NOT NULL COMMENT 'Lựa chọn phương thức thanh toán',
   `status` enum('processing','shipping','done','canceled') NOT NULL COMMENT 'Tình trạng đơn hàng',
