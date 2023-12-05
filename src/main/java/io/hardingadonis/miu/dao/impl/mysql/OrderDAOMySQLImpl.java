@@ -13,13 +13,14 @@ public class OrderDAOMySQLImpl implements OrderDAO {
     private static Order getFromResultSet(ResultSet rs) throws SQLException {
         int ID = rs.getInt("id");
         int userID = rs.getInt("user_id");
+        String address = rs.getString("address");
         long totalPrice = rs.getInt("total_price");
         Payment payment = Payment.create(rs.getString("payment"));
         OrderStatus status = OrderStatus.create(rs.getString("status"));
         LocalDateTime createAt = Converter.convert(rs.getTimestamp("create_at"));
         LocalDateTime updateAt = Converter.convert(rs.getTimestamp("update_at"));
 
-        return new Order(ID, userID, totalPrice, payment, status, createAt, updateAt);
+        return new Order(ID, userID, address, totalPrice, payment, status, createAt, updateAt);
     }
 
     @Override
