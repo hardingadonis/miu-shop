@@ -93,7 +93,9 @@
                                     </td>
                                     <td class="price align-middle text-center" id="product-total-price-<%=product.getID()%>"><%=product.getPrice() * value%></td>
                                     <td class="align-middle text-center">
-                                        <button class="btn btn-sm btn-outline-danger" onclick="removeProduct(<%=product.getID()%>)">Xóa</button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="removeProduct(<%=product.getID()%>)">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
                                     </td>
                                 </tr>
                                 <%
