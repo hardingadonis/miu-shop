@@ -54,9 +54,6 @@ public class CheckoutServlet extends HttpServlet {
             moveCartToOrderData(id, cartCookie, response);
 
             response.sendRedirect("purchase-history");
-
-            return;
-        } else {
         }
     }
 
