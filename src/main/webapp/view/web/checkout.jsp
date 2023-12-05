@@ -1,12 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@page import="io.hardingadonis.miu.model.Product"%>
-
-<%@page import="org.json.simple.JSONObject"%>
-<%@page import="org.json.simple.parser.JSONParser"%>
-<%@page import="org.json.simple.parser.ParseException"%>
-
 <!DOCTYPE html>
 
 <html>

@@ -55,7 +55,12 @@ function addToCart() {
     let cartCookie = getCartCookie();
 
     if (cartCookie.hasOwnProperty(productID)) {
-        cartCookie[productID] += currentQuantity;
+        if (cartCookie[productID] + currentQuantity <= maxAmount) {
+            cartCookie[productID] += currentQuantity;
+        }
+        else {
+            cartCookie[productID] = maxAmount;
+        }
     } else {
         cartCookie[productID] = currentQuantity;
     }
