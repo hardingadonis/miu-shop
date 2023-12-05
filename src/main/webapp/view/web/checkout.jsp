@@ -56,17 +56,17 @@
                             <div class="my-4 text-center">
                                 <button type="submit" class="btn btn-outline-dark">Xác Nhận</button>
                             </div>
+                        </div>
                     </form>
                 </div>
             </div>
-        </div>
 
-        <%@include file="common/_footer.jsp" %>
+            <%@include file="common/_footer.jsp" %>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
-        <script src="<%=request.getContextPath()%>/assets/js/web/common/commonHandler.js"></script>
-        <script src="<%=request.getContextPath()%>/assets/js/web/checkoutHandler.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
+            <script src="<%=request.getContextPath()%>/assets/js/web/common/commonHandler.js"></script>
+            <script src="<%=request.getContextPath()%>/assets/js/web/checkoutHandler.js"></script>
     </body>
 
 </html>
