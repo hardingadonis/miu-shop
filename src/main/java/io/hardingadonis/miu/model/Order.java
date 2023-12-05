@@ -7,6 +7,7 @@ public class Order {
 
     private int ID;
     private int userID;
+    private String address;
     private long totalPrice;
     private Payment payment;
     private OrderStatus status;
@@ -16,15 +17,17 @@ public class Order {
     public Order() {
     }
 
-    public Order(int userID, long totalPrice, Payment payment, OrderStatus status) {
+    public Order(int userID, String address, long totalPrice, Payment payment, OrderStatus status) {
         this.userID = userID;
+        this.address = address;
         this.totalPrice = totalPrice;
         this.payment = payment;
         this.status = status;
     }
 
-    public Order(int userID, long totalPrice, Payment payment, OrderStatus status, LocalDateTime createAt, LocalDateTime updateAt) {
+    public Order(int userID, String address, long totalPrice, Payment payment, OrderStatus status, LocalDateTime createAt, LocalDateTime updateAt) {
         this.userID = userID;
+        this.address = address;
         this.totalPrice = totalPrice;
         this.payment = payment;
         this.status = status;
@@ -32,9 +35,10 @@ public class Order {
         this.updateAt = updateAt;
     }
 
-    public Order(int ID, int userID, long totalPrice, Payment payment, OrderStatus status, LocalDateTime createAt, LocalDateTime updateAt) {
+    public Order(int ID, int userID, String address, long totalPrice, Payment payment, OrderStatus status, LocalDateTime createAt, LocalDateTime updateAt) {
         this.ID = ID;
         this.userID = userID;
+        this.address = address;
         this.totalPrice = totalPrice;
         this.payment = payment;
         this.status = status;
@@ -56,6 +60,14 @@ public class Order {
 
     public void setUserID(int userID) {
         this.userID = userID;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public long getTotalPrice() {
@@ -100,6 +112,6 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "ID=" + ID + ", userID=" + userID + ", totalPrice=" + totalPrice + ", payment=" + payment + ", status=" + status + ", createAt=" + createAt + ", updateAt=" + updateAt + '}';
+        return "Order{" + "ID=" + ID + ", userID=" + userID + ", address=" + address + ", totalPrice=" + totalPrice + ", payment=" + payment + ", status=" + status + ", createAt=" + createAt + ", updateAt=" + updateAt + '}';
     }
 }
