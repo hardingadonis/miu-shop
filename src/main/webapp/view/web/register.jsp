@@ -55,14 +55,21 @@
                                 <input name="email" type="text" class="input" id="email" required value="${email}">
                                 <label for="email">Email</label>
                             </div>
-                            <div class="input-field">
+
+                            <div class="input-field eye">
                                 <input name="password" type="password" class="input" id="password" required>
                                 <label for="password">Mật khẩu</label>
+                                <i class="show-password-toggle fas fa-eye-slash" data-toggle="password"></i>
                             </div>
-                            <div class="input-field">
+
+
+                            <div class="input-field eye">
                                 <input name="confirm-password" type="password" class="input" id="confirm-password" required>
                                 <label for="confirm-password">Xác nhận mật khẩu</label>
+                                <i class="show-password-toggle fas fa-eye-slash" data-toggle="confirm-password"></i>
                             </div>
+
+
                         </div>
                     </div>
 

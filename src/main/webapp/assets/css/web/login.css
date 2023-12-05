@@ -57,6 +57,17 @@
     padding: 0 10px;
 }
 
+.eye {
+    flex-direction: row;
+}
+
+.show-password-toggle{
+    padding-top: 20px;
+    height: 45px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 .input {
     height: 45px;
     width: 100%;
