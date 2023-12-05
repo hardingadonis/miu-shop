@@ -56,6 +56,7 @@
                             <div class="my-4 text-center">
                                 <button type="submit" class="btn btn-outline-dark">Xác Nhận</button>
                             </div>
+                        </div>
                     </form>
                 </div>
             </div>

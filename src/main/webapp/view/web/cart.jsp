@@ -36,8 +36,9 @@
                             Không có sản phẩm nào
                         </h6>
                         <br>
+                        <br>
                         <div class="d-flex justify-content-center">
-                            <a href="home" class="btn btn-outline-dark">Tiếp tục mua hàng</a>
+                            <a href="search" class="btn btn-outline-dark">Tiếp tục mua hàng</a>
                         </div>
                     </div>
                 </c:if>
