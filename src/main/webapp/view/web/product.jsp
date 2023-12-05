@@ -96,7 +96,7 @@
                                         </div>
                                     </div>
                                     <div class="col-8">
-                                        <a class="btn btn-dark" onclick="addToCart()"> <i class="me-1 fa fa-shopping-basket"> </i>Thêm vào giỏ hàng</a>
+                                        <button class="btn btn-dark" onclick="addToCart()" ${requestScope.product.amount > 0 ? '' : 'disabled'}> <i class="me-1 fa fa-shopping-basket"> </i>Thêm vào giỏ hàng</button>
                                     </div>
                                 </div>
                             </div>
