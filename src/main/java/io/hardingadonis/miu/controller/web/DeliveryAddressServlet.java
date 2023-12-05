@@ -15,7 +15,7 @@ public class DeliveryAddressServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
-
+        
         User user = (User) request.getSession().getAttribute("user");
 
         if (user == null) {
