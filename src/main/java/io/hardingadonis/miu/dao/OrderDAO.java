@@ -16,7 +16,7 @@ public interface OrderDAO {
 
     public Order get(int ID);
 
-    public void insert(Order obj);
+    public int insert(Order obj);
 
     public void update(Order obj);
 

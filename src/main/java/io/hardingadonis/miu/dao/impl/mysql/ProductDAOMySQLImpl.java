@@ -256,7 +256,7 @@ public class ProductDAOMySQLImpl implements ProductDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("UPDATE product SET brand = ?, name = ?, category_id = ?, origin = ?, expiry_date = ?, weight = ?, preservation = ?, price = ?, amount = ?, thumbnail, images = ?, update_at = ? WHERE id = ? AND delete_at IS NULL");
+            PreparedStatement smt = conn.prepareStatement("UPDATE product SET brand = ?, name = ?, category_id = ?, origin = ?, expiry_date = ?, weight = ?, preservation = ?, price = ?, amount = ?, thumbnail = ?, images = ?, update_at = ? WHERE id = ? AND delete_at IS NULL");
             smt.setString(1, obj.getBrand());
             smt.setString(2, obj.getName());
             smt.setInt(3, obj.getCategoryID());

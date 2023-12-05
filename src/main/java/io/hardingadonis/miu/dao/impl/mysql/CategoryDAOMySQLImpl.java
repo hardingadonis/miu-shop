@@ -71,7 +71,7 @@ public class CategoryDAOMySQLImpl implements CategoryDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("INSERT INTO category(name, create_at) VALUES (?, ?, ?)");
+            PreparedStatement smt = conn.prepareStatement("INSERT INTO category(name, create_at) VALUES (?, ?)");
             smt.setString(1, obj.getName());
             smt.setString(2, Converter.convert(obj.getCreateAt()));
 

@@ -49,17 +49,6 @@ INSERT INTO `admin` (`id`, `username`, `hashed_password`, `role`, `create_at`, `
 (3, 'hoang', '270723e7f50a26d4ae90da0e13079f293dd37e9953f7f9801ce7de19a35fc58e', 'admin', '2023-11-17 09:51:12', NULL, NULL),
 (4, 'vuong', '9ef78ba5f2594c24944ce9a90f2a6358d260a7cc3bb7db8e37f06c5d41249eef', 'admin', '2023-11-17 09:51:41', NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `cart`
---
-
-CREATE TABLE `cart` (
-  `user_id` int(11) NOT NULL COMMENT 'Liên kết với id bảng user',
-  `product_id` int(11) NOT NULL COMMENT 'Liên kết với id bảng product',
-  `amount` int(11) NOT NULL DEFAULT 1 COMMENT 'Số lượng sẩn phẩm được chọn'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -102,7 +91,6 @@ CREATE TABLE `order` (
   `status` enum('processing','shipping','done','canceled') NOT NULL COMMENT 'Tình trạng đơn hàng',
   `create_at` datetime DEFAULT NULL,
   `update_at` datetime DEFAULT NULL,
-  `delete_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -250,13 +238,6 @@ ALTER TABLE `admin`
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Chỉ mục cho bảng `cart`
---
-ALTER TABLE `cart`
-  ADD PRIMARY KEY (`user_id`,`product_id`),
-  ADD KEY `product_id` (`product_id`);
-
---
 -- Chỉ mục cho bảng `category`
 --
 ALTER TABLE `category`
@@ -328,12 +309,6 @@ ALTER TABLE `user`
 -- Các ràng buộc cho các bảng đã đổ
 --
 
---
--- Các ràng buộc cho bảng `cart`
---
-ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
 --
 -- Các ràng buộc cho bảng `order`
