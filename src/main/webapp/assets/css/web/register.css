@@ -40,6 +40,17 @@ body {
     padding: 0 10px;
 }
 
+.eye {
+    flex-direction: row;
+}
+
+.show-password-toggle{
+    padding-top: 10px;
+    height: 45px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 .input {
     height: 45px;
     width: 100%;
@@ -123,4 +134,9 @@ span a {
 span a:hover {
     text-decoration: underline;
     color: #000000;
+}
+
+
+.input-field .i {
+    margin: 0;
 }
