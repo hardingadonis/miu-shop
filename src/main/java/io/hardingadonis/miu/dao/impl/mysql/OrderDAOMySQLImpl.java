@@ -143,21 +143,34 @@ public class OrderDAOMySQLImpl implements OrderDAO {
     }
 
     @Override
-    public void insert(Order obj) {
+    public int insert(Order obj) {
+        int id = 0;
+
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("INSERT INTO order(user_id, total_price, payment, status, create_at) VALUES (?, ?, ?, ?, ?)");
+            PreparedStatement smt = conn.prepareStatement("INSERT INTO `order`(user_id, address, total_price, payment, status, create_at) VALUES (?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
             smt.setInt(1, obj.getUserID());
-            smt.setLong(2, obj.getTotalPrice());
-            smt.setString(3, obj.getPayment().toString());
-            smt.setString(4, obj.getStatus().toString());
-            smt.setString(5, Converter.convert(LocalDateTime.now()));
+            smt.setString(2, obj.getAddress());
+            smt.setLong(3, obj.getTotalPrice());
+            smt.setString(4, obj.getPayment().toString());
+            smt.setString(5, obj.getStatus().toString());
+            smt.setString(6, Converter.convert(LocalDateTime.now()));
+
+            if (smt.executeUpdate() > 0) {
+                ResultSet rs = smt.getGeneratedKeys();
+
+                if (rs.next()) {
+                    id = rs.getInt(1);
+                }
+            }
 
             Singleton.dbContext.closeConnection(conn);
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
+
+        return id;
     }
 
     @Override
@@ -165,13 +178,16 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("UPDATE order SET user_id = ?, total_price = ?, payment = ?, status = ?, update_at = ? WHERE id = ?");
+            PreparedStatement smt = conn.prepareStatement("UPDATE `order` SET user_id = ?, address = ?, total_price = ?, payment = ?, status = ?, update_at = ? WHERE id = ?");
             smt.setInt(1, obj.getUserID());
-            smt.setLong(2, obj.getTotalPrice());
-            smt.setString(3, obj.getPayment().toString());
-            smt.setString(4, obj.getStatus().toString());
-            smt.setString(5, Converter.convert(LocalDateTime.now()));
-            smt.setInt(6, obj.getID());
+            smt.setString(2, obj.getAddress());
+            smt.setLong(3, obj.getTotalPrice());
+            smt.setString(4, obj.getPayment().toString());
+            smt.setString(5, obj.getStatus().toString());
+            smt.setString(6, Converter.convert(LocalDateTime.now()));
+            smt.setInt(7, obj.getID());
+
+            smt.executeUpdate();
 
             Singleton.dbContext.closeConnection(conn);
         } catch (SQLException ex) {
