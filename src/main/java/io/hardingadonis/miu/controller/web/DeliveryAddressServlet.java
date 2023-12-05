@@ -1,6 +1,7 @@
 package io.hardingadonis.miu.controller.web;
 
 import io.hardingadonis.miu.model.*;
+import io.hardingadonis.miu.services.*;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.annotation.*;
@@ -28,5 +29,16 @@ public class DeliveryAddressServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
+        
+        int index = Integer.parseInt(request.getParameter("index"));
+        
+        User user = (User) request.getSession().getAttribute("user");
+        user.getAddress().remove(index);
+        
+        Singleton.userDAO.update(user);
+        
+        response.sendRedirect("delivery-address");
     }
 }

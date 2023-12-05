@@ -51,13 +51,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach var="address" items="${sessionScope.user.address}">
+                                            <c:forEach var="address" items="${sessionScope.user.address}" varStatus="loop">
                                                 <tr>
                                                     <td class="text-center">${address}</td>
                                                     <td class="text-center">
-                                                        <button class="btn btn-outline-danger" onclick="deleteAddress('${address}')">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </button>
+                                                        <form action="delivery-address" method="post">
+                                                            <input type="hidden" name="index" value="${loop.index}">
+                                                            <button class="btn btn-outline-danger">
+                                                                <i class="fas fa-trash-alt"></i>
+                                                            </button>
+                                                        </form>
                                                     </td>
                                                 </tr>
                                             </c:forEach>
@@ -67,9 +70,9 @@
 
                                 <c:if test="${sessionScope.user.address.size() < 5}">
                                     <div class="text-center py-3">
-                                        <button class="btn btn-outline-dark" onclick="openAddDialog()">
+                                        <a href="add-address" class="btn btn-outline-dark">
                                             <i class="fas fa-plus"></i>
-                                        </button>
+                                        </a>
                                     </div>
                                 </c:if>
                             </div>
