@@ -1,7 +1,7 @@
 package io.hardingadonis.miu.controller.web;
 
 import io.hardingadonis.miu.model.*;
-import io.hardingadonis.miu.model.detail.OrderStatus;
+import io.hardingadonis.miu.model.detail.*;
 import io.hardingadonis.miu.services.*;
 import java.io.*;
 import java.util.*;
@@ -82,9 +82,7 @@ public class PurchaseHistoryServlet extends HttpServlet {
         request.setAttribute("order_list", orderList);
         request.setAttribute("pagination_str", paginationStr);
         request.setAttribute("end_page", endPage);
-
-        System.out.println(paginationStr);
-
+        
         request.getRequestDispatcher("/view/web/purchase-history.jsp").forward(request, response);
     }
 

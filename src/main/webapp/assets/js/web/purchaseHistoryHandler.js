@@ -58,8 +58,6 @@ function handleDeletePurchaseHistory(id) {
                         text: "Đã có lỗi xảy ra khi gửi yêu cầu!",
                         icon: "error"
                     });
-
-                    console.log("error");
                 }
             });
         }
