@@ -20,6 +20,6 @@ public class CheckoutStatusServlet extends HttpServlet {
             response.sendRedirect("home");
         }
 
-        request.getRequestDispatcher("/view/web/checkout-success.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/web/checkout-status.jsp").forward(request, response);
     }
 }
