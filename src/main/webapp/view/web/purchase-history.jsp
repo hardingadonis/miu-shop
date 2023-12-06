@@ -117,7 +117,7 @@
                                                             <i class="fas fa-circle-info"></i>
                                                         </a>
                                                         <c:if test="${order.status.toString() eq 'processing'}">
-                                                            <button class="btn btn-sm btn-outline-danger" title="Hủy đơn hàng">
+                                                            <button class="btn btn-sm btn-outline-danger" onclick="handleDeletePurchaseHistory(${order.ID})">
                                                                 <i class="fas fa-ban"></i>
                                                             </button>
                                                         </c:if>
@@ -143,6 +143,8 @@
         <%@include file="common/_footer.jsp" %>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="<%=request.getContextPath()%>/assets/js/web/common/commonHandler.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/web/purchaseHistoryHandler.js"></script>
     </body>
