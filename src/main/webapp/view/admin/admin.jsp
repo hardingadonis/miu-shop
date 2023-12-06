@@ -1,8 +1,4 @@
-<%-- 
-    Document   : loginAdmin
-    Created on : Dec 5, 2023, 3:51:38 PM
-    Author     : LENOVO
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

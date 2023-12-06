@@ -8,6 +8,30 @@
         <filter-name>DefaultFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>admin.AdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListUserServlet</servlet-name>
+        <servlet-class>admin.ListUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListOrderServlet</servlet-name>
+        <servlet-class>admin.ListOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListUserServlet</servlet-name>
+        <url-pattern>/listUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListOrderServlet</servlet-name>
+        <url-pattern>/listOrder</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             15
