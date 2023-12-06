@@ -8,6 +8,7 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
+import org.json.simple.*;
 
 @WebServlet(name = "PurchaseHistoryServlet", urlPatterns = {"/purchase-history"})
 public class PurchaseHistoryServlet extends HttpServlet {
@@ -85,6 +86,33 @@ public class PurchaseHistoryServlet extends HttpServlet {
         System.out.println(paginationStr);
 
         request.getRequestDispatcher("/view/web/purchase-history.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            int ID = Integer.parseInt(request.getParameter("id"));
+
+            Order order = Singleton.orderDAO.get(ID);
+
+            if (order != null) {
+                order.setStatus(OrderStatus.CANCELED);
+                Singleton.orderDAO.update(order);
+
+                JSONObject jsonResponse = new JSONObject();
+                jsonResponse.put("status", "success");
+                jsonResponse.put("message", "Order canceled successfully");
+
+                response.setContentType("application/json");
+                response.getWriter().write(jsonResponse.toString());
+
+                response.setStatus(HttpServletResponse.SC_OK);
+            }
+
+        } catch (NumberFormatException ex) {
+            System.err.println(ex.getMessage());
+        }
     }
 
     private static int parsePage(HttpServletRequest request, int endPage) {
