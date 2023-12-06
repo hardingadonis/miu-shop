@@ -30,7 +30,7 @@
                                         <a class="dropdown-item" href="profile">Cài đặt</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="purchase-history">Lịch sử mua hàng</a>
+                                        <a class="dropdown-item" href="purchase-history?tab=all">Lịch sử mua hàng</a>
                                     </li>
                                     <li>
                                         <hr class="dropdown-divider">
