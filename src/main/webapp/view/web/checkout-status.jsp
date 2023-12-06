@@ -67,7 +67,7 @@
                     <br>
                     <br>
                     <div class="d-flex justify-content-center">
-                        <a href="purchase-history" class="btn btn-outline-dark">Đến lịch sử mua hàng</a>
+                        <a href="purchase-history?tab=all" class="btn btn-outline-dark">Đến lịch sử mua hàng</a>
                     </div>
                 </div>
             </div>
