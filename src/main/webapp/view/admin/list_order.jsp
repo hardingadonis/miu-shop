@@ -95,7 +95,7 @@
                                             <td>Haha</td>
                                             <td>300.000</td>
                                             <td>Bank Account</td>
-                                            <td>Delivering</td>
+                                            <td>Shipping</td>
                                             <td>
                                                 <a href="#" class="btn btn-info btn-tiny" title="Edit">
                                                     <i class="fa fa-pencil"></i>
@@ -107,7 +107,7 @@
                                             <td>Hoho</td>
                                             <td>300.000</td>
                                             <td>Momo</td>
-                                            <td>Waiting</td>
+                                            <td>Processing</td>
                                             <td>
                                                 <a href="#" class="btn btn-info btn-tiny" title="Edit">
                                                     <i class="fa fa-pencil"></i>
@@ -119,7 +119,7 @@
                                             <td>Hihi</td>
                                             <td>300.000</td>
                                             <td>Cash</td>
-                                            <td>Complete</td>
+                                            <td>Done</td>
                                             <td>
                                                 <a href="#" class="btn btn-info btn-tiny" title="Edit">
                                                     <i class="fa fa-pencil"></i>
