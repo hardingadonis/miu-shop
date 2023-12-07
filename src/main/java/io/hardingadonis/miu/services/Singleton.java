@@ -13,8 +13,6 @@ public class Singleton {
     
     public static AdminDAO adminDAO;
     
-    public static CartDAO cartDAO;
-    
     public static CategoryDAO categoryDAO;
     
     public static OrderDAO orderDAO;
@@ -31,8 +29,6 @@ public class Singleton {
         email = new EmailGmailImpl();
         
         adminDAO = new AdminDAOMySQLImpl();
-        
-        cartDAO = new CartDAOMySQLImpl();
         
         categoryDAO = new CategoryDAOMySQLImpl();
         

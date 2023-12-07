@@ -53,9 +53,18 @@
                                 </select>
                             </div>
 
-                            <div class="my-4 text-center">
-                                <button type="submit" class="btn btn-outline-dark">Xác Nhận</button>
-                            </div>
+                            <c:if test="${sessionScope.user.address.size() > 0}">
+                                <div class="my-4 text-center">
+                                    <button type="submit" class="btn btn-outline-dark">Xác nhận</button>
+                                </div>
+                            </c:if>
+
+                            <c:if test="${sessionScope.user.address.size() == 0}">
+                                <div class="my-4 text-center">
+                                    <a href="add-address" class="btn btn-outline-dark">Thêm địa chỉ nhận hàng</a>
+                                </div>
+                            </c:if>
+                        </div>
                     </form>
                 </div>
             </div>

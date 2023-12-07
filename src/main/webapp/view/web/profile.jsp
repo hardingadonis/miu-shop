@@ -77,7 +77,7 @@
                                 </div>
 
                                 <div class="my-3 text-center">
-                                    <button type="submit" class="btn btn-outline-dark">Xác Nhận</button>
+                                    <button type="submit" class="btn btn-outline-dark">Xác nhận</button>
                                 </div>
                             </form>
                         </div>

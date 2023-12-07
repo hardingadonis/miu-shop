@@ -81,7 +81,7 @@
 
                                         <div class="my-3 text-center">
                                             <div id="error-message" class="text-danger my-3">${error_msg}</div>
-                                            <button type="submit" class="btn btn-outline-dark">Xác Nhận</button>
+                                            <button type="submit" class="btn btn-outline-dark">Xác nhận</button>
                                         </div>
                                     </form>
                                 </div>

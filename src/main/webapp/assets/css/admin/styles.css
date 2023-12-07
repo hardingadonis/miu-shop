@@ -1,4 +1,3 @@
-
 @charset "UTF-8";
 /*!
 * Start Bootstrap - SB Admin v7.0.7 (https://startbootstrap.com/template/sb-admin)
@@ -182,7 +181,7 @@ address {
   font-style: normal;
   line-height: inherit;
 }
-datatablesSimple
+
 ol,
 ul {
   padding-left: 2rem;
@@ -11410,5 +11409,146 @@ body {
 
 #deleteUserModal .modal-title,
 #deleteUserModal .modal-header h5 {
+  opacity: 1; 
+
+}
+
+#editCategoryModal .modal-header {
+  text-align: center;
+  background-color: #007bff;
+  color: #fff;
+}
+
+#editCategoryModal .modal-header button.close {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #000; 
+}
+
+#editCategoryModal .modal-header button.close:hover {
+  background-color: #f0f0f0;
+  color: #ff0000; 
+}
+
+#editCategoryModal .modal-title {
+  margin: 0 auto;
+  width: 50%; 
+}
+
+#editCategoryModal .modal-title,
+#editCategoryModal .modal-header h5 {
+  opacity: 1; 
+}
+
+#addCategoryModal .modal-header {
+  text-align: center;
+  background-color: #007bff;
+  color: #fff;
+}
+
+#addCategoryModal .modal-header button.close {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #000; 
+}
+
+#addCategoryModal .modal-header button.close:hover {
+  background-color: #f0f0f0;
+  color: #ff0000; 
+}
+
+#addCategoryModal .modal-title {
+  margin: 0 auto;
+  width: 50%; 
+}
+
+#addCategoryModal .modal-title,
+#addCategoryrModal .modal-header h5 {
+  opacity: 1; 
+}
+
+#editProductModal .modal-header {
+  text-align: center;
+  background-color: #007bff;
+  color: #fff;
+}
+
+#editProductModal .modal-header button.close {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #000; 
+}
+
+#editProductModal .modal-header button.close:hover {
+  background-color: #f0f0f0;
+  color: #ff0000; 
+}
+
+#editProductModal .modal-title {
+  margin: 0 auto;
+  width: 50%; 
+}
+
+#editProductModal .modal-title,
+#editProductModal .modal-header h5 {
+  opacity: 1; 
+}
+
+#addProductModal .modal-header {
+  text-align: center;
+  background-color: #007bff;
+  color: #fff;
+}
+
+#addProductModal .modal-header button.close {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #000; 
+}
+
+#addProductModal .modal-header button.close:hover {
+  background-color: #f0f0f0;
+  color: #ff0000; 
+}
+
+#addProductModal .modal-title {
+  margin: 0 auto;
+  width: 50%; 
+}
+
+#addProductModal .modal-title,
+#addProductrModal .modal-header h5 {
+  opacity: 1; 
+}
+
+#deleteProductModal .modal-header {
+  text-align: center;
+  background-color: #007bff;
+  color: #fff;
+}
+
+#deleteProductModal .modal-header button.close {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #000; 
+}
+
+#deleteProductModal .modal-header button.close:hover {
+  background-color: #f0f0f0;
+  color: #ff0000; 
+}
+
+#deleteProductModal .modal-title {
+  margin: 0 auto;
+  width: 50%; 
+}
+
+#deleteProductModal .modal-title,
+#deleteProductModal .modal-header h5 {
   opacity: 1; 
 }
