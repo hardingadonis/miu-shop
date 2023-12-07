@@ -16,6 +16,10 @@
 - Maven 3+
 
 
+## Database
+<iframe width="560" height="315" src='https://dbdiagram.io/e/6555c5753be14957871a7c55/65694c5a3be1495787183c32'> </iframe>
+
+
 ## Contributors:
 
 <a href="https://github.com/hardingadonis/miu-shop/graphs/contributors">
