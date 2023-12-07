@@ -1,10 +1,15 @@
 
-<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@page import="io.hardingadonis.miu.services.Singleton"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
         <link rel="icon" href="<%=request.getContextPath()%>/assets/images/favicon/favicon.png" type="image/ico"/>
         <title>Order Management</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
@@ -12,20 +17,20 @@
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     </head>
-    
+
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.html">Welcome Admin</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            
+
             <!-- Navbar-->
             <ul class="navbar-nav d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="loginAdmin">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -71,14 +76,14 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Admin Role</li>
                         </ol>
-                        
+
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
                                 Order Table
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
+                                <table id="datatablesSimple" class="datatable-table">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -86,46 +91,24 @@
                                             <th>Total Price</th>
                                             <th>Payment</th>
                                             <th>Status</th>
-                                            <th>Action</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Haha</td>
-                                            <td>300.000</td>
-                                            <td>Bank Account</td>
-                                            <td>Shipping</td>
-                                            <td>
-                                                <a href="#" class="btn btn-info btn-tiny" title="Edit">
-                                                    <i class="fa fa-pencil"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Hoho</td>
-                                            <td>300.000</td>
-                                            <td>Momo</td>
-                                            <td>Processing</td>
-                                            <td>
-                                                <a href="#" class="btn btn-info btn-tiny" title="Edit">
-                                                    <i class="fa fa-pencil"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Hihi</td>
-                                            <td>300.000</td>
-                                            <td>Cash</td>
-                                            <td>Done</td>
-                                            <td>
-                                                <a href="#" class="btn btn-info btn-tiny" title="Edit">
-                                                    <i class="fa fa-pencil"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        <c:forEach var="c" items="${Singleton.orderDAO.getAll()}">                  
+                                            <tr>
+                                                <td>${c.ID}</td>
+                                                <td>${c.userID}</td>
+                                                <td>${c.totalPrice}</td>
+                                                <td>${c.payment}</td>
+                                                <td>${c.status}</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-info btn-tiny" title="Edit">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -147,40 +130,40 @@
             </div>
         </div>
 
-    <!-- Edit Order Modal -->
-    <div class="modal fade" id="editOrderModal" tabindex="-1" role="dialog" aria-labelledby="editOrderModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editOrderModalLabel">Edit Order Status</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeEditModal()">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <!-- Modal Body -->
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="editStatus">Status:</label>
-                            <select class="form-select" id="editStatus">
-                                <option value="Processing">Processing</option>
-                                <option value="Shipping">Shipping</option>
-                                <option value="Done">Done</option>
-                                <option value="Cancel">Cancel</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                
-                <!-- Modal Footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeEditModal()">Cancel</button>
+        <!-- Edit Order Modal -->
+        <div class="modal fade" id="editOrderModal" tabindex="-1" role="dialog" aria-labelledby="editOrderModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editOrderModalLabel">Edit Order Status</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeEditModal()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="editStatus">Status:</label>
+                                <select class="form-select" id="editStatus">
+                                    <option value="Processing">Processing</option>
+                                    <option value="Shipping">Shipping</option>
+                                    <option value="Done">Done</option>
+                                    <option value="Cancel">Canceled</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeEditModal()">Cancel</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 
