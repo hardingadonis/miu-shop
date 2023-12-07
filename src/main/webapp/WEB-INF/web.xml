@@ -17,6 +17,10 @@
         <servlet-class>io.hardingadonis.miu.controller.admin.ListOrderServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ListCategoryServlet</servlet-name>
+        <servlet-class>io.hardingadonis.miu.controller.admin.ListCategoryServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AdminServlet</servlet-name>
         <servlet-class>io.hardingadonis.miu.controller.admin.AdminServlet</servlet-class>
     </servlet>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>AdminServlet</servlet-name>
         <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListCategoryServlet</servlet-name>
+        <url-pattern>/listCategory</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
