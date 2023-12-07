@@ -72,7 +72,7 @@
                         </ol>
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <a class="box-link" href="list_user.html">
+                                <a class="box-link" href="listUser">
                                     <div class="info-box">
                                         <div class="icon bg-indigo">
                                             <i class="material-icons">face</i>
@@ -85,7 +85,7 @@
                                 </a>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <a class="box-link" href="list_product.html">
+                                <a class="box-link" href="listProduct">
                                     <div class="info-box">
                                         <div class="icon bg-purple">
                                             <i class="material-icons">bookmark</i>
@@ -98,7 +98,7 @@
                                 </a>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <a class="box-link" href="list_order.html">
+                                <a class="box-link" href="listOrder">
                                     <div class="info-box">
                                         <div class="icon bg-red">
                                             <i class="material-icons">shopping_cart</i>
