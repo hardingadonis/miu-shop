@@ -5,8 +5,8 @@ import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
-@WebServlet(name = "CheckoutSuccessServlet", urlPatterns = {"/checkout-success"})
-public class CheckoutSuccessServlet extends HttpServlet {
+@WebServlet(name = "CheckoutStatusServlet", urlPatterns = {"/checkout-status"})
+public class CheckoutStatusServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -20,6 +20,6 @@ public class CheckoutSuccessServlet extends HttpServlet {
             response.sendRedirect("home");
         }
 
-        request.getRequestDispatcher("/view/web/checkout-success.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/web/checkout-status.jsp").forward(request, response);
     }
 }

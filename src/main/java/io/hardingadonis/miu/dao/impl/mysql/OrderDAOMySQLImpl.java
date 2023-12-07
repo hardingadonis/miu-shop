@@ -30,7 +30,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT * FROM order");
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM `order`");
 
             ResultSet rs = smt.executeQuery();
 
@@ -53,7 +53,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT * FROM order WHERE user_id = ?");
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM `order` WHERE user_id = ?");
             smt.setInt(1, userID);
 
             ResultSet rs = smt.executeQuery();
@@ -77,7 +77,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT * FROM order WHERE payment = ?");
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM `order` WHERE payment = ?");
             smt.setString(1, payment.toString());
 
             ResultSet rs = smt.executeQuery();
@@ -101,8 +101,61 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT * FROM order WHERE status = ?");
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM `order` WHERE status = ?");
             smt.setString(1, status.toString());
+
+            ResultSet rs = smt.executeQuery();
+
+            while (rs.next()) {
+                list.add(getFromResultSet(rs));
+            }
+
+            Singleton.dbContext.closeConnection(conn);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<Order> getAllWithUserID(int userID, int offset, int limit) {
+        List<Order> list = new ArrayList<>();
+
+        try {
+            Connection conn = Singleton.dbContext.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM `order` WHERE user_id = ? ORDER BY create_at DESC LIMIT ?, ?");
+            smt.setInt(1, userID);
+            smt.setInt(2, offset);
+            smt.setInt(3, limit);
+
+            ResultSet rs = smt.executeQuery();
+
+            while (rs.next()) {
+                list.add(getFromResultSet(rs));
+            }
+
+            Singleton.dbContext.closeConnection(conn);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<Order> getAllWithUserIDAndStatus(int userID, OrderStatus status, int offset, int limit) {
+        List<Order> list = new ArrayList<>();
+
+        try {
+            Connection conn = Singleton.dbContext.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM `order` WHERE user_id = ? AND `status` = ? ORDER BY create_at DESC LIMIT ?, ?");
+            smt.setInt(1, userID);
+            smt.setString(2, status.toString());
+            smt.setInt(3, offset);
+            smt.setInt(4, limit);
 
             ResultSet rs = smt.executeQuery();
 
@@ -125,7 +178,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT * FROM order WHERE id = ?");
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM `order` WHERE id = ?");
             smt.setInt(1, ID);
 
             ResultSet rs = smt.executeQuery();
@@ -202,7 +255,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM order");
+            PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM `order`");
 
             ResultSet rs = smt.executeQuery();
 
@@ -225,7 +278,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM order WHERE user_id = ?");
+            PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM `order` WHERE user_id = ?");
             smt.setInt(1, userID);
 
             ResultSet rs = smt.executeQuery();
@@ -249,7 +302,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM order WHERE payment = ?");
+            PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM `order` WHERE payment = ?");
             smt.setString(1, payment.toString());
 
             ResultSet rs = smt.executeQuery();
@@ -273,8 +326,33 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM order WHERE status = ?");
+            PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM `order` WHERE status = ?");
             smt.setString(1, status.toString());
+
+            ResultSet rs = smt.executeQuery();
+
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+
+            Singleton.dbContext.closeConnection(conn);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return count;
+    }
+
+    @Override
+    public int countAllWithUserIDAndStatus(int userID, OrderStatus status) {
+        int count = 0;
+
+        try {
+            Connection conn = Singleton.dbContext.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM `order` WHERE user_id = ? AND status = ?");
+            smt.setInt(1, userID);
+            smt.setString(2, status.toString());
 
             ResultSet rs = smt.executeQuery();
 

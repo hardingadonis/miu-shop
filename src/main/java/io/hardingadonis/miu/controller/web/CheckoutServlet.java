@@ -59,7 +59,7 @@ public class CheckoutServlet extends HttpServlet {
         session.setAttribute("cart_cookie", cartCookie);
 
         if (payment == Payment.COD) {
-            response.sendRedirect("checkout-success");
+            response.sendRedirect("checkout-status");
         } else {
             handleVNPayCheckout(request, response, (int) totalPrice);
         }
