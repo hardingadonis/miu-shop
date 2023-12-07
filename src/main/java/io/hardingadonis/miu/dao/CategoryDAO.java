@@ -16,4 +16,7 @@ public interface CategoryDAO {
     public void delete(int ID);
 
     public int count();
+
+    public String getNameCategory(int ID);
+
 }
