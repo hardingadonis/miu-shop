@@ -21,9 +21,8 @@
             <%-- Kiểm tra xem có URL parameter registerSuccess hay không --%>
             <c:if test="${param.registerSuccess == 'true'}">
                 <style>
-                    .main { 
-                        min-height: 75vh;
-                        padding-bottom: 8.5vh;
+                    .main {
+                        min-height: 92vh;
                     }
                 </style>
                 
@@ -35,9 +34,8 @@
             <%-- Kiểm tra xem có URL parameter changePasswordSuccess hay không --%>
             <c:if test="${param.changePasswordSuccess == 'true'}">
                 <style>
-                    .main { 
-                        min-height: 75vh;
-                        padding-bottom: 8.5vh;
+                    .main {
+                        min-height: 92vh;
                     }
                 </style>
                 
