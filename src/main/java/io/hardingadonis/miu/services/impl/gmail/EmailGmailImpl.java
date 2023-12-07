@@ -83,6 +83,29 @@ public class EmailGmailImpl implements Email {
         }
     }
 
+    @Override
+    public void sendForgotPasswordEmail(User user, String code, HttpServletRequest request) {
+        Session session = Session.getInstance(this.props, this.getAuthenticator());
+
+        try {
+            MimeMessage message = new MimeMessage(session);
+
+            message.setFrom(new InternetAddress(this.email));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(user.getEmail()));
+            message.setSubject("Miu Shop, quên mật khẩu!", "UTF-8");
+
+            String forgotPasswordLink = Server.getServerLink(request) + "forgot-password?code=" + code;
+
+            String msgStr = String.format("<html lang=\"vi\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>body{font-family:Arial,sans-serif;background-color:#f5f5f5;text-align:center;padding:20px}.container{max-width:600px;margin:0 auto;background-color:#fff;padding:30px;border-radius:8px;box-shadow:0 0 20px rgba(0,0,0,.1);text-align:justify;align-items:center}h1{color:#333;font-size:24px;margin-bottom:20px}p{color:#666;text-align:justify;line-height:1.6;margin-bottom:15px}.button{display:inline-block;padding:10px 20px;font-size:16px;text-align:center;text-decoration:none;color:#fff;background-color:#4caf50;border-radius:5px}</style></head><body><div class=\"container\"><h1>Miu Shop, Quên mật khẩu!</h1><p>Chào %s. Để tạo mật khẩu mới, vui lòng truy cập vào liên kết bên dưới:</p><a href=\"%s\" class=\"button\" target=\"_blank\">Quên mật khẩu</a></div></body></html>", user.getFullName(), forgotPasswordLink);
+
+            message.setContent(msgStr, "text/html; charset=UTF-8");
+
+            Transport.send(message);
+        } catch (MessagingException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+
     private Authenticator getAuthenticator() {
         return new Authenticator() {
             @Override

@@ -8,4 +8,6 @@ public interface Email {
     public void sendWelcomeEmail(User user);
     
     public void sendVerifyEmail(User user, String code, HttpServletRequest request);
+    
+    public void sendForgotPasswordEmail(User user, String code, HttpServletRequest request);
 }
