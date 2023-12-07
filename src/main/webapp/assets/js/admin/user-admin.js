@@ -10,7 +10,7 @@ function deleteUser(id) {
         cancelButtonText: "No!"
     }).then((result) => {
         if (result.isConfirmed) {
-            const url = "listUser?id=" + id;
+            const url = contextPath + "admin/user?id=" + id;
 
             $.ajax({
                 url: url,

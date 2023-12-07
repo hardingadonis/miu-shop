@@ -10,7 +10,7 @@ function deleteProduct(id) {
         cancelButtonText: "No!"
     }).then((result) => {
         if (result.isConfirmed) {
-            const url = "productmanagement?id=" + id;
+            const url = contextPath + "admin/product?id=" + id;
 
             $.ajax({
                 url: url,
