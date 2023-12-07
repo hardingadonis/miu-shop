@@ -1,5 +1,5 @@
 
-package admin;
+package io.hardingadonis.miu.controller.admin;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

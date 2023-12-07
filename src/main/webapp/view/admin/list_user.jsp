@@ -36,7 +36,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="admin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -103,30 +103,6 @@
                                               <a href="#" class="btn btn-danger btn-tiny" title="Delete"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Lê Minh Vương</td>
-                                            <td>2003</td>
-                                            <td>Male</td>
-                                            <td>HoangTHQE170116@fpt.edu.vn</td>
-                                            <td>Quy Nhon</td>
-                                            <td>Active</td>
-                                            <td>
-                                              <a href="#" class="btn btn-danger btn-tiny" title="Delete"><i class="fa fa-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Nguyễn Thị Thúy</td>
-                                            <td>2003</td>
-                                            <td>Male</td>
-                                            <td>HoangTHQE170116@fpt.edu.vn</td>
-                                            <td>Quy Nhon</td>
-                                            <td>Active</td>
-                                            <td>
-                                              <a href="#" class="btn btn-danger btn-tiny" title="Delete"><i class="fa fa-trash"></i></a>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -180,7 +156,7 @@
         <script src="<%=request.getContextPath()%>/assets/js/admin/demo/chart-bar-demo.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/demo/chart-pie-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
-        <script src="<%=request.getContextPath()%>/assets/js/admin/demo/databases-simple-demo.js"></script>
+        <script src="<%=request.getContextPath()%>/assets/js/admin/demo/datatables-simple-demo.js"></script>
     
     </body>
 </html>
