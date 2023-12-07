@@ -152,15 +152,20 @@
                                     </div>
                                 </div>
 
-                                <c:if test="${order.status.toString() eq 'processing'}">
-                                    <div class="row mt-4">
-                                        <div class="col-lg-12 col-sm-12">
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-danger" onclick="handleDeletePurchaseHistory(${order.ID})"><i class="fas fa-ban"></i> Hủy đơn hàng</button>
-                                            </div>
+
+                                <div class="row mt-4">
+                                    <div class="col-lg-12 col-sm-12">
+                                        <div class="d-flex justify-content-center">
+                                            <c:if test="${not empty sessionScope.prevURL}">
+                                                <a href="${sessionScope.prevURL}" class="btn btn-dark mx-1"><i class="fas fa-arrow-left"></i> Quay về</a>
+                                            </c:if>
+                                            <c:if test="${order.status.toString() eq 'processing'}">
+                                                <button type="button" class="btn btn-danger mx-1" onclick="handleDeletePurchaseHistory(${order.ID})"><i class="fas fa-ban"></i> Hủy đơn hàng</button>
+                                            </c:if>
                                         </div>
                                     </div>
-                                </c:if>
+                                </div>
+
                             </div>
                         </div>
                     </div>

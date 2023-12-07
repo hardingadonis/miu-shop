@@ -11,7 +11,7 @@ import javax.servlet.http.*;
 public class VNPayConfig {
 
     public static String vnp_PayUrl = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-    public static String vnp_ReturnUrl = "checkout-success";
+    public static String vnp_ReturnUrl = "checkout-status";
     public static String vnp_TmnCode = "AWLQQBYH";
     public static String vnp_HashSecret = "NKSWPEIWRRCYZXROOQJZINVLZZKCOAOH";
     public static String vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";

@@ -26,7 +26,7 @@
                     <a href="cart" class="nav-link text-muted">Giỏ hàng</a>
                 </li>
                 <li class="nav-item">
-                    <a href="purchase-history" class="nav-link text-muted">Lịch sử mua hàng</a>
+                    <a href="purchase-history?tab=all" class="nav-link text-muted">Lịch sử mua hàng</a>
                 </li>
             </ul>
             <ul class="nav flex-column">

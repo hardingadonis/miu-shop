@@ -11,7 +11,7 @@ import javax.servlet.http.*;
 @WebServlet(name = "SearchServlet", urlPatterns = {"/search"})
 public class SearchServlet extends HttpServlet {
 
-    private static final int PRODUCTS_PER_PAGE = 3;
+    private static final int PRODUCTS_PER_PAGE = 6;
     private static final int PAGES_PER_GROUP = 3;
     private static final int MINIMUM_TWO_SIDE = 1;
 
