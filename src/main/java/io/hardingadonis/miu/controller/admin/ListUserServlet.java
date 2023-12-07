@@ -1,6 +1,5 @@
 package io.hardingadonis.miu.controller.admin;
 
-import io.hardingadonis.miu.model.User;
 import io.hardingadonis.miu.services.Singleton;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -32,7 +31,7 @@ public class ListUserServlet extends HttpServlet {
 
             JSONObject jsonResponse = new JSONObject();
             jsonResponse.put("status", "success");
-            jsonResponse.put("message", "Order canceled successfully");
+            jsonResponse.put("message", "User canceled successfully");
 
             response.setContentType("application/json");
             response.getWriter().write(jsonResponse.toString());

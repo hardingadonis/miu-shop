@@ -16,7 +16,7 @@ public class DBContextMySQLImpl implements DBContext {
             Properties prop = new Properties();
 
             if (input == null) {
-                this.dbURL = "jdbc:mysql://localhost:3306/r7";
+                this.dbURL = "jdbc:mysql://localhost:3306/miu";
                 this.user = "root";
                 this.password = "";
             } else {
