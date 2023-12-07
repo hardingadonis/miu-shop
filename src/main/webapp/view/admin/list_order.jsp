@@ -40,19 +40,19 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <a class="nav-link" href="list_user.html">
+                            <a class="nav-link" href="listUser">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 User Management
                             </a>
-                            <a class="nav-link" href="list_order.html">
+                            <a class="nav-link" href="listOrder">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Order Management
                             </a>
-                            <a class="nav-link" href="list_category.html">
+                            <a class="nav-link" href="listCategory">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Category Management
                             </a>
-                            <a class="nav-link" href="list_product.html">
+                            <a class="nav-link" href="listProduct">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Product Management
                             </a>
