@@ -10,11 +10,11 @@
     </filter-mapping>
     <servlet>
         <servlet-name>ListUserServlet</servlet-name>
-        <servlet-class>admin.ListUserServlet</servlet-class>
+        <servlet-class>io.hardingadonis.miu.controller.admin.ListUserServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListOrderServlet</servlet-name>
-        <servlet-class>admin.ListOrderServlet</servlet-class>
+        <servlet-class>io.hardingadonis.miu.controller.admin.ListOrderServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AdminServlet</servlet-name>
