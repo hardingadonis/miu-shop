@@ -77,7 +77,7 @@
                         </ol>
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <a class="box-link" href="listUser">
+                                <a class="box-link" href="<%=request.getContextPath()%>/admin/user">
                                     <div class="info-box">
                                         <div class="icon bg-indigo">
                                             <i class="material-icons">face</i>
@@ -90,7 +90,7 @@
                                 </a>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <a class="box-link" href="listProduct">
+                                <a class="box-link" href="<%=request.getContextPath()%>/admin/product">
                                     <div class="info-box">
                                         <div class="icon bg-purple">
                                             <i class="material-icons">bookmark</i>
@@ -103,7 +103,7 @@
                                 </a>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <a class="box-link" href="listOrder">
+                                <a class="box-link" href="<%=request.getContextPath()%>/admin/order">
                                     <div class="info-box">
                                         <div class="icon bg-red">
                                             <i class="material-icons">shopping_cart</i>
