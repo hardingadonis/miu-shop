@@ -131,9 +131,9 @@
                                                         <i class="fa fa-pencil"></i>
                                                     </a>
 
-                                                    <a href="#" class="btn btn-danger btn-tiny" title="Delete">
+                                                    <button class="btn btn-danger btn-tiny" title="Delete" onclick="deleteProduct(${p.ID})">
                                                         <i class="fa fa-trash"></i>
-                                                    </a>
+                                                    </button>
                                                 </td>
                                         <input class="brand"  type="hidden" value="${p.brand}"/>
                                         <input class="origin"  type="hidden" value="${p.origin}"/>
@@ -144,9 +144,6 @@
                                         <input class="createAt"  type="hidden" value="${p.createAt}"/>
                                         <input class="updateAt"  type="hidden" value="${p.updateAt}"/>
                                         <input class="deleteAt"  type="hidden" value="${p.deleteAt}"/>
-                                        
-
-
                                         </tr>
                                     </c:forEach>
 
@@ -212,107 +209,29 @@
             </div>
         </div>
 
-        <!-- Edit Product Modal -->
-        <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModalLabel" aria-hidden="true">
+
+        <!-- Add Product Modal -->
+        <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductModalLabel"
+             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <!-- Modal Header -->
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editProductModalLabel">Edit Product</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeEditModal()">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <!-- Modal Body -->
                     <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="editProductName">Product Name:</label>
-                                <input type="text" class="form-control" id="editProductName">
+                        <!-- Form for adding a new product -->
+                        <form id="addProductForm">
+                            <!-- Add your form fields here (e.g., name, category, price, etc.) -->
+                            <!-- Example: -->
+                            <div class="mb-3">
+                                <label for="productName" class="form-label">Product Name</label>
+                                <input type="text" class="form-control" id="productName" name="productName" required>
                             </div>
-                            <div class="form-group">
-                                <label for="editCategory">Category:</label>
-                                <input type="text" class="form-control" id="editCategory">
-                            </div>
-                            <div class="form-group">
-                                <label for="editPrice">Price:</label>
-                                <input type="text" class="form-control" id="editPrice">
-                            </div>
-                            <div class="form-group">
-                                <label for="editAmount">Amount:</label>
-                                <input type="text" class="form-control" id="editAmount">
-                            </div>
+                            <!-- Add other form fields as needed -->
+
+                            <button type="submit" class="btn btn-primary">Add Product</button>
                         </form>
-                    </div>
-                    <!-- Modal Footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary btn-save-changes">Save changes</button>
-                        <button type="button" class="btn btn-secondary btn-cancel-changes" data-dismiss="modal" onclick="closeEditModal()">Cancel</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-
-        <!-- Add Order Modal -->
-        <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addProductModalLabel">Add New Order</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeAddModal()">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <!-- Modal Body -->
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="addProductName">Product Name:</label>
-                                <input type="text" class="form-control" id="addProductName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="addCategory">Category:</label>
-                                <input type="text" class="form-control" id="addCategory" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="addPrice">Price:</label>
-                                <input type="text" class="form-control" id="addPrice" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="addAmount">Amount:</label>
-                                <input type="text" class="form-control" id="addAmount" required>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Modal Footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" onclick="addNewProduct()">Add Product</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeAddModal()">Cancel</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Delete Product Modal -->
-        <div class="modal fade" id="deleteProductModal" tabindex="-1" role="dialog" aria-labelledby="deleteProductModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="deleteProductModalLabel">Delete Prduct</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeDeleteModal()">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Are you sure you want to delete this product?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" onclick="deleteProduct()">Delete</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeDeleteModal()">Cancel</button>
                     </div>
                 </div>
             </div>
@@ -322,11 +241,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
-        <script src="<%=request.getContextPath()%>/assets/js/admin/edit-product.js"></script>
-<!--        <script src="<%=request.getContextPath()%>/assets/js/admin/add-product.js"></script>>
-        <script src="<%=request.getContextPath()%>/assets/js/admin//delete-product.js"></script>-->
-        <script src="<%=request.getContextPath()%>/assets/js/admin//view-detail-product.js"></script>
-
+        <script src="<%=request.getContextPath()%>/assets/js/admin/view-detail-product.js"></script>
+        <script src="<%=request.getContextPath()%>/assets/js/admin/delete-product.js"></script>
+        <script src="<%=request.getContextPath()%>/assets/js/admin/add-product.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="assets/js/admin/chart-area-demo.js"></script>
@@ -335,5 +252,6 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </body>
 </html>

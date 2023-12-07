@@ -6,10 +6,12 @@ import io.hardingadonis.miu.services.Singleton;
 import java.io.*;
 import java.util.*;
 import javax.servlet.*;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
 @WebServlet(name = "CategoryManagement", urlPatterns = {"/categorymanagement"})
+@MultipartConfig
 public class CategoryManagement extends HttpServlet {
 
     @Override
@@ -25,6 +27,9 @@ public class CategoryManagement extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
+
     }
 
 }
