@@ -33,7 +33,7 @@ public class VerifyServlet extends HttpServlet {
         if ((email == null) || (email.isEmpty())) {
             String hashedStr = Hash.SHA256(email + System.currentTimeMillis());
 
-            session.setAttribute("hashed_str", hashedStr);
+            session.setAttribute("hashed_verify_str", hashedStr);
 
             Singleton.email.sendVerifyEmail(user, hashedStr, request);
 
@@ -41,12 +41,12 @@ public class VerifyServlet extends HttpServlet {
         } else {
             if (user.getEmail().equals(email)) {
                 String hashedStrParameter = request.getParameter("code");
-                String hashedStrSession = (String) session.getAttribute("hashed_str");
+                String hashedStrSession = (String) session.getAttribute("hashed_verify_str");
 
                 if ((hashedStrParameter != null) && (hashedStrSession != null) && (hashedStrParameter.equals(hashedStrSession))) {
                     user.setStatus(UserStatus.ACTIVATE);
 
-                    session.setAttribute("hashed_str", null);
+                    session.setAttribute("hashed_verify_str", null);
 
                     request.setAttribute("success", true);
 
