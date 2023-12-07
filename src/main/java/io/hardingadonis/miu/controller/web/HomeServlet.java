@@ -1,5 +1,7 @@
 package io.hardingadonis.miu.controller.web;
 
+import io.hardingadonis.miu.model.*;
+import io.hardingadonis.miu.model.detail.*;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.annotation.*;
@@ -13,6 +15,15 @@ public class HomeServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
+        
+        HttpSession session = request.getSession();
+        
+        User user = (User)session.getAttribute("user");
+        
+        if ((user != null) && (user.getStatus() == UserStatus.DEACTIVATE)) {
+            response.sendRedirect("verify");
+            return;
+        }
 
         request.getRequestDispatcher("/view/web/home.jsp").forward(request, response);
     }

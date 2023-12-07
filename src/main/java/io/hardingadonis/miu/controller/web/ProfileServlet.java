@@ -35,6 +35,11 @@ public class ProfileServlet extends HttpServlet {
             return;
         }
 
+        if (user.getStatus() == UserStatus.DEACTIVATE) {
+            response.sendRedirect("verify");
+            return;
+        }
+
         request.setAttribute("gender", user.getGender().toString());
 
         request.getRequestDispatcher("/view/web/profile.jsp").forward(request, response);

@@ -31,6 +31,11 @@ public class CheckoutServlet extends HttpServlet {
             return;
         }
 
+        if (user.getStatus() == UserStatus.DEACTIVATE) {
+            response.sendRedirect("verify");
+            return;
+        }
+
         long totalPrice = getTotalPrice(getCartCookie(request));
 
         request.setAttribute("total_price", totalPrice);
