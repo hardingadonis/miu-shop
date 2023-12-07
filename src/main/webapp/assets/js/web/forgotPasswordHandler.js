@@ -21,12 +21,12 @@ if (forgotForm) {
     emailInput.addEventListener('input', function () {
         removeSpaces(emailInput);
     });
+}
 
-    function removeSpaces(input) {
-        input.value = input.value.replace(/\s/g, '');
-    }
+function removeSpaces(input) {
+    input.value = input.value.replace(/\s/g, '');
+}
 
-    function isValidEmail(email) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }

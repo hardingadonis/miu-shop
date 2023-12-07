@@ -45,7 +45,7 @@ if (changePasswordForm) {
                     });
                 }
             },
-            error: function (xhr, status, error) {
+            error: function () {
                 Swal.fire({
                     title: "Lỗi!",
                     text: "Đã xảy ra lỗi trong quá trình xử lý yêu cầu. Vui lòng thử lại!",
@@ -55,42 +55,6 @@ if (changePasswordForm) {
         });
 
     });
-
-    passwordInput.addEventListener('input', function () {
-        removeSpaces(passwordInput);
-    });
-
-    confirmPasswordInput.addEventListener('input', function () {
-        removeSpaces(confirmPasswordInput);
-    });
-
-    function removeSpaces(input) {
-        input.value = input.value.replace(/\s/g, '');
-    }
-
-    function isPasswordMatch(password, confirmPassword) {
-        return password === confirmPassword;
-    }
-
-    function isStrongPassword(password) {
-        if (password.length < 6) {
-            return false;
-        }
-
-        if (!/\d/.test(password)) {
-            return false;
-        }
-
-        if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(password)) {
-            return false;
-        }
-
-        if (!/[A-Z]/.test(password)) {
-            return false;
-        }
-
-        return true;
-    }
 
     $(".toggle-password").click(function () {
         $(this).toggleClass("fa-eye fa-eye-slash");
@@ -102,4 +66,40 @@ if (changePasswordForm) {
             input.attr("type", "password");
         }
     });
+}
+
+passwordInput.addEventListener('input', function () {
+    removeSpaces(passwordInput);
+});
+
+confirmPasswordInput.addEventListener('input', function () {
+    removeSpaces(confirmPasswordInput);
+});
+
+function removeSpaces(input) {
+    input.value = input.value.replace(/\s/g, '');
+}
+
+function isPasswordMatch(password, confirmPassword) {
+    return password === confirmPassword;
+}
+
+function isStrongPassword(password) {
+    if (password.length < 6) {
+        return false;
+    }
+
+    if (!/\d/.test(password)) {
+        return false;
+    }
+
+    if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(password)) {
+        return false;
+    }
+
+    if (!/[A-Z]/.test(password)) {
+        return false;
+    }
+
+    return true;
 }
