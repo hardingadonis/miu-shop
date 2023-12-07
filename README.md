@@ -17,7 +17,75 @@
 
 
 ## Database
-<iframe width="560" height="315" src='https://dbdiagram.io/e/6555c5753be14957871a7c55/65694c5a3be1495787183c32'> </iframe>
+<details>
+  <summary>Database</summary>
+
+  <div style="margin-top: 20px">
+    <a href="https://github.com/hardingadonis/miu-shop">
+      <img src="preview/database/database.svg"/>
+    </a>
+  </div>
+</details>
+
+
+## Preview
+<details>
+  <summary>User page</summary>
+
+  <div style="margin-top: 20px">
+    <a href="https://github.com/hardingadonis/miu-shop">
+      <img src="preview/user/about.png"/>
+    </a>
+    <a href="https://github.com/hardingadonis/miu-shop">
+      <img src="preview/user/add-address.png"/>
+    </a>
+    <a href="https://github.com/hardingadonis/miu-shop">
+      <img src="preview/user/cart.png"/>
+    </a>
+    <a href="https://github.com/hardingadonis/miu-shop">
+      <img src="preview/user/change-password.png"/>
+    </a>
+    <a href="https://github.com/hardingadonis/miu-shop">
+      <img src="preview/user/checkout.png"/>
+    </a>
+    <a href="https://github.com/hardingadonis/miu-shop">
+      <img src="preview/user/home.png"/>
+    </a>
+    <a href="https://github.com/hardingadonis/miu-shop">
+      <img src="preview/user/login.png"/>
+    </a>
+    <a href="https://github.com/hardingadonis/miu-shop">
+      <img src="preview/user/product.png"/>
+    </a>
+    <a href="https://github.com/hardingadonis/miu-shop">
+      <img src="preview/user/profile.png"/>
+    </a>
+    <a href="https://github.com/hardingadonis/miu-shop">
+      <img src="preview/user/purchase-history.png"/>
+    </a>
+    <a href="https://github.com/hardingadonis/miu-shop">
+      <img src="preview/user/purchase-history-detail.png"/>
+    </a>
+    <a href="https://github.com/hardingadonis/miu-shop">
+      <img src="preview/user/register.png"/>
+    </a>
+    <a href="https://github.com/hardingadonis/miu-shop">
+      <img src="preview/user/search.png"/>
+    </a>
+    <a href="https://github.com/hardingadonis/miu-shop">
+      <img src="preview/user/vnpay.png"/>
+    </a>
+  </div>
+</details>
+<details>
+  <summary>Admin page</summary>
+
+  <div style="margin-top: 20px">
+  <a href="https://github.com/hardingadonis/miu-shop">
+      <img src="preview/database.svg"/>
+  </a>
+  </div>
+</details>
 
 
 ## Contributors:
