@@ -147,8 +147,6 @@
             </div>
         </div>
 
-
-
     <!-- Edit Order Modal -->
     <div class="modal fade" id="editOrderModal" tabindex="-1" role="dialog" aria-labelledby="editOrderModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
