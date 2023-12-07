@@ -1,10 +1,15 @@
 
-<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@page import="io.hardingadonis.miu.services.Singleton"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
         <link rel="icon" href="<%=request.getContextPath()%>/assets/images/favicon/favicon.png" type="image/ico"/>
         <title>User Management</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
@@ -12,14 +17,14 @@
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     </head>
-    
+
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.html">Welcome Admin</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            
+
             <!-- Navbar-->
             <ul class="navbar-nav d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <li class="nav-item dropdown">
@@ -91,18 +96,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Trần Huy Hoàng</td>
-                                            <td>2003</td>
-                                            <td>Male</td>
-                                            <td>HoangTHQE170116@fpt.edu.vn</td>
-                                            <td>Quy Nhon</td>
-                                            <td>Active</td>
-                                            <td>
-                                              <a href="#" class="btn btn-danger btn-tiny" title="Delete"><i class="fa fa-trash"></i></a>
-                                            </td>
-                                        </tr>
+                                        <c:forEach var="c" items="${Singleton.userDAO.getAll()}">                  
+                                            <tr>
+                                                <td>${c.ID}</td>
+                                                <td>${c.fullName}</td>
+                                                <td>${c.birthYear}</td>
+                                                <td>${c.gender}</td>
+                                                <td>${c.email}</td>
+                                                <td>${c.address}</td>
+                                                <td>${c.status}</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-danger btn-tiny" title="Delete">
+                                                        <i class="fa fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -125,29 +133,28 @@
         </div>
 
 
-    <!-- Delete User Modal -->
-    <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteUserModalLabel">Delete User</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeDeleteModal()">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure you want to delete this user?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" onclick="deleteUser()">Delete</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeDeleteModal()">Cancel</button>
+        <!-- Delete User Modal -->
+        <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteUserModalLabel">Delete User</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeDeleteModal()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this user?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" onclick="deleteUser()">Delete</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeDeleteModal()">Cancel</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>       
-       
-        
-    
+        </div>       
+
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/scripts.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/delete-user-modal.js"></script>
@@ -157,7 +164,7 @@
         <script src="<%=request.getContextPath()%>/assets/js/admin/demo/chart-pie-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/demo/datatables-simple-demo.js"></script>
-    
+
     </body>
 </html>
 
