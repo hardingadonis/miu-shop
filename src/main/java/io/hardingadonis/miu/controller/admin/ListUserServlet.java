@@ -1,12 +1,14 @@
-
 package io.hardingadonis.miu.controller.admin;
 
+import io.hardingadonis.miu.model.User;
+import io.hardingadonis.miu.services.Singleton;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.simple.JSONObject;
 
 @WebServlet(name = "ListUserServlet", urlPatterns = {"/listUser"})
 public class ListUserServlet extends HttpServlet {
@@ -20,16 +22,25 @@ public class ListUserServlet extends HttpServlet {
         request.getRequestDispatcher("/view/admin/list_user.jsp").forward(request, response);
     }
 
-    
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        try {
+            int ID = Integer.parseInt(request.getParameter("id"));
+
+            Singleton.userDAO.delete(ID);
+
+            JSONObject jsonResponse = new JSONObject();
+            jsonResponse.put("status", "success");
+            jsonResponse.put("message", "Order canceled successfully");
+
+            response.setContentType("application/json");
+            response.getWriter().write(jsonResponse.toString());
+
+            response.setStatus(HttpServletResponse.SC_OK);
+
+        } catch (NumberFormatException ex) {
+            System.err.println(ex.getMessage());
+        }
     }
-
-    
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }
