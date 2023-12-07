@@ -69,6 +69,8 @@
                             </form>
                             <div class="register">
                                 <span>Chưa có tài khoản? <a href="register">Đăng ký ngay</a></span>
+                                <br>
+                                <span><a href="forgot-password">Quên mật khẩu</a></span>
                             </div>
                         </div>
                     </div>
