@@ -87,6 +87,17 @@
   </div>
 </details>
 
+## Deployment
+### Download `docker-compose.yml`:
+```bash
+curl -O https://raw.githubusercontent.com/hardingadonis/miu-shop/main/docker-compose.yml
+```
+### Run `docker-copmose`:
+```bash
+docker-compose up -d --build --force-recreate --remove-orphans --project-name miu
+```
+### Access `Miu Shop`:
+- Open `http://localhost:80` in your browser.
 
 ## Contributors:
 
