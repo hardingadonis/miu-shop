@@ -1,28 +1,32 @@
 package io.hardingadonis.miu.controller.admin;
 
-import io.hardingadonis.miu.services.Singleton;
+import io.hardingadonis.miu.model.*;
+import io.hardingadonis.miu.services.*;
 import java.io.*;
 import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
+import javax.servlet.annotation.*;
 import javax.servlet.http.*;
-import org.json.simple.JSONObject;
+import org.json.simple.*;
 
-@WebServlet(name = "ProductManagement", urlPatterns = {"/productmanagement"})
-public class ProductManagement extends HttpServlet {
+@WebServlet(name = "UserAdmin", urlPatterns = {"/admin/user"})
+public class UserAdmin extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
+        
+        HttpSession session = request.getSession();
 
-        request.getRequestDispatcher("/view/admin/product-management.jsp").forward(request, response);
-    }
+        Admin admin = (Admin) session.getAttribute("admin");
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        // Handle form submission here
+        if (admin == null) {
+            response.sendRedirect(request.getContextPath() + "/admin/login");
+            return;
+        }
+
+        request.getRequestDispatcher("/view/admin/user-admin.jsp").forward(request, response);
     }
 
     @Override
@@ -31,7 +35,7 @@ public class ProductManagement extends HttpServlet {
         try {
             int ID = Integer.parseInt(request.getParameter("id"));
 
-            Singleton.productDAO.delete(ID);
+            Singleton.userDAO.delete(ID);
 
             JSONObject jsonResponse = new JSONObject();
             jsonResponse.put("status", "success");
@@ -46,5 +50,4 @@ public class ProductManagement extends HttpServlet {
             System.err.println(ex.getMessage());
         }
     }
-
 }

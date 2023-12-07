@@ -1,24 +1,38 @@
 package io.hardingadonis.miu.controller.admin;
 
-import io.hardingadonis.miu.services.Singleton;
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import org.json.simple.JSONObject;
+import io.hardingadonis.miu.model.*;
+import io.hardingadonis.miu.services.*;
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.annotation.*;
+import javax.servlet.http.*;
+import org.json.simple.*;
 
-@WebServlet(name = "ListUserServlet", urlPatterns = {"/listUser"})
-public class ListUserServlet extends HttpServlet {
+@WebServlet(name = "ProductAdmin", urlPatterns = {"/admin/product"})
+public class ProductAdmin extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
+        
+        HttpSession session = request.getSession();
 
-        request.getRequestDispatcher("/view/admin/list_user.jsp").forward(request, response);
+        Admin admin = (Admin) session.getAttribute("admin");
+
+        if (admin == null) {
+            response.sendRedirect(request.getContextPath() + "/admin/login");
+            return;
+        }
+
+        request.getRequestDispatcher("/view/admin/product-admin.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // Handle form submission here
     }
 
     @Override
@@ -27,7 +41,7 @@ public class ListUserServlet extends HttpServlet {
         try {
             int ID = Integer.parseInt(request.getParameter("id"));
 
-            Singleton.userDAO.delete(ID);
+            Singleton.productDAO.delete(ID);
 
             JSONObject jsonResponse = new JSONObject();
             jsonResponse.put("status", "success");

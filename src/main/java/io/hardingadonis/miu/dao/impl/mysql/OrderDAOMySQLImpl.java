@@ -30,7 +30,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT * FROM order");
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM `order`");
 
             ResultSet rs = smt.executeQuery();
 
@@ -53,7 +53,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT * FROM order WHERE user_id = ?");
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM `order` WHERE user_id = ?");
             smt.setInt(1, userID);
 
             ResultSet rs = smt.executeQuery();
@@ -77,7 +77,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT * FROM order WHERE payment = ?");
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM `order` WHERE payment = ?");
             smt.setString(1, payment.toString());
 
             ResultSet rs = smt.executeQuery();
@@ -101,7 +101,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT * FROM order WHERE status = ?");
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM `order` WHERE status = ?");
             smt.setString(1, status.toString());
 
             ResultSet rs = smt.executeQuery();
@@ -125,7 +125,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT * FROM order WHERE id = ?");
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM `order` WHERE id = ?");
             smt.setInt(1, ID);
 
             ResultSet rs = smt.executeQuery();
@@ -202,7 +202,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM order");
+            PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM `order`");
 
             ResultSet rs = smt.executeQuery();
 
@@ -225,7 +225,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM order WHERE user_id = ?");
+            PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM `order` WHERE user_id = ?");
             smt.setInt(1, userID);
 
             ResultSet rs = smt.executeQuery();
@@ -249,7 +249,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM order WHERE payment = ?");
+            PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM `order` WHERE payment = ?");
             smt.setString(1, payment.toString());
 
             ResultSet rs = smt.executeQuery();
@@ -273,7 +273,7 @@ public class OrderDAOMySQLImpl implements OrderDAO {
         try {
             Connection conn = Singleton.dbContext.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM order WHERE status = ?");
+            PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM `order` WHERE status = ?");
             smt.setString(1, status.toString());
 
             ResultSet rs = smt.executeQuery();

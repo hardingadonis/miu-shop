@@ -1,8 +1,4 @@
-<%-- 
-    Document   : product-management
-    Created on : Dec 7, 2023, 3:27:52 PM
-    Author     : Admin
---%>
+
 <%@page import="io.hardingadonis.miu.services.Singleton"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -38,7 +34,7 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="<%=request.getContextPath()%>/admin/logout">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -49,25 +45,23 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <a class="nav-link" href="list_user.html">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin/user">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 User Management
                             </a>
-                            <a class="nav-link" href="list_order.html">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin/order">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Order Management
                             </a>
-
-                            <a class="nav-link" href="list_category.html">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin/category">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Category Management
                             </a>
-
-                            <a class="nav-link" href="list_product.html">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin/product">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Product Management
                             </a>
@@ -75,7 +69,12 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Admin
+                        <c:if test="${sessionScope.admin.role.toString() eq 'admin'}">
+                            Admin
+                        </c:if>
+                        <c:if test="${sessionScope.admin.role.toString() eq 'super_admin'}">
+                            Super Admin
+                        </c:if>
                     </div>
                 </nav>
             </div>
@@ -240,18 +239,18 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <script src="<%=request.getContextPath()%>/assets/js/admin/scripts.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/view-detail-product.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/delete-product.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/add-product.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/js/admin/chart-area-demo.js"></script>
-        <script src="assets/js/admin/chart-bar-demo.js"></script>
-        <script src="assets/js/admin/chart-pie-demo.js"></script>
+        <script src="<%=request.getContextPath()%>/assets/js/admin/chart-area-demo.js"></script>
+        <script src="<%=request.getContextPath()%>/assets/js/admin/chart-bar-demo.js"></script>
+        <script src="<%=request.getContextPath()%>/assets/js/admin/chart-pie-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
+        <script src="<%=request.getContextPath()%>/assets/js/admin/datatables-simple-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </body>
 </html>

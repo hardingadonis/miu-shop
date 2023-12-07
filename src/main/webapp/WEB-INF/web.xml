@@ -8,51 +8,19 @@
         <filter-name>DefaultFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    <servlet>
-        <servlet-name>ListUserServlet</servlet-name>
-        <servlet-class>io.hardingadonis.miu.controller.admin.ListUserServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ListOrderServlet</servlet-name>
-        <servlet-class>io.hardingadonis.miu.controller.admin.ListOrderServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ListCategoryServlet</servlet-name>
-        <servlet-class>io.hardingadonis.miu.controller.admin.ListCategoryServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AdminServlet</servlet-name>
-        <servlet-class>io.hardingadonis.miu.controller.admin.AdminServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ListUserServlet</servlet-name>
-        <url-pattern>/listUser</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ListOrderServlet</servlet-name>
-        <url-pattern>/listOrder</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AdminServlet</servlet-name>
-        <url-pattern>/admin</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ListCategoryServlet</servlet-name>
-        <url-pattern>/listCategory</url-pattern>
-    </servlet-mapping>
     <session-config>
         <session-timeout>
             15
         </session-timeout>
     </session-config>
-    <error-page>
+<!--    <error-page>
         <error-code>404</error-code>
         <location>/view/error/404.jsp</location>
-    </error-page>
-    <error-page>
+    </error-page>-->
+    <!--    <error-page>
         <error-code>500</error-code>
         <location>/view/error/500.jsp</location>
-    </error-page>
+    </error-page>-->
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>

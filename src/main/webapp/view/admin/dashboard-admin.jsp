@@ -11,20 +11,20 @@
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
     </head>
-    
+
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Welcome Admin</a>
+            <a class="navbar-brand ps-3" href="<%=request.getContextPath()%>/admin">Welcome Admin</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            
+
             <!-- Navbar-->
             <ul class="navbar-nav d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="loginAdmin">Logout</a></li>
+                        <li><a class="dropdown-item" href="<%=request.getContextPath()%>/admin/logout">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -35,23 +35,23 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="admin">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <a class="nav-link" href="listUser">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin/user">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 User Management
                             </a>
-                            <a class="nav-link" href="listOrder">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin/order">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Order Management
                             </a>
-                            <a class="nav-link" href="listCategory">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin/category">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Category Management
                             </a>
-                            <a class="nav-link" href="listProduct">
+                            <a class="nav-link" href="<%=request.getContextPath()%>/admin/product">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Product Management
                             </a>
@@ -59,7 +59,12 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Admin
+                        <c:if test="${sessionScope.admin.role.toString() eq 'admin'}">
+                            Admin
+                        </c:if>
+                        <c:if test="${sessionScope.admin.role.toString() eq 'super_admin'}">
+                            Super Admin
+                        </c:if>
                     </div>
                 </nav>
             </div>
@@ -164,17 +169,17 @@
                 </footer>
             </div>
         </div>     
-       
-        
-    
+
+
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-        <script src="<%=request.getContextPath()%>/assets/js/admin/demo/chart-area-demo.js"></script>
-        <script src="<%=request.getContextPath()%>/assets/js/admin/demo/chart-bar-demo.js"></script>
-        <script src="<%=request.getContextPath()%>/assets/js/admin/demo/chart-pie-demo.js"></script>
+        <script src="<%=request.getContextPath()%>/assets/js/admin/chart-area-demo.js"></script>
+        <script src="<%=request.getContextPath()%>/assets/js/admin/chart-bar-demo.js"></script>
+        <script src="<%=request.getContextPath()%>/assets/js/admin/chart-pie-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
-        <script src="<%=request.getContextPath()%>/assets/js/admin/demo/datatables-simple-demo.js"></script>
-    
+        <script src="<%=request.getContextPath()%>/assets/js/admin/datatables-simple-demo.js"></script>
+
     </body>
 </html>
