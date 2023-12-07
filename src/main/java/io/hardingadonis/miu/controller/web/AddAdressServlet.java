@@ -1,6 +1,7 @@
 package io.hardingadonis.miu.controller.web;
 
 import io.hardingadonis.miu.model.*;
+import io.hardingadonis.miu.model.detail.*;
 import io.hardingadonis.miu.services.*;
 import java.io.*;
 import javax.servlet.*;
@@ -22,7 +23,12 @@ public class AddAdressServlet extends HttpServlet {
             response.sendRedirect("login");
             return;
         }
-        
+
+        if (user.getStatus() == UserStatus.DEACTIVATE) {
+            response.sendRedirect("verify");
+            return;
+        }
+
         if (user.getAddress().size() >= 5) {
             response.sendRedirect("delivery-address");
             return;
@@ -47,10 +53,10 @@ public class AddAdressServlet extends HttpServlet {
         String phone = request.getParameter("phone");
 
         String newAddress = phone + ", " + receiver + ", " + specific + ", " + ward + ", " + district + ", " + city;
-        
+
         user.getAddress().add(newAddress);
         Singleton.userDAO.update(user);
-        
+
         response.sendRedirect("delivery-address");
     }
 }

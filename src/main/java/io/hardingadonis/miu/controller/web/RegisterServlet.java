@@ -49,11 +49,9 @@ public class RegisterServlet extends HttpServlet {
             user.setHashedPassword(Hash.SHA256(password));
             user.setAvatarPath(gender == UserGender.MALE ? MALE_AVATAR : FEMALE_AVATAR);
             user.setAddress(Collections.emptyList());
-            user.setStatus(UserStatus.ACTIVATE);
+            user.setStatus(UserStatus.DEACTIVATE);
             
             Singleton.userDAO.insert(user);
-            
-            Singleton.email.sendWelcomeEmail(user);
             
             response.sendRedirect("login?" + REGISTER_SUCCESS_PARAM + "=true");
         } else {

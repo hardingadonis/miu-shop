@@ -1,5 +1,7 @@
 package io.hardingadonis.miu.controller.web;
 
+import io.hardingadonis.miu.model.User;
+import io.hardingadonis.miu.model.detail.*;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.annotation.*;
@@ -16,8 +18,16 @@ public class CheckoutStatusServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        if ((session.getAttribute("user") == null) || (session.getAttribute("order") == null) || (session.getAttribute("cart_cookie") == null)) {
+        User user = (User) session.getAttribute("user");
+
+        if ((user != null) && (user.getStatus() == UserStatus.DEACTIVATE)) {
+            response.sendRedirect("verify");
+            return;
+        }
+
+        if ((user == null) || (session.getAttribute("order") == null) || (session.getAttribute("cart_cookie") == null)) {
             response.sendRedirect("home");
+            return;
         }
 
         request.getRequestDispatcher("/view/web/checkout-status.jsp").forward(request, response);

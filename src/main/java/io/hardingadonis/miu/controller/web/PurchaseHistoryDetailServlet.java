@@ -1,6 +1,7 @@
 package io.hardingadonis.miu.controller.web;
 
 import io.hardingadonis.miu.model.*;
+import io.hardingadonis.miu.model.detail.*;
 import io.hardingadonis.miu.services.*;
 import java.io.*;
 import java.util.*;
@@ -18,13 +19,20 @@ public class PurchaseHistoryDetailServlet extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
 
         HttpSession session = request.getSession();
+        
+        User user = (User) session.getAttribute("user");
+
         int orderID = Integer.parseInt(request.getParameter("id"));
 
-        User user = (User) session.getAttribute("user");
         Order order = Singleton.orderDAO.get(orderID);
 
         if (user == null) {
             response.sendRedirect("login");
+            return;
+        }
+        
+        if (user.getStatus() == UserStatus.DEACTIVATE) {
+            response.sendRedirect("verify");
             return;
         }
 

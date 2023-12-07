@@ -25,24 +25,27 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
-        
+
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        
+        HttpSession session = request.getSession();
 
         User user = Singleton.userDAO.get(email);
 
-        if (user != null && user.getHashedPassword().equals(Hash.SHA256(password)) && user.getStatus() == UserStatus.ACTIVATE) {
-            HttpSession session = request.getSession();
+        if (user != null && user.getHashedPassword().equals(Hash.SHA256(password))) {
             session.setAttribute("user", user);
-            response.sendRedirect("home");
             
-            return;
+            if (user.getStatus() == UserStatus.ACTIVATE) {
+                response.sendRedirect("home");
+                return;
+            } else {
+                response.sendRedirect("verify");
+                return;
+            }
         }
 
         String errorMsg = "Sai mật khẩu!";
-        if (user != null && user.getStatus() == UserStatus.DEACTIVATE) {
-            errorMsg = "Tài khoản đã bị khóa!";
-        }
         if (user == null) {
             errorMsg = "Tài khoản không tồn tại!";
             email = null;
@@ -50,7 +53,7 @@ public class LoginServlet extends HttpServlet {
 
         request.setAttribute("email", email);
         request.setAttribute("errorMsg", errorMsg);
-        
+
         this.doGet(request, response);
     }
 }

@@ -1,6 +1,7 @@
 package io.hardingadonis.miu.controller.web;
 
 import io.hardingadonis.miu.model.*;
+import io.hardingadonis.miu.model.detail.*;
 import io.hardingadonis.miu.services.*;
 import java.io.*;
 import javax.servlet.*;
@@ -9,7 +10,7 @@ import javax.servlet.http.*;
 
 @WebServlet(name = "ChangePasswordServlet", urlPatterns = {"/change-password"})
 public class ChangePasswordServlet extends HttpServlet {
-    
+
     private static final String CHANGE_PASSWORD_SUCCESS_PARAM = "changePasswordSuccess";
 
     @Override
@@ -22,6 +23,11 @@ public class ChangePasswordServlet extends HttpServlet {
 
         if (user == null) {
             response.sendRedirect("login");
+            return;
+        }
+
+        if (user.getStatus() == UserStatus.DEACTIVATE) {
+            response.sendRedirect("verify");
             return;
         }
 
@@ -46,10 +52,10 @@ public class ChangePasswordServlet extends HttpServlet {
         } else {
             user.setHashedPassword(hashedNewPassword);
             Singleton.userDAO.update(user);
-            
+
             request.getSession(false).invalidate();
             response.sendRedirect("login?" + CHANGE_PASSWORD_SUCCESS_PARAM + "=true");
-            
+
             return;
         }
 

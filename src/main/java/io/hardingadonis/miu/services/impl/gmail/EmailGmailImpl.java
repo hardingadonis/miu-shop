@@ -6,6 +6,7 @@ import jakarta.mail.*;
 import jakarta.mail.internet.*;
 import java.io.*;
 import java.util.*;
+import javax.servlet.http.*;
 
 public class EmailGmailImpl implements Email {
 
@@ -53,8 +54,30 @@ public class EmailGmailImpl implements Email {
             message.setContent(msgStr, "text/html; charset=UTF-8");
 
             Transport.send(message);
+        } catch (MessagingException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
 
-            System.out.println("Sent a welcome letter to " + user.getEmail());
+    @Override
+    public void sendVerifyEmail(User user, String code, HttpServletRequest request) {
+        Session session = Session.getInstance(this.props, this.getAuthenticator());
+
+        try {
+            MimeMessage message = new MimeMessage(session);
+
+            message.setFrom(new InternetAddress(this.email));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(user.getEmail()));
+            message.setSubject("Miu Shop, xác thực tài khoản!", "UTF-8");
+
+            String verifyLink = Server.getServerLink(request) + "verify?email=" + user.getEmail() + "&code=" + code;
+
+            String msgStr = String.format("<html lang=\"vi\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>body{font-family:Arial,sans-serif;background-color:#f5f5f5;text-align:center;padding:20px}.container{max-width:600px;margin:0 auto;background-color:#fff;padding:30px;border-radius:8px;box-shadow:0 0 20px rgba(0,0,0,.1);text-align:justify;align-items:center}h1{color:#333;font-size:24px;margin-bottom:20px}p{color:#666;text-align:justify;line-height:1.6;margin-bottom:15px}.button{display:inline-block;padding:10px 20px;font-size:16px;text-align:center;text-decoration:none;color:#fff;background-color:#4caf50;border-radius:5px}</style></head><body><div class=\"container\"><h1>Miu Shop, xác thực tài khoản!</h1><p>Cảm ơn %s đã đăng ký tài khoản tại Miu Shop. Để hoàn tất quá trình đăng ký, vui lòng xác thực tài khoản bằng cách nhấn vào nút bên dưới:</p><a href=\"%s\" class=\"button\" target=\"_blank\">Xác thực tài khoản</a></div></body></html>", user.getFullName(), verifyLink);
+
+            message.setContent(msgStr, "text/html; charset=UTF-8");
+
+            Transport.send(message);
+
         } catch (MessagingException ex) {
             System.err.println(ex.getMessage());
         }

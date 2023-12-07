@@ -1,6 +1,7 @@
 package io.hardingadonis.miu.controller.web;
 
 import io.hardingadonis.miu.model.*;
+import io.hardingadonis.miu.model.detail.*;
 import io.hardingadonis.miu.services.*;
 import java.io.*;
 import javax.servlet.*;
@@ -20,6 +21,11 @@ public class DeliveryAddressServlet extends HttpServlet {
 
         if (user == null) {
             response.sendRedirect("login");
+            return;
+        }
+        
+        if (user.getStatus() == UserStatus.DEACTIVATE) {
+            response.sendRedirect("verify");
             return;
         }
 

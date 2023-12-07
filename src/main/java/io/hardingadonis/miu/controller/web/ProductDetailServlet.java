@@ -1,6 +1,7 @@
 package io.hardingadonis.miu.controller.web;
 
 import io.hardingadonis.miu.model.*;
+import io.hardingadonis.miu.model.detail.*;
 import io.hardingadonis.miu.services.*;
 import java.io.*;
 import javax.servlet.*;
@@ -15,6 +16,15 @@ public class ProductDetailServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
+        
+        HttpSession session = request.getSession();
+        
+        User user = (User)session.getAttribute("user");
+        
+        if ((user != null) && (user.getStatus() == UserStatus.DEACTIVATE)) {
+            response.sendRedirect("verify");
+            return;
+        }
 
         String IDStr = request.getParameter("id");
 
