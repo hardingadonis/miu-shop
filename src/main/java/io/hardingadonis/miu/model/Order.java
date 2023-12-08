@@ -17,6 +17,10 @@ public class Order {
     public Order() {
     }
 
+    public Order(OrderStatus status) {
+        this.status = status;
+    }
+    
     public Order(int userID, String address, long totalPrice, Payment payment, OrderStatus status) {
         this.userID = userID;
         this.address = address;

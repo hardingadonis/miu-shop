@@ -1,5 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="io.hardingadonis.miu.services.Singleton"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -84,7 +85,7 @@
                                         </div>
                                         <div class="content">
                                             <div class="text">TOTAL CUSTOMERS</div>
-                                            <span class="number count-to" data-from="0" data-to="10000" data-speed="1000" data-fresh-interval="20">15</span>
+                                            <span class="number count-to" data-from="0" data-to="10000" data-speed="1000" data-fresh-interval="20">${Singleton.userDAO.count()}</span>
                                         </div>
                                     </div>
                                 </a>
@@ -97,7 +98,7 @@
                                         </div>
                                         <div class="content">
                                             <div class="text">TOTAL PRODUCTS</div>
-                                            <span class="number count-to" data-from="0" data-to="1000" data-speed="1000" data-fresh-interval="20">50</span>
+                                            <span class="number count-to" data-from="0" data-to="1000" data-speed="1000" data-fresh-interval="20">${Singleton.productDAO.count()}</span>
                                         </div>
                                     </div>
                                 </a>
@@ -110,7 +111,7 @@
                                         </div>
                                         <div class="content">
                                             <div class="text">TOTAL ORDERS</div>
-                                            <span class="number count-to" data-from="0" data-to="10000" data-speed="1000" data-fresh-interval="20">30</span>
+                                            <span class="number count-to" data-from="0" data-to="10000" data-speed="1000" data-fresh-interval="20">${Singleton.orderDAO.count()}</span>
                                         </div>
                                     </div>
                                 </a>

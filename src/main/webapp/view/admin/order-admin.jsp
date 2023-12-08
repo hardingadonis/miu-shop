@@ -92,7 +92,7 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>User ID</th>
+                                            <th>User Full Name</th>
                                             <th>Total Price</th>
                                             <th>Payment</th>
                                             <th>Status</th>
@@ -103,14 +103,14 @@
                                         <c:forEach var="c" items="${Singleton.orderDAO.getAll()}">                  
                                             <tr>
                                                 <td>${c.ID}</td>
-                                                <td>${c.userID}</td>
+                                                <td>${Singleton.userDAO.get(c.userID).getFullName()}</td>
                                                 <td>${c.totalPrice}</td>
                                                 <td>${c.payment}</td>
                                                 <td>${c.status}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-info btn-tiny" title="Edit">
+                                                    <button href="#" class="btn btn-info btn-tiny" title="Edit" onclick="openEditOrderStatusModal(${c.ID})">
                                                         <i class="fa fa-pencil"></i>
-                                                    </a>
+                                                    </button>
                                                 </td>
                                             </tr>
                                         </c:forEach>
@@ -152,10 +152,10 @@
                             <div class="form-group">
                                 <label for="editStatus">Status:</label>
                                 <select class="form-select" id="editStatus">
-                                    <option value="PROCESSING">PROCESSING</option>
-                                    <option value="SHIPPING">SHIPPING</option>
-                                    <option value="DONE">DONE</option>
-                                    <option value="CANCELED">CANCELED</option>
+                                    <option value="processing">PROCESSING</option>
+                                    <option value="shipping">SHIPPING</option>
+                                    <option value="done">DONE</option>
+                                    <option value="canceled">CANCELED</option>
                                 </select>
                             </div>
                         </form>
@@ -183,6 +183,8 @@
         <script src="<%=request.getContextPath()%>/assets/js/admin/chart-pie-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/datatables-simple-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     </body>
 </html>
 
