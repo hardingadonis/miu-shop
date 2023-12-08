@@ -1,5 +1,4 @@
-
-var categoryId;
+let categoryId;
 
 function openEditModal() {
     $('#editCategoryModal').modal('show');
