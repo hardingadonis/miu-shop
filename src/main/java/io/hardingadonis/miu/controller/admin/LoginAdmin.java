@@ -1,11 +1,10 @@
 package io.hardingadonis.miu.controller.admin;
 
-import io.hardingadonis.miu.model.Admin;
-import io.hardingadonis.miu.services.Hash;
-import io.hardingadonis.miu.services.Singleton;
+import io.hardingadonis.miu.model.*;
+import io.hardingadonis.miu.services.*;
 import java.io.*;
 import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
+import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
 @WebServlet(name = "LoginAdmin", urlPatterns = {"/admin/login"})

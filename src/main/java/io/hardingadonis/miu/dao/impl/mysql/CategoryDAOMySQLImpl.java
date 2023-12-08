@@ -66,6 +66,26 @@ public class CategoryDAOMySQLImpl implements CategoryDAO {
         return category;
     }
 
+    public String getNameCategory(int ID) {
+        try {
+            Connection conn = Singleton.dbContext.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement("SELECT name FROM category WHERE id = ? AND delete_at IS NULL");
+            smt.setInt(1, ID);
+
+            ResultSet rs = smt.executeQuery();
+
+            if (rs.next()) {
+                return rs.getString("name");
+            }
+
+            Singleton.dbContext.closeConnection(conn);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return null;
+    }
+
     @Override
     public void insert(Category obj) {
         try {
@@ -73,7 +93,7 @@ public class CategoryDAOMySQLImpl implements CategoryDAO {
 
             PreparedStatement smt = conn.prepareStatement("INSERT INTO category(name, create_at) VALUES (?, ?)");
             smt.setString(1, obj.getName());
-            smt.setString(2, Converter.convert(obj.getCreateAt()));
+            smt.setString(2, Converter.convert(LocalDateTime.now()));
 
             smt.executeUpdate();
 
