@@ -1,7 +1,7 @@
 <%@page import="io.hardingadonis.miu.services.Singleton"%>
 
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light position-fixed top-0 start-0 w-100">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light top-0 start-0 w-100">
         <div class="container">
             <a href="home" class="navbar-brand d-lg-none text-uppercase">
                 Miu Shop
@@ -18,13 +18,13 @@
                         </button>
                     </form>
                     <a href="home" class="navbar-brand d-none d-lg-block text-uppercase">Miu Shop</a>
-                    <ul class="navbar-nav">
+                    <div class="navbar-nav justify-content-center align-items-center px-3">
                         <c:if test="${sessionScope.user != null}">
-                            <li class="nav-item d-flex align-items-center dropdown">
-                                <a href="#" class="nav-link mx-2 nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="./${sessionScope.user.avatarPath}" alt="Avatar" width="20px" height="20px">
-                                    ${sessionScope.user.fullName}
-                                </a>
+                            <div class="nav-item align-items-center dropdown">
+                                <div class="mx-2 my-2 d-flex" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="./${sessionScope.user.avatarPath}" alt="Avatar" style="max-width: 1.5rem; max-width: 1.5rem;">
+                                    <div class="px-2 fw-bold">${sessionScope.user.fullName}</div>
+                                </div>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a class="dropdown-item" href="profile">Cài đặt</a>
@@ -39,7 +39,7 @@
                                         <a class="dropdown-item" href="logout">Đăng xuất</a>
                                     </li>
                                 </ul>
-                            </li>
+                            </div>
                         </c:if>
                         <c:if test="${sessionScope.user == null}">
                             <li class="nav-item d-flex align-items-center">
@@ -61,7 +61,7 @@
                             </a>
                             <span id="total-products-in-cart" class="badge rounded-pill bg-secondary">0</span>
                         </li>
-                    </ul>
+                    </div>
                 </div>
                 <div class="d-block w-100">
                     <ul class="navbar-nav d-flex justify-content-center align-items-center pt-3">
