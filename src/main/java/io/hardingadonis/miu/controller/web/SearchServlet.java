@@ -39,6 +39,7 @@ public class SearchServlet extends HttpServlet {
         List<Product> products = Singleton.productDAO.getBySearch(searchName, categoryID, (currentPage - 1) * PRODUCTS_PER_PAGE, PRODUCTS_PER_PAGE);
         String paginationStr = createPagination(searchName, categoryID, currentPage, endPage);
 
+        request.setAttribute("search_name", searchName);
         request.setAttribute("products", products);
         request.setAttribute("end_page", endPage);
         request.setAttribute("category_id", categoryID);

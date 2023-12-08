@@ -66,7 +66,7 @@ public class CheckoutServlet extends HttpServlet {
         if (payment == Payment.COD) {
             response.sendRedirect("checkout-status");
         } else {
-            handleVNPayCheckout(request, response, (int) totalPrice);
+            handleVNPayCheckout(request, response, totalPrice);
         }
     }
 
@@ -101,7 +101,7 @@ public class CheckoutServlet extends HttpServlet {
         return total;
     }
 
-    private static void handleVNPayCheckout(HttpServletRequest request, HttpServletResponse response, int totalPrice)
+    private static void handleVNPayCheckout(HttpServletRequest request, HttpServletResponse response, long totalPrice)
             throws UnsupportedEncodingException, IOException {
         String vnp_Version = "2.1.0";
         String vnp_Command = "pay";
