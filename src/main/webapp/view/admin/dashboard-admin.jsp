@@ -83,7 +83,7 @@
                                             <i class="material-icons">face</i>
                                         </div>
                                         <div class="content">
-                                            <div class="text">TỔNG KHÁCH HÀNG</div>
+                                            <div class="text">TOTAL CUSTOMERS</div>
                                             <span class="number count-to" data-from="0" data-to="10000" data-speed="1000" data-fresh-interval="20">15</span>
                                         </div>
                                     </div>
@@ -96,7 +96,7 @@
                                             <i class="material-icons">bookmark</i>
                                         </div>
                                         <div class="content">
-                                            <div class="text">TỔNG SẢN PHẨM</div>
+                                            <div class="text">TOTAL PRODUCTS</div>
                                             <span class="number count-to" data-from="0" data-to="1000" data-speed="1000" data-fresh-interval="20">50</span>
                                         </div>
                                     </div>
@@ -109,7 +109,7 @@
                                             <i class="material-icons">shopping_cart</i>
                                         </div>
                                         <div class="content">
-                                            <div class="text">TỔNG ĐƠN HÀNG</div>
+                                            <div class="text">TOTAL ORDERS</div>
                                             <span class="number count-to" data-from="0" data-to="10000" data-speed="1000" data-fresh-interval="20">30</span>
                                         </div>
                                     </div>

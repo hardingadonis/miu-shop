@@ -96,7 +96,7 @@
                                             <th>Total Price</th>
                                             <th>Payment</th>
                                             <th>Status</th>
-                                            <th>Actions</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -152,10 +152,10 @@
                             <div class="form-group">
                                 <label for="editStatus">Status:</label>
                                 <select class="form-select" id="editStatus">
-                                    <option value="Processing">Processing</option>
-                                    <option value="Shipping">Shipping</option>
-                                    <option value="Done">Done</option>
-                                    <option value="Cancel">Canceled</option>
+                                    <option value="Processing">PROCESSING</option>
+                                    <option value="Shipping">SHIPPING</option>
+                                    <option value="Done">DONE</option>
+                                    <option value="Cancel">CANCELED</option>
                                 </select>
                             </div>
                         </form>
@@ -163,7 +163,7 @@
 
                     <!-- Modal Footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
+                        <button type="button" class="btn btn-primary" onclick="saveChangesEdit()">Save changes</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeEditModal()">Cancel</button>
                     </div>
                 </div>
