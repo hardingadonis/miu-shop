@@ -1,5 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="io.hardingadonis.miu.services.Singleton"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -83,8 +84,8 @@
                                             <i class="material-icons">face</i>
                                         </div>
                                         <div class="content">
-                                            <div class="text">TỔNG KHÁCH HÀNG</div>
-                                            <span class="number count-to" data-from="0" data-to="10000" data-speed="1000" data-fresh-interval="20">15</span>
+                                            <div class="text">TOTAL CUSTOMERS</div>
+                                            <span class="number count-to" data-from="0" data-to="10000" data-speed="1000" data-fresh-interval="20">${Singleton.userDAO.count()}</span>
                                         </div>
                                     </div>
                                 </a>
@@ -96,8 +97,8 @@
                                             <i class="material-icons">bookmark</i>
                                         </div>
                                         <div class="content">
-                                            <div class="text">TỔNG SẢN PHẨM</div>
-                                            <span class="number count-to" data-from="0" data-to="1000" data-speed="1000" data-fresh-interval="20">50</span>
+                                            <div class="text">TOTAL PRODUCTS</div>
+                                            <span class="number count-to" data-from="0" data-to="1000" data-speed="1000" data-fresh-interval="20">${Singleton.productDAO.count()}</span>
                                         </div>
                                     </div>
                                 </a>
@@ -109,8 +110,8 @@
                                             <i class="material-icons">shopping_cart</i>
                                         </div>
                                         <div class="content">
-                                            <div class="text">TỔNG ĐƠN HÀNG</div>
-                                            <span class="number count-to" data-from="0" data-to="10000" data-speed="1000" data-fresh-interval="20">30</span>
+                                            <div class="text">TOTAL ORDERS</div>
+                                            <span class="number count-to" data-from="0" data-to="10000" data-speed="1000" data-fresh-interval="20">${Singleton.orderDAO.count()}</span>
                                         </div>
                                     </div>
                                 </a>
