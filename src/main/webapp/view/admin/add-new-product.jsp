@@ -8,8 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
         <link href="<%=request.getContextPath()%>/assets/css/admin/addNewProduct.css" rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/assets/images/favicon/favicon.png">
 
-        <title>ADD NEW PRODUCT</title>
+        <title>Add new product</title>
     </head>
     <body>
         <div class="container">
