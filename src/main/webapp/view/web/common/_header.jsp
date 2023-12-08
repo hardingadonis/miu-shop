@@ -1,7 +1,7 @@
 <%@page import="io.hardingadonis.miu.services.Singleton"%>
 
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light top-0 start-0 w-100">
+<header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
         <div class="container">
             <a href="home" class="navbar-brand d-lg-none text-uppercase">
                 Miu Shop
