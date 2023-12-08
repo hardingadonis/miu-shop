@@ -88,7 +88,7 @@
                                 Order Table
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple" class="datatable-table">
+                                <table id="datatablesSimple">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
