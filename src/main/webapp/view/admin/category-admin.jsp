@@ -156,7 +156,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="editCategoryModalLabel">Edit Category</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                                onclick="closeEditModal()">
+                                onclick="closeEditCategoryModal()">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -171,9 +171,9 @@
                     </div>
                     <!-- Modal Footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" onclick="saveCategoryChanges()">Save changes</button>
+                        <button type="button" class="btn btn-primary" onclick="saveChangesEditCategory()">Save changes</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                                onclick="closeEditModal()">Cancel</button>
+                                onclick="closeEditCategoryModal()">Cancel</button>
                     </div>
                 </div>
             </div>
