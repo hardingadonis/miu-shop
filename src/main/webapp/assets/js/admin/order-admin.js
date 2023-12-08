@@ -13,7 +13,7 @@ function populateEditModalFields(row) {
     document.getElementById('editStatus').value = orderStatus;
 }
 
-function saveChangesEdit() {
+function saveChangesEditOrder() {
     // Lấy giá trị từ modal
     var editedStatus = document.getElementById('editStatus').value;
 
@@ -46,11 +46,3 @@ $(document).on('click', '.btn-tiny', function () {
     populateEditModalFields($(this).closest('tr')[0]);
 });
 
-// Event delegation for dynamically added elements inside the modal
-$(document).on('click', '#saveChangesBtn', function () {
-    saveChangesEdit();
-});
-
-$(document).on('click', '#cancelChangesBtn', function () {
-    closeEditModal();
-});

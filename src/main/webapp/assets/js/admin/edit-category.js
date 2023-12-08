@@ -13,7 +13,7 @@ function populateEditModalFields(row) {
     document.getElementById('editCategoryName').value = categoryName;
 }
 
-function saveChanges() {
+function saveChangesEditCategory() {
     // Lấy giá trị từ modal
     var editedCategoryName = document.getElementById('editCategoryName').value;
 
@@ -29,14 +29,14 @@ function saveChanges() {
         rowToUpdate.find('td:eq(1)').text(editedCategoryName);
 
         // Đóng modal
-        closeEditModal();
+        closeEditCategoryModal();
     } else {
         console.error("Row to update not found!");
     }
 }
 
 // Function to close the edit modal
-function closeEditModal() {
+function closeEditCategoryModal() {
     $('#editCategoryModal').modal('hide');
 }
 
@@ -46,11 +46,3 @@ $(document).on('click', '.btn-tiny', function () {
     populateEditModalFields($(this).closest('tr')[0]);
 });
 
-// Event delegation for dynamically added elements inside the modal
-$(document).on('click', '#saveChangesBtn', function () {
-    saveChanges();
-});
-
-$(document).on('click', '#cancelChangesBtn', function () {
-    closeEditModal();
-});

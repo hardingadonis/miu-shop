@@ -154,7 +154,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="editCategoryModalLabel">Edit Category</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                                onclick="closeEditModal()">
+                                onclick="closeEditCategoryModal()">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -169,9 +169,9 @@
                     </div>
                     <!-- Modal Footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
+                        <button type="button" class="btn btn-primary" onclick="saveChangesEditCategory()">Save changes</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                                onclick="closeEditModal()">Cancel</button>
+                                onclick="closeEditCategoryModal()">Cancel</button>
                     </div>
                 </div>
             </div>
@@ -214,7 +214,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/scripts.js"></script>
 
-        <script src="<%=request.getContextPath()%>/assets/js/admin/category-admin.js"></script>
+        <script src="<%=request.getContextPath()%>/assets/js/admin/edit-category.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/add-category.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
