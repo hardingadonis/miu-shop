@@ -45,4 +45,3 @@ $(document).on('click', '.btn-tiny', function () {
     openEditModal.call(this); // Phải gọi hàm openEditModal với this là element được click
     populateEditModalFields($(this).closest('tr')[0]);
 });
-

@@ -3,10 +3,10 @@ package io.hardingadonis.miu.controller.admin;
 import io.hardingadonis.miu.model.*;
 import io.hardingadonis.miu.services.*;
 import java.io.*;
-import java.util.*;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+import org.json.simple.*;
 
 @WebServlet(name = "CategoryAdmin", urlPatterns = {"/admin/category"})
 public class CategoryAdmin extends HttpServlet {
@@ -16,7 +16,7 @@ public class CategoryAdmin extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
-        
+
         HttpSession session = request.getSession();
 
         Admin admin = (Admin) session.getAttribute("admin");
@@ -25,9 +25,7 @@ public class CategoryAdmin extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/admin/login");
             return;
         }
-
         request.getRequestDispatcher("/view/admin/category-admin.jsp").forward(request, response);
-
     }
 
     @Override
@@ -35,5 +33,32 @@ public class CategoryAdmin extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
+
+        String name = request.getParameter("name");
+
+        try {
+            int id = Integer.parseInt(request.getParameter("id"));
+
+            Category category = Singleton.categoryDAO.get(id);
+
+            if (category != null) {
+                category.setName(name);
+
+                Singleton.categoryDAO.update(category);
+            }
+        } catch (NumberFormatException ex) {
+            Category category = new Category(name);
+
+            Singleton.categoryDAO.insert(category);
+        }
+
+        JSONObject jsonResponse = new JSONObject();
+        jsonResponse.put("status", "success");
+        jsonResponse.put("message", "Order canceled successfully");
+
+        response.setContentType("application/json");
+        response.getWriter().write(jsonResponse.toString());
+
+        response.setStatus(HttpServletResponse.SC_OK);
     }
 }
