@@ -25,9 +25,6 @@
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                     class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            </form>
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
@@ -86,7 +83,7 @@
                             <li class="breadcrumb-item active">Admin Role</li>
                         </ol>
                         <div class="add-action mb-2">
-                            <button type="button" class="btn btn-success waves-effect" onclick="openAddModal()"> <i class="fa fa-plus-circle"></i> Add New Product</button>
+                            <a href="<%=request.getContextPath()%>/admin/new-product" class="btn btn-success waves-effect"> <i class="fa fa-plus-circle"></i> Add New Product</a>
                         </div>
                         <div class="card mb-4">
                             <div class="card-header">
@@ -103,7 +100,7 @@
                                             <th style="width: 10%">Price</th>
                                             <th style="width: 10%">Amount</th>
                                             <th style="width: 15%">Thumbnail</th>
-                                            <th style="width: 10%">Actions</th>
+                                            <th style="width: 10% !important; ">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -139,7 +136,9 @@
                                         <input class="expiryDate"  type="hidden" value="${p.expiryDate}"/>
                                         <input class="weight"  type="hidden" value="${p.weight}"/>
                                         <input class="preservation"  type="hidden" value="${p.preservation}"/>
+
                                         <input class="images"  type="hidden" value="${p.images}"/>
+
                                         <input class="createAt"  type="hidden" value="${p.createAt}"/>
                                         <input class="updateAt"  type="hidden" value="${p.updateAt}"/>
                                         <input class="deleteAt"  type="hidden" value="${p.deleteAt}"/>
@@ -180,24 +179,6 @@
                     <div class="modal-body">
                         <!-- Detail table content will be inserted here dynamically -->
                         <table id="datatablesSimple" class="datatable-table">
-
-                            <c:forEach var="p" items="${Singleton.productDAO.getAll()}">
-                                <tr>
-                                    <td>${p.brand}</td>
-                                    <td>${p.origin}</td>
-                                    <td>${p.expiryDate}</td>
-                                    <td>${p.weight}</td>
-                                    <td>${p.preservation}</td>
-
-                                    <td>${p.images}</td>
-
-                                    <td>${p.createAt}</td>
-                                    <td>${p.updateAt}</td>
-                                    <td>${p.deleteAt}</td>
-
-                                </tr>
-                            </c:forEach>
-
                         </table>
 
                     </div>
@@ -209,32 +190,7 @@
         </div>
 
 
-        <!-- Add Product Modal -->
-        <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Form for adding a new product -->
-                        <form id="addProductForm">
-                            <!-- Add your form fields here (e.g., name, category, price, etc.) -->
-                            <!-- Example: -->
-                            <div class="mb-3">
-                                <label for="productName" class="form-label">Product Name</label>
-                                <input type="text" class="form-control" id="productName" name="productName" required>
-                            </div>
-                            <!-- Add other form fields as needed -->
-
-                            <button type="submit" class="btn btn-primary">Add Product</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+  
 
         <script>
             let contextPath = '<%= request.getContextPath()%>/';
@@ -254,6 +210,7 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/datatables-simple-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </body>
 </html>

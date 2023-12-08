@@ -93,7 +93,7 @@ public class CategoryDAOMySQLImpl implements CategoryDAO {
 
             PreparedStatement smt = conn.prepareStatement("INSERT INTO category(name, create_at) VALUES (?, ?)");
             smt.setString(1, obj.getName());
-            smt.setString(2, Converter.convert(obj.getCreateAt()));
+            smt.setString(2, Converter.convert(LocalDateTime.now()));
 
             smt.executeUpdate();
 

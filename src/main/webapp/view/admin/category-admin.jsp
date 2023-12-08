@@ -1,6 +1,5 @@
 <%@page import="io.hardingadonis.miu.services.Singleton"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -116,11 +115,14 @@
                                                 <td>${c.updateAt}</td>
                                                 <td>${c.deleteAt}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-info btn-tiny" title="Edit">
+                                                    <button href="#" class="btn btn-info btn-tiny" title="Edit" onclick="openEditModel(${c.ID})">
                                                         <i class="fa fa-pencil"></i>
-                                                    </a>
+                                                    </button>
+
+
                                                     <button class="btn btn-danger btn-tiny" title="Delete" disabled><i
                                                             class="fa fa-trash"></i></button>
+
                                                 </td>
                                             </tr>
                                         </c:forEach>
@@ -169,13 +171,15 @@
                     </div>
                     <!-- Modal Footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
+                        <button type="button" class="btn btn-primary" onclick="saveCategoryChanges()">Save changes</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"
                                 onclick="closeEditModal()">Cancel</button>
                     </div>
                 </div>
             </div>
         </div>
+
+
 
         <!-- Add Category Modal -->
         <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
@@ -195,11 +199,12 @@
                                 <label for="addCategoryName">Category Name:</label>
                                 <input type="text" class="form-control" id="addCategoryName" required>
                             </div>
+
                         </form>
                     </div>
                     <!-- Modal Footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" onclick="addNewCategory()">Add Category</button>
+                        <button type="button" class="btn btn-primary" onclick="saveChanges()">Add New Category</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeAddModal()">Cancel</button>
                     </div>
                 </div>
@@ -212,10 +217,12 @@
         </script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/scripts.js"></script>
 
         <script src="<%=request.getContextPath()%>/assets/js/admin/category-admin.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/add-category.js"></script>
+        <script src="<%=request.getContextPath()%>/assets/js/admin/edit-category.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/chart-area-demo.js"></script>

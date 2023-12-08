@@ -18,7 +18,9 @@ $(document).ready(function () {
         var expiryDate = $('.expiryDate').val();
         var weight = $('.weight').val();
         var preservation = $('.preservation').val();
+        
         var images = $('.images').val();
+        
         var createAt = $('.createAt').val();
         var updateAt = $('.updateAt').val();
         var deleteAt = $('.deleteAt').val();
