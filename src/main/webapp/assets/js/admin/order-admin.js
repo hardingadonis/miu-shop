@@ -8,7 +8,7 @@ function openEditModal() {
 
 // Function to populate fields in the edit modal with existing data
 function populateEditModalFields(row) {
-    var orderStatus = row.cells[1].textContent.trim();
+    var orderStatus = row.cells[4].textContent.trim();
 
     document.getElementById('editStatus').value = orderStatus;
 }

@@ -152,10 +152,10 @@
                             <div class="form-group">
                                 <label for="editStatus">Status:</label>
                                 <select class="form-select" id="editStatus">
-                                    <option value="Processing">PROCESSING</option>
-                                    <option value="Shipping">SHIPPING</option>
-                                    <option value="Done">DONE</option>
-                                    <option value="Cancel">CANCELED</option>
+                                    <option value="PROCESSING">PROCESSING</option>
+                                    <option value="SHIPPING">SHIPPING</option>
+                                    <option value="DONE">DONE</option>
+                                    <option value="CANCELED">CANCELED</option>
                                 </select>
                             </div>
                         </form>
