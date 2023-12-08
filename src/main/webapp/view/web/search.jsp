@@ -21,9 +21,9 @@
     <body>
         <%@include file="common/_header.jsp" %>
 
-        <div class="container position-relative text-center mt-5 mb-5">
+        <div class="container position-relative mt-5 mb-5">
             <div class="row">
-                <div class="col-lg-3 text-start">
+                <div class="col-lg-3 col-md-12 text-lg-start text-md-center">
                     <h3>Danh mục sản phẩm</h3>
                     <ul class="nav flex-column">
                         <c:forEach var="category" items="${Singleton.categoryDAO.getAll()}">
@@ -34,11 +34,11 @@
                     </ul>
                 </div>
 
-                <div class="col-lg-9 justify-content-between">
+                <div class="col-lg-9 col-md-12 justify-content-between">
                     <c:if test="${end_page > 0}">
                         <div class="row">
                             <c:forEach var="item" items="${requestScope.products}">
-                                <div class="col-lg-4 col-sm-6 m-0 product" data-bs-placement="top" title="${item.name}">
+                                <div class="col-lg-4 col-sm-12 m-0 product text-center" data-bs-placement="top" title="${item.name}">
                                     <div class="card m-4 product-detail">
                                         <a href="product?id=${item.ID}">
                                             <img src="<%=request.getContextPath()%>/${item.thumbnail}" class="card-img-top">

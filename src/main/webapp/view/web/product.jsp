@@ -26,9 +26,9 @@
 
         <section class="py-5">
             <div class="container">
-                <div class="row gx-5">
+                <div class="row gx-5 justify-content-center">
 
-                    <aside class="col-lg-6 pt-5">
+                    <aside class="col-lg-6 col-md-12 pt-5">
                         <div class="vrmedia-gallery">
                             <ul class="ecommerce-gallery">
                                 <c:forEach var="image" items="${requestScope.product.images}">
@@ -40,7 +40,7 @@
                         </div>
                     </aside>
 
-                    <main class="col-lg-6 pt-5">
+                    <main class="col-lg-6 col-md-12 pt-5">
                         <div class="ps-lg-3">
                             <h4 class="title text-dark">
                                 ${requestScope.product.name}
@@ -114,7 +114,7 @@
             <div class="my-5">
                 <div class="row">
                     <c:forEach var="item" items="${Singleton.productDAO.getRandom(4)}">
-                        <div class="col-lg-3 col-sm-6 m-0 product" data-bs-placement="top" title="${item.name}">
+                        <div class="col-lg-3 col-md-12 m-0 product" data-bs-placement="top" title="${item.name}">
                             <div class="card m-4 product-detail">
                                 <a href="product?id=${item.ID}">
                                     <img src="<%=request.getContextPath()%>/${item.thumbnail}" class="card-img-top">
