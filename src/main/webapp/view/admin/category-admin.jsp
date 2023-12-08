@@ -146,11 +146,11 @@
         </div>
 
         <!-- Edit Category Modal -->
-        <div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="editCategoryModalLabel"
+<!--        <div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="editCategoryModalLabel"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <!-- Modal Header -->
+                     Modal Header 
                     <div class="modal-header">
                         <h5 class="modal-title" id="editCategoryModalLabel">Edit Category</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"
@@ -158,7 +158,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <!-- Modal Body -->
+                     Modal Body 
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
@@ -167,7 +167,7 @@
                             </div>
                         </form>
                     </div>
-                    <!-- Modal Footer -->
+                     Modal Footer 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"
@@ -175,7 +175,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
 
         <!-- Add Category Modal -->
         <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
@@ -195,11 +195,12 @@
                                 <label for="addCategoryName">Category Name:</label>
                                 <input type="text" class="form-control" id="addCategoryName" required>
                             </div>
+                            
                         </form>
                     </div>
                     <!-- Modal Footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" onclick="addNewCategory()">Add Category</button>
+                        <button type="button" class="btn btn-primary" onclick="saveChanges()">Add New Category</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeAddModal()">Cancel</button>
                     </div>
                 </div>
@@ -212,6 +213,7 @@
         </script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/scripts.js"></script>
 
         <script src="<%=request.getContextPath()%>/assets/js/admin/category-admin.js"></script>

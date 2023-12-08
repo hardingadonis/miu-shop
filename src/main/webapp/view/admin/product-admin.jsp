@@ -103,7 +103,7 @@
                                             <th style="width: 10%">Price</th>
                                             <th style="width: 10%">Amount</th>
                                             <th style="width: 15%">Thumbnail</th>
-                                            <th style="width: 10%">Actions</th>
+                                            <th style="width: 10% !important; ">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -139,7 +139,16 @@
                                         <input class="expiryDate"  type="hidden" value="${p.expiryDate}"/>
                                         <input class="weight"  type="hidden" value="${p.weight}"/>
                                         <input class="preservation"  type="hidden" value="${p.preservation}"/>
+
                                         <input class="images"  type="hidden" value="${p.images}"/>
+
+<!--                                        <td class="product-image">
+                                            <div class="image-container">
+                                                <img src="<%=request.getContextPath()%>/assets/images/products/combined-image.webp" class="combined-image" alt="Combined Image">
+                                            </div>
+                                        </td>-->
+
+
                                         <input class="createAt"  type="hidden" value="${p.createAt}"/>
                                         <input class="updateAt"  type="hidden" value="${p.updateAt}"/>
                                         <input class="deleteAt"  type="hidden" value="${p.deleteAt}"/>
@@ -254,6 +263,7 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/datatables-simple-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </body>
 </html>
