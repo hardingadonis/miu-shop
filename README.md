@@ -77,15 +77,6 @@
     </a>
   </div>
 </details>
-<details>
-  <summary>Admin page</summary>
-
-  <div style="margin-top: 20px">
-  <a href="https://github.com/hardingadonis/miu-shop">
-      <img src="preview/database.svg"/>
-  </a>
-  </div>
-</details>
 
 ## Deployment
 ### Download `docker-compose.yml`:
