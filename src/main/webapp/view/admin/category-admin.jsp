@@ -1,6 +1,5 @@
 <%@page import="io.hardingadonis.miu.services.Singleton"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -116,11 +115,14 @@
                                                 <td>${c.updateAt}</td>
                                                 <td>${c.deleteAt}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-info btn-tiny" title="Edit">
+                                                    <button href="#" class="btn btn-info btn-tiny" title="Edit" onclick="openEditModel(${c.ID})">
                                                         <i class="fa fa-pencil"></i>
-                                                    </a>
+                                                    </button>
+
+
                                                     <button class="btn btn-danger btn-tiny" title="Delete" disabled><i
                                                             class="fa fa-trash"></i></button>
+
                                                 </td>
                                             </tr>
                                         </c:forEach>
@@ -146,11 +148,11 @@
         </div>
 
         <!-- Edit Category Modal -->
-<!--        <div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="editCategoryModalLabel"
+        <div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="editCategoryModalLabel"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                     Modal Header 
+                    <!-- Modal Header -->
                     <div class="modal-header">
                         <h5 class="modal-title" id="editCategoryModalLabel">Edit Category</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"
@@ -158,7 +160,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                     Modal Body 
+                    <!-- Modal Body -->
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
@@ -167,15 +169,17 @@
                             </div>
                         </form>
                     </div>
-                     Modal Footer 
+                    <!-- Modal Footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
+                        <button type="button" class="btn btn-primary" onclick="saveCategoryChanges()">Save changes</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"
                                 onclick="closeEditModal()">Cancel</button>
                     </div>
                 </div>
             </div>
-        </div>-->
+        </div>
+
+
 
         <!-- Add Category Modal -->
         <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
@@ -195,7 +199,7 @@
                                 <label for="addCategoryName">Category Name:</label>
                                 <input type="text" class="form-control" id="addCategoryName" required>
                             </div>
-                            
+
                         </form>
                     </div>
                     <!-- Modal Footer -->
@@ -218,6 +222,7 @@
 
         <script src="<%=request.getContextPath()%>/assets/js/admin/category-admin.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/add-category.js"></script>
+        <script src="<%=request.getContextPath()%>/assets/js/admin/edit-category.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/admin/chart-area-demo.js"></script>

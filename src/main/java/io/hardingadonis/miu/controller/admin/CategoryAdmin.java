@@ -34,24 +34,31 @@ public class CategoryAdmin extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
 
-        try {
-            String name = request.getParameter("name");
+        String name = request.getParameter("name");
 
+        try {
+            int id = Integer.parseInt(request.getParameter("id"));
+
+            Category category = Singleton.categoryDAO.get(id);
+
+            if (category != null) {
+                category.setName(name);
+
+                Singleton.categoryDAO.update(category);
+            }
+        } catch (NumberFormatException ex) {
             Category category = new Category(name);
 
             Singleton.categoryDAO.insert(category);
-
-            JSONObject jsonResponse = new JSONObject();
-            jsonResponse.put("status", "success");
-            jsonResponse.put("message", "Order canceled successfully");
-
-            response.setContentType("application/json");
-            response.getWriter().write(jsonResponse.toString());
-
-            response.setStatus(HttpServletResponse.SC_OK);
-
-        } catch (Exception ex) {
-            System.err.println(ex.getMessage());
         }
+
+        JSONObject jsonResponse = new JSONObject();
+        jsonResponse.put("status", "success");
+        jsonResponse.put("message", "Order canceled successfully");
+
+        response.setContentType("application/json");
+        response.getWriter().write(jsonResponse.toString());
+
+        response.setStatus(HttpServletResponse.SC_OK);
     }
 }

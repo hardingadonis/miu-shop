@@ -5,7 +5,7 @@ function openAddModal() {
 function populateAddModalFields(row) {
     var categoryName = row.cells[1].textContent.trim();
 
-    document.getElementById('addCategoryName').value = categoryName;
+    categoryName = document.getElementById('addCategoryName').value;
 }
 
 function saveChanges() {
@@ -52,11 +52,6 @@ function openAddModal() {
 function closeAddModal() {
     $('#addCategoryModal').modal('hide');
 }
-
-$(document).on('click', '.btn-tiny', function () {
-    openAddModal();
-    populateEditModalFields($(this).closest('tr')[0]);
-});
 
 $(document).on('click', '#addCategoryBtn', function () {
     openAddModal();
