@@ -44,7 +44,7 @@ function saveChangesEditCategory() {
     });
 }
 
-function closeEditModal() {
+function closeEditCategoryModal() {
     $('#editCategoryModal').modal('hide');
 }
 
