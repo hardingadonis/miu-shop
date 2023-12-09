@@ -1,0 +1,56 @@
+span a,
+p a {
+    font-family: 'Poppins', sans-serif;
+
+    text-decoration: none;
+    font-weight: 700;
+    color: #000000;
+    transition: .5s;
+}
+
+span a:hover,
+p a:hover {
+    font-family: 'Poppins', sans-serif;
+
+    text-decoration: underline;
+    color: #000000;
+}
+
+.product {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product:hover {
+    transform: scale(1.1);
+}
+
+.vrmedia-gallery {
+    max-width: 567px;
+    background: white;
+    padding: 20px;
+    box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+    backdrop-filter: opacity(0.5)
+}
+
+.vrmedia-gallery img {
+    object-fit: cover;
+    width: 100%
+}
+
+.vrmedia-gallery .lSGallery {
+    display: inline-flex
+}
+
+.vrmedia-gallery .lSGallery li.active {
+    border: 1px solid #242423
+}
+
+.product-name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 100%;
+}

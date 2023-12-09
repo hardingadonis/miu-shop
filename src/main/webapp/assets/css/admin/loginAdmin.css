@@ -1,0 +1,140 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+    background-color: #ececec;
+    padding: 0 20px
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.row {
+    width: 900px;
+    height: 550px;
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+.side-image {
+    background-image: url('../../images/covers/c6419bc9eefa9633ddf424d5ea8f077c928fc477e02ed34eda6f26be1ac5f195.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 5px 0 0 5px;
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.input-box {
+    width: 330px;
+    box-sizing: border-box;
+}
+
+.input-box header {
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 10px;
+}
+
+.eye {
+    flex-direction: row;
+}
+
+.show-password-toggle{
+    padding-top: 20px;
+    height: 45px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.input {
+    height: 45px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    margin-bottom: 20px;
+    color: #40414a;
+}
+
+.input-box .input-field label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: none;
+    transition: .3s;
+}
+
+.input-field .input:focus ~ label {
+    top: -10px;
+    font-size: 13px;
+}
+
+.input-field .input:valid ~ label {
+    top: -10px;
+    font-size: 13px;
+    color: rgb(33, 37, 41);
+}
+
+.input-field .input:focus, .input-field .input:valid {
+    border-bottom: 1px solid rgb(33, 37, 41);
+}
+
+.submit {
+    border: none;
+    outline: none;
+    height: 45px;
+    background: #ececec;
+    border-radius: 5px;
+    transition: .2s;
+}
+
+.submit:hover {
+    background: rgba(33, 37, 41, 0.9);
+    color: #ffffff;
+}
+
+span a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #000000;
+    transition: .5s;
+}
+
+span a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
+
+@media only screen and (max-width: 768px) {
+    .side-image {
+        border-radius: 5px 5px 0 0;
+    }
+
+    .row {
+        max-width: 420px;
+        width: 100%;
+    }
+}

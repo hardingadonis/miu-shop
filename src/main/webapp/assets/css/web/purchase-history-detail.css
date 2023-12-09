@@ -1,0 +1,39 @@
+.option {
+    transition: background-color 0.3s;
+}
+
+.option:hover {
+    background-color: #d1d8e0;
+}
+
+.option:active {
+    background-color: rgba(109, 121, 134, 0.9);
+    color: #ffffff;
+}
+
+.option-selected {
+    background-color: rgba(165, 175, 185, 0.9);
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.product-name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 310px;
+}
+
+.product {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.1s ease;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}

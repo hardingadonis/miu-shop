@@ -1,0 +1,18 @@
+.dropdown-menu {
+    border-radius: 0px;
+    background-color: #f8f9fa;
+}
+
+.dropdown-item {
+    color: #495057;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+.dropdown-divider {
+    border-color: #dee2e6;
+}

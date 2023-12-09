@@ -1,0 +1,33 @@
+p a {
+    font-family: 'Poppins', sans-serif;
+
+    text-decoration: none;
+    font-weight: 700;
+    color: #000000;
+    transition: .5s;
+}
+
+p a:hover {
+    font-family: 'Poppins', sans-serif;
+
+    text-decoration: underline;
+    color: #000000;
+}
+
+.product {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product:hover {
+    transform: scale(1.1);
+}
+
+.product-name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 100%;
+}

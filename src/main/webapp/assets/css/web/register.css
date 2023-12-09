@@ -1,0 +1,142 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: url('../../images/covers/d8c447f52ed8adc4ec394b0d1a0b7cda88dc9c90b6e3795796c90dd27267214b.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    backdrop-filter: blur(5px);
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.register-container {
+    width: 65%;
+    min-height: 400px;
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+.register-container header {
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 10px;
+}
+
+.eye {
+    flex-direction: row;
+}
+
+.show-password-toggle{
+    padding-top: 10px;
+    height: 45px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.input {
+    height: 45px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    margin-bottom: 20px;
+    color: #40414a;
+}
+
+.register-container .input-field label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: none;
+    transition: .3s;
+}
+
+.input-field .input:focus~label {
+    top: -10px;
+    font-size: 13px;
+}
+
+.input-field .input:valid~label {
+    top: -10px;
+    font-size: 13px;
+    color: rgb(33, 37, 41);
+}
+
+.input-field .input:focus,
+.input-field .input:valid {
+    border-bottom: 1px solid rgb(33, 37, 41);
+}
+
+#submit-form {
+    align-items: center;
+}
+
+.submit {
+    margin: 0;
+    border: none;
+    outline: none;
+    height: 45px;
+    width: 50%;
+    background: #ececec;
+    border-radius: 5px;
+    transition: .2s;
+}
+
+.submit:hover {
+    background: rgba(33, 37, 41, 0.9);
+    color: #ffffff;
+}
+
+.input-field-gender {
+    display: block;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.form-check-input:checked {
+    background-color: #000 !important;
+    border-color: #000 !important;
+    color: #fff !important;
+}
+
+.login {
+    text-align: center;
+    font-size: small;
+    margin-top: 25px;
+}
+
+span a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #000000;
+    transition: .5s;
+}
+
+span a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
+
+
+.input-field .i {
+    margin: 0;
+}
