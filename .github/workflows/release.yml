@@ -31,6 +31,6 @@ jobs:
       - name: 'Release Miu Shop'
         uses: softprops/action-gh-release@v0.1.15
         with:
-          name: 'Miu Shop ${{ steps.get_version.outputs.version }}'
+          name: 'Miu Shop - v${{ steps.get_version.outputs.version }}'
           tag_name: ${{ steps.get_version.outputs.version }}
           generate_release_notes: true

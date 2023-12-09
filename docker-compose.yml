@@ -1,5 +1,7 @@
 version: '3'
 
+name: 'miu'
+
 services:
   database:
     image: ghcr.io/hardingadonis/miu-shop-database:latest
